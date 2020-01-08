@@ -13,6 +13,7 @@ const PatientInfo = new Schema ({
         type: String
     },
     dateofBirth: {
+        //Date formats to: 'mm.dd.yyyy'
         type: Date
     },
     ethnicity: {
@@ -51,7 +52,10 @@ const PatientInfo = new Schema ({
     bloodSugar: {
         type: Number
     },
-    bloodPressure: {
+    systolicBloodPressure: {
+        type: Number
+    },
+    diastolicBloodPressure: {
         type: Number
     },
     moodSentiment: {
