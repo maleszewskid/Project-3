@@ -63,6 +63,10 @@ const PatientInfo = new Schema ({
     },
     date: {
         type: Date
+    },
+    username: {
+        type: Schema.Types.ObjectId,
+        ref: "username"
     }
 
 })
