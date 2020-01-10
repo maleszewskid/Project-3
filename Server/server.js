@@ -1,5 +1,4 @@
 const express = require('express');
-const session = require('express-session');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const db = require('./models')
@@ -24,8 +23,10 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-const endpoint = 'patientDB';
+//Use routes
+app.use(routes);
 
+const endpoint = 'patientDB';
 //Start up the mongoose server
 mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost/${endpoint}`);
 

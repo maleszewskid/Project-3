@@ -14,8 +14,6 @@ const UserCredSchema = new Schema ({
     }
 })
 
-UserCredSchema.plugin(passportLocalMongoose);
-
 const userCred = mongoose.model("userCred", UserCredSchema);
 
 module.exports = userCred;

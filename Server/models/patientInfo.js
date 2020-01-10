@@ -62,7 +62,7 @@ const PatientInfo = new Schema ({
         type: Number
     },
     date: {
-        type: new Date()
+        type: Date
     }
 
 })
