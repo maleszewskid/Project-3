@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const passport = require('passport');
+const passport = require('./config/passport/passport');
 const db = require('./models')
 const routes = require('./routes');
 const PORT = process.env.PORT || 3001;
