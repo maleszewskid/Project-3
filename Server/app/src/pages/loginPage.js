@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Form from '../components/LoginForm';
+
 
 class firstTime extends Component {
     state = {
@@ -12,6 +14,6 @@ componentDidMount() {
 
 render() {
     return (
-        
+        <Form ></Form>
     )
 }
