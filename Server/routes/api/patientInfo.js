@@ -3,7 +3,6 @@ const controller = require('../../controllers/controller.js');
 
 // Matches with "/api/patient"
 router.route("/")
-    .populate('username')
     // .get(bookController.findAll)
     // .post(bookController.create);
 
