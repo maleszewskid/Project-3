@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from '../src/components/NavBar';
-import Jumbotron from '../src/components/Jumbotron';
+// import Jumbotron from '../src/components/Jumbotron';
 // Import Our Pages here
 
 // import LoginPage from './pages/LoginPage';
@@ -26,8 +26,6 @@ function App() {
   return (
     <Router>
       <div>
-    <NavBar />
-    <Jumbotron />
 
         <Switch>
 
