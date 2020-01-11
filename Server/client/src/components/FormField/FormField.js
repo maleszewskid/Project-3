@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import PropTypes from '../../../node_modules/prop-types/prop-types';
+import PropTypes from 'prop-types';
 
 class FormField extends Component {
 
