@@ -1,8 +1,7 @@
 import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
-import zxcvbn from 'zxcvbn';
-
-import FormField from '../FormField';
+import PropTypes from '../../../node_modules/prop-types/prop-types';
+import zxcvbn from '../../../node_modules/zxcvbn/dist/zxcvbn';
+import FormField from '../../components/FormField/FormField';
 
 class PasswordField extends Component {
 
@@ -36,7 +35,7 @@ class PasswordField extends Component {
     this.setState({
       password: state.value,
       strength: zxcvbn(state.value).score
-    }, () => this.props.onStateChanged(state));
+    }, () => this.onStateChanged(state));
 
   };
 
@@ -67,7 +66,7 @@ class PasswordField extends Component {
         <div className="position-relative">
           {/** Pass the validation and stateChanged functions as props to the form field **/}
           <FormField type="password" validator={this.validatePasswordStrong} onStateChanged={this.stateChanged} {...restProps}>
-            <span className="d-block form-hint">To conform with our Strong Password policy, you are required to use a sufficiently strong password. Password must be more than 7 characters.</span>
+            {/* <span className="d-block form-hint">To conform with our Strong Password policy, you are required to use a sufficiently strong password. Password must be more than 7 characters.</span> */}
             {children}
             {/** Render the password strength meter **/}
             <div className={strengthClass}>
