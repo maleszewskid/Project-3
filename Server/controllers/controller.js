@@ -6,23 +6,23 @@ module.exports = {
     //Add a new user:
     createUser: function (req, res) {
         db.UserCred
-            .create(req.body)
-            .then(res => res.status(200))
+            .create({username: req.body.username, password: req.body.password})
+            .then(data => res.status(200))
             .catch(err => res.status(422).json(err))
     },
     //Find an existing user:
     findUser: function (req, res) {
         db.UserCred
-            .findOne(req.query.username)
-            .then(res => res.json(res))
+            .findOne({username: req.body.username})
+            .then(data => res.json(data))
             .catch(err => res.status(422).json(err));
     },
     //Delete user *NOTE: not sure if this route is necessary yet:
     deleteUserCreds: function (req, res) {
         db.UserCred
-            .findById({ _id: req.params.id })
-            .then(res => res.remove())
-            .then(res => res.json(res))
+            .findOne({username: req.params.username})
+            .then(data => res.remove(data))
+            .then(data => res.json(data))
             .catch(err => res.status(422).json(err));
     },
     // --------------------------------------------------------- //
@@ -32,39 +32,40 @@ module.exports = {
     createData: function (req, res) {
         db.PatientInfo
             .create(req.body)
-            .then(res => res.status(200))
+            .then(data => res.status(200))
             .catch(err => res.status(422).json(err))
     },
     // find all patientInfo where _id = userId
     findAllData: function (req, res) {
         db.PatientInfo
-            .findById({_id: req.params.id})
+            //Change
+            .findOne({tobaccoUse: false})
             .then(data => res.json(data))
             .catch(err => res.status(422).json(err))
     },
     // update individual patientInfo fields
     updateField: function (req, res) {
         let newFields = {
-            email: req.params.email,
-            firstName: req.params.fName,
-            lastName: req.params.lName,
-            dateOfBirth: req.params.dob,
-            ethnicity: req.params.ethnicity,
-            weight: req.params.weight,
-            height: req.params.height,
-            address: req.params.address,
-            phoneNumber: req.params.phone,
-            disability: req.params.disability,
-            medications: req.params.medications,
-            doseage: req.params.doseage,
-            mrn: req.params.mrn,
-            heartRate: req.params.hRate,
-            bloodSugar: req.params.bSugar,
-            systolicBloodPressure: req.params.sisBloodPressure,
-            diastolicBloodPressure: req.params.diaBloodPressure,
-            moodSentiment: req.params.mood,
-            date: req.params.date, 
-            username: req.params.username
+            email: req.body.email,
+            firstName: req.body.fName,
+            lastName: req.body.lName,
+            dateOfBirth: req.body.dob,
+            ethnicity: req.body.ethnicity,
+            weight: req.body.weight,
+            height: req.body.height,
+            address: req.body.address,
+            phoneNumber: req.body.phone,
+            disability: req.body.disability,
+            medications: req.body.medications,
+            doseage: req.body.doseage,
+            mrn: req.body.mrn,
+            heartRate: req.body.hRate,
+            bloodSugar: req.body.bSugar,
+            systolicBloodPressure: req.body.sisBloodPressure,
+            diastolicBloodPressure: req.body.diaBloodPressure,
+            moodSentiment: req.body.mood,
+            date: req.body.date, 
+            username: req.body.username
         }
         db.PatientInfo
             .findByIdAndUpdate({_id: req.params.id}, {newFields})
@@ -76,26 +77,26 @@ module.exports = {
     // front end.
     deleteField: function (req, res) {
         let newFields = {
-            email: req.params.email,
-            firstName: req.params.fName,
-            lastName: req.params.lName,
-            dateOfBirth: req.params.dob,
-            ethnicity: req.params.ethnicity,
-            weight: req.params.weight,
-            height: req.params.height,
-            address: req.params.address,
-            phoneNumber: req.params.phone,
-            disability: req.params.disability,
-            medications: req.params.medications,
-            doseage: req.params.doseage,
-            mrn: req.params.mrn,
-            heartRate: req.params.hRate,
-            bloodSugar: req.params.bSugar,
-            systolicBloodPressure: req.params.sisBloodPressure,
-            diastolicBloodPressure: req.params.diaBloodPressure,
-            moodSentiment: req.params.mood,
-            date: req.params.date, 
-            username: req.params.username
+            email: req.body.email,
+            firstName: req.body.fName,
+            lastName: req.body.lName,
+            dateOfBirth: req.body.dob,
+            ethnicity: req.body.ethnicity,
+            weight: req.body.weight,
+            height: req.body.height,
+            address: req.body.address,
+            phoneNumber: req.body.phone,
+            disability: req.body.disability,
+            medications: req.body.medications,
+            doseage: req.body.doseage,
+            mrn: req.body.mrn,
+            heartRate: req.body.hRate,
+            bloodSugar: req.body.bSugar,
+            systolicBloodPressure: req.body.sisBloodPressure,
+            diastolicBloodPressure: req.body.diaBloodPressure,
+            moodSentiment: req.body.mood,
+            date: req.body.date, 
+            username: req.body.username
         }
         db.PatientInfo
             .findByIdAndRemove({_id: req.params.id}, {newFields})
