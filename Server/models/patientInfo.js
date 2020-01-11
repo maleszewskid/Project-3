@@ -37,32 +37,45 @@ const PatientInfo = new Schema ({
     tobaccoUse: {
         type: Boolean
     },
-    medications: {
+    //Needs to be an array
+    medications: [{
         type: String
-    },
-    doseage: {
+    }],
+    //Needs to be an array
+    doseage: [{
         type: Number
-    },
+    }],
     mrn: {
         type: Number
     },
-    heartRate: {
+    //Needs to be an array
+    heartRate: [{
         type: Number
-    },
-    bloodSugar: {
+    }],
+    //Needs to be an array
+    bloodSugar: [{
         type: Number
-    },
-    systolicBloodPressure: {
+    }],
+    //Needs to be an array
+    systolicBloodPressure: [{
         type: Number
-    },
-    diastolicBloodPressure: {
+    }],
+    //Needs to be an array
+    diastolicBloodPressure: [{
         type: Number
-    },
-    moodSentiment: {
+    }],
+    //Needs to be an array
+    moodSentiment: [{
         type: Number
-    },
-    date: {
-        type: Date
+    }],
+    //Needs to be an array
+    date: [{
+        type: Date,
+        default: Date.now
+    }],
+    username: {
+        type: Schema.Types.ObjectId,
+        ref: "username"
     }
 
 })
