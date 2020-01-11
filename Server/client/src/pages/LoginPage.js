@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 // Custom Components
 import LoginHeader from '../components/LoginHeader';
-import LoginForm from '../components/LoginForm';
+import {Email, Password} from '../components/LoginForm';
 
 
 class Login extends Component {
@@ -41,7 +41,8 @@ class Login extends Component {
                 </Link>
                 
                 <LoginHeader />
-                <LoginForm />
+                <Email />
+                <Password />
             </div>
             
             
