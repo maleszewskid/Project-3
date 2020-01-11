@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import LoginHeader from '../components/LoginHeader';
 import {Email, Password} from '../components/LoginForm';
 
-
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -14,7 +13,6 @@ class Login extends Component {
             password: ""
         }
     }
-
 
     componentDidMount = () => {
 
@@ -28,24 +26,18 @@ class Login extends Component {
         console.log(value);
     }
 
-
-
     render = () => {
         return (
-       
-                <div>
+            <div>
                 <Link
                     to="/Login"
                     className={window.location.pathname === "/Login"}
                 >
                 </Link>
-                
                 <LoginHeader />
                 <Email />
                 <Password />
             </div>
-            
-            
         )
     }
 }
