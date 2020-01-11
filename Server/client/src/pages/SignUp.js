@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-// import '../signup';
+import Navbar from '../components/NavBar'
 import PasswordField from '../components/PasswordStrength/PasswordField';
 import Birthdate from '../components/Birthdate'
 
@@ -33,6 +33,10 @@ export default class FirstTime extends Component {
   render() {
     return (
       <div className="Login">
+        <Navbar />
+        <br>
+        </br>
+        <br></br>
         <div className="contianer">
 
 
@@ -76,7 +80,7 @@ export default class FirstTime extends Component {
                     placeholder="Email"
                   />
                 </Form.Group>
-                <PasswordField fieldId="password" placeholder="Enter Password" onStateChanged={this.passwordChanged} thresholdLength={7} minStrength={3} required />
+                <PasswordField fieldId="password"  placeholder="Enter Password" onStateChanged={this.passwordChanged} thresholdLength={7} minStrength={3} required />
 
                 <Form.Group controlId="Confirm">
                   <Form.Control
