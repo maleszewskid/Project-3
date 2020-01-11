@@ -26,7 +26,7 @@ const patientSeed = [
         systolicBloodPressure: 120,
         diastolicBloodPressure: 80, 
         moodSentiment: 0.6, 
-        date: '01.08.2020',
+        date: '01.08.2020'
     }
 ];
 
