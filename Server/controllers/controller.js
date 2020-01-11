@@ -13,7 +13,7 @@ module.exports = {
     //Find an existing user:
     findUser: function (req, res) {
         db.UserCred
-            .findOne(req.query)
+            .findOne(req.query.username)
             .then(res => res.json(res))
             .catch(err => res.status(422).json(err));
     },
@@ -72,6 +72,8 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     // delete individual patientInfo fields
+    // I think we can get around using this route by carefully allowing users to edit data in the 
+    // front end.
     deleteField: function (req, res) {
         let newFields = {
             email: req.params.email,
