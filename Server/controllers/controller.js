@@ -13,14 +13,14 @@ module.exports = {
     //Find an existing user:
     findUser: function (req, res) {
         db.UserCred
-            .findOne({username: req.body.username})
+            .find({username: req.body.username, password: req.body.password})
             .then(data => res.json(data))
             .catch(err => res.status(422).json(err));
     },
     //Delete user *NOTE: not sure if this route is necessary yet:
     deleteUserCreds: function (req, res) {
         db.UserCred
-            .findOne({username: req.params.username})
+            .findOne({username: req.body.username})
             .then(data => res.remove(data))
             .then(data => res.json(data))
             .catch(err => res.status(422).json(err));

@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 
 // Custom Components
 import LoginHeader from '../components/LoginHeader';
-import LoginForm from '../components/LoginForm';
-
+import {Email, Password} from '../components/LoginForm';
 
 class Login extends Component {
     constructor(props) {
@@ -14,7 +13,6 @@ class Login extends Component {
             password: ""
         }
     }
-
 
     componentDidMount = () => {
 
@@ -28,23 +26,18 @@ class Login extends Component {
         console.log(value);
     }
 
-
-
     render = () => {
         return (
-       
-                <div>
+            <div>
                 <Link
                     to="/Login"
                     className={window.location.pathname === "/Login"}
                 >
                 </Link>
-                
                 <LoginHeader />
-                <LoginForm />
+                <Email />
+                <Password />
             </div>
-            
-            
         )
     }
 }
