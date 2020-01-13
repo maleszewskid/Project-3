@@ -60,7 +60,7 @@ module.exports = {
     findAllData: function (req, res) {
         db.PatientInfo
             //Change
-            .findOne({ tobaccoUse: false })
+            .findOne({ username: req.body.username })
             .then(data => res.json(data))
             .catch(err => res.status(422).json(err))
     },
