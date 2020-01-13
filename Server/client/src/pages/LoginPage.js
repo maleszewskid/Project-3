@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import API from '../utils/API';
 
 // Custom Components
 import LoginHeader from '../components/LoginHeader';
@@ -17,12 +18,29 @@ class Login extends Component {
 
     }
 
-    handleInputChange = (event) => {
-        const value = event.target.value
+    handleInputChange = event => {
+        // Getting the value and name of the input which triggered the change
+        const { name, value } = event.target;
+        // Updating the input’s state
         this.setState({
-            loginField: value
-        })
+            [name]: value
+        });
         console.log(value);
+    };
+
+    // event handler for onclick of submit button in login form
+    handleSubmit = event => {
+        event.preventDefault();
+        console.log(this.state.username);
+        console.log(this.state.password);
+
+        API.Login( {
+            username: this.state.username,
+            password: this.state.password
+        })
+            .then(res => console.log(res.config))
+            .catch(err => console.log(err)
+        )
     }
 
     render = () => {
@@ -34,7 +52,10 @@ class Login extends Component {
                 >
                 </Link>
                 <LoginHeader />
-                <LoginForm />
+                <LoginForm
+                    onChange={this.handleInputChange}
+                    onClick={this.handleSubmit}
+                />
             </div>
         )
     }
