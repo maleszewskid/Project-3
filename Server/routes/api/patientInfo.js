@@ -7,7 +7,7 @@ const controller = require('../../controllers/controller.js');
 // 2. Send over user data initially
 // 3. Update user data later
 // 4. Potentially delete the whole user
-router.route("/")
+router.route("/allData")
     .get(controller.findAllData)
     .post(controller.createData);
 

@@ -38,12 +38,11 @@ class Login extends Component {
         API.Login(userInfo)
             // here -> redirect the user to the landing page
             .then(res => {
-                console.log(res)
                 // Need to have this redirect to the main page:
                 if (res.status === 200) {
                     // Set the redirect route:
                     this.setState({
-                        redirectTo: '/',
+                        redirectTo: '/viewData',
                         loggedIn: true,
                         username: res.data.username
                     })
@@ -55,7 +54,7 @@ class Login extends Component {
 
     render = () => {
         if (this.state.redirectTo) {
-            return <Redirect to={{ pathname: this.state.redirectTo }} />
+            return <Redirect to={{ pathname: this.state.redirectTo, state: {username: this.state.username} }} />
         } else {
             return (
                 <div>
