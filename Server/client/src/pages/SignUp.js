@@ -6,7 +6,7 @@ import PasswordField from '../components/PasswordStrength/PasswordField';
 import Birthdate from '../components/Birthdate'
 
 
-export default class FirstTime extends Component {
+export default class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -39,7 +39,6 @@ export default class FirstTime extends Component {
         <br></br>
         <div className="contianer">
 
-
             <Form onSubmit={this.handleSubmit}>
           <div className="row">
               <div className="col-6">
@@ -68,7 +67,6 @@ export default class FirstTime extends Component {
                   />
                 </Form.Group>
               </div>
-
 
               <div className="col-6">
                 <Form.Group controlId="email">
@@ -112,8 +110,6 @@ export default class FirstTime extends Component {
                 Login
           </Button>
       </div>
-
-
     );
   }
 }
