@@ -1,11 +1,11 @@
 .navbar {
-    background-color: #2d545e!important;
+    background-color: whitesmoke!important;
     box-shadow: 0 2px 10px -2px #12343b;
     color: ghostwhite;
     font-family: 'Lato', sans-serif;
     display: flex;
-    justify-content: center;
-    height: 80px;
+    /* justify-content: center; */
+    height: 60px;
     
 }
 p {

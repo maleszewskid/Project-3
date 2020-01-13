@@ -12,6 +12,9 @@ module.exports = {
     },
     //Find an existing user:
     findUser: function (req, res) {
+        console.log(req.body.username);
+        console.log(req.body.password);
+
         db.UserCred
             .find({ username: req.body.username, password: req.body.password })
             .then(data => res.json(data))
