@@ -36,7 +36,7 @@ class Login extends Component {
         }
         API.Login(userInfo)
             // here -> redirect the user to the landing page
-            .then(res => console.log(res.data))
+            .then(res => console.log(res))
             .catch(err => console.log(err)
         )
     }

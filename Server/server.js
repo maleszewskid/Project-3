@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const passport = require('./config/passport/passport');
+const passport = require('./config/passport');
 const db = require('./models')
 const routes = require('./routes');
 const PORT = process.env.PORT || 3001;
@@ -14,9 +14,9 @@ app.use(require('morgan')('combined'));
 app.use(require('body-parser').urlencoded({ extended: true }));
 app.use(require('body-parser').json());
 app.use(require('express-session')({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
-// Initialize Passport and restore authentication state, if any, from the
-// session.
+// Initialize Passport and restore authentication state, if any, from the session.
 app.use(passport.initialize());
+// Calls the deserializeUser
 app.use(passport.session());
 
 // Serve up static assets (usually on heroku)

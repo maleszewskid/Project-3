@@ -3,19 +3,40 @@ const db = require('../models');
 module.exports = {
     // *** USER CREDENTIALS ****
     // --------------------------------------------------------- //
-    //Add a new user:
-    createUser: function (req, res) {
-        db.UserCred
-            .create({ username: req.body.username, password: req.body.password })
-            .then(data => res.status(200))
-            .catch(err => res.status(422).json(err))
+    //Signup:
+    // Built in a little validation to check if the username works.
+    signUp: function (req, res) {
+        console.log('User signup');
+        const { username, password} = req.body;
+        db.UserCred.findOne({ username: username }, (err, user) => {
+            if (err) {
+                console.log(err);
+            } else if (user) {
+                res.json({
+                    error: `The username ${username} has been taken.`
+                })
+            } else {
+                console.log('Creating new user')
+                db.UserCred
+                    .create({ username: username, password: password })
+                    .then(data => res.status(200))
+                    .catch(err => res.status(422).json(err))
+            }
+        })
     },
-    //Find an existing user:
-    findUser: function (req, res) {
-        db.UserCred
-            .find({ username: req.body.username, password: req.body.password })
-            .then(data => res.json(data))
-            .catch(err => res.status(422).json(err));
+    //Login:
+    login: function (req, res, next) {
+        next()
+    },
+    // Logout: 
+    logoutUser: function(req, res) {
+        console.log('Logout user')
+        if (req.user) {
+            req.logout
+            res.send({message: 'logging out'})
+        } else {
+            res.send({message: 'No user to logout'})
+        }
     },
     //Delete user *NOTE: not sure if this route is necessary yet:
     deleteUserCreds: function (req, res) {
