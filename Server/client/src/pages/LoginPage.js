@@ -38,6 +38,7 @@ class Login extends Component {
             username: this.state.username,
             password: this.state.password
         })
+            // here -> redirect the user to the landing page
             .then(res => console.log(res.config))
             .catch(err => console.log(err)
         )
