@@ -4,7 +4,7 @@ import API from '../utils/API';
 
 // Custom Components
 import LoginHeader from '../components/LoginHeader';
-import LoginForm from '../components/LoginForm'
+import LoginForm from '../components/LoginForm/LoginForm'
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -25,21 +25,18 @@ class Login extends Component {
         this.setState({
             [name]: value
         });
-        console.log(value);
     };
 
     // event handler for onclick of submit button in login form
     handleSubmit = event => {
         event.preventDefault();
-        console.log(this.state.username);
-        console.log(this.state.password);
-
-        API.Login( {
+        let userInfo = {
             username: this.state.username,
             password: this.state.password
-        })
+        }
+        API.Login(userInfo)
             // here -> redirect the user to the landing page
-            .then(res => console.log(res.config))
+            .then(res => console.log(res.data))
             .catch(err => console.log(err)
         )
     }

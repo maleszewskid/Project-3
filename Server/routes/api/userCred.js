@@ -3,7 +3,7 @@ const controller = require('../../controllers/controller.js');
 
 // Matches with "/api/authenticate"
 router.route("/Login")
-     .get(controller.findUser);
+     .post(controller.findUser);
      
 router.route('/Signup')
     .post(controller.createUser);

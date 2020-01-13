@@ -12,8 +12,8 @@ router.route("/")
     .post(controller.createData);
 
 router.route('/update')
-    .post(updateFields)
-    .post(updateArrayFields);
+    .post(controller.updateFields)
+    .post(controller.updateArrayFields);
 
 router.route('/removeData')
     .get(controller.deletePatient)   
