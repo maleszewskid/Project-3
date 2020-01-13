@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // Import Our Pages here
 
 import LoginPage from './pages/LoginPage';
-import SignUp from './pages/SignUp';
+// import SignUp from './pages/SignUp';
 // import ResetpasswordPage from './pages/ResetpasswordPage';
 // import LandingPage from './pages/LandingPage';
 // import ViewPage from './pages/ViewPage'; */
@@ -23,7 +23,7 @@ function App() {
         <Switch>
 
           <Route exact path="/Login" component={LoginPage} />
-          <Route exact path="/SignUp" component={SignUp} />
+          {/* <Route exact path="/SignUp" component={SignUp} /> */}
           {/* <Route exact path="/Landing" component={LandingPage} />
           <Route exact path="/View" component={ViewPage} /> 
           <Route exact path="/Resetpassword" component={ResetpasswordPage} /> */}

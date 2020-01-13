@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import './LoginForm.css';
 
 const LoginForm = props => {
+
     return (
         <Container className="loginForm">
             <Row className="justify-content-md-center">
@@ -24,11 +25,11 @@ const LoginForm = props => {
                         <Form className="form-login">
                             <Form.Group controlId="formGroupEmail">
                                 <Form.Label></Form.Label>
-                                <Form.Control type="username" placeholder="Enter address or username" />
+                                <Form.Control onChange={props.onChange} name="username" type="username" placeholder="Enter username" />
                             </Form.Group>
                             <Form.Group controlId="formGroupPassword">
                                 <Form.Label></Form.Label>
-                                <Form.Control type="password" placeholder="Password" />
+                                <Form.Control onChange={props.onChange} name="password" type="password" placeholder="Password" />
                             </Form.Group>
                             <Row>
                                 <Col>
@@ -42,7 +43,7 @@ const LoginForm = props => {
                                     </div>
                                 </Col>
                                 <Col>
-                                    <Button className="loginSubmitBtn" variant="success">Log in</Button>
+                                    <Button onClick={props.onClick} className="loginSubmitBtn" variant="success">Log in</Button>
                                 </Col>
                             </Row>
                         </Form>
