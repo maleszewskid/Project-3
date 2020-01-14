@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 import zxcvbn from '../../../node_modules/zxcvbn/dist/zxcvbn';
 import FormField from '../../components/FormField/FormField';
 
+function onStateChanged (){
+  
+}
+
 class PasswordField extends Component {
 
   constructor(props) {
