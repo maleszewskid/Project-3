@@ -31,12 +31,12 @@ class ViewData extends Component {
             medications,
             doseage,
             heartRate,
-            bloocSugar,
+            bloodSugar,
             systolicBloodPressure,
             diastolicBloodPressure,
             moodSentiment,
             data,
-            dataOfBirth,
+            dateOfBirth,
             ethnicity,
             weight,
             height,
@@ -53,6 +53,27 @@ class ViewData extends Component {
                 </div>
                 <div>
                     {medications} {doseage}
+                </div>
+                <div>
+                    {heartRate} {bloodSugar}
+                </div>
+                <div>
+                    {systolicBloodPressure} {diastolicBloodPressure}
+                </div>
+                <div>
+                    {moodSentiment} {data}
+                </div>
+                <div>
+                    {dateOfBirth} {ethnicity}
+                </div>
+                <div>
+                    {weight} {height}
+                </div>
+                <div>
+                    {address} {phoneNumber}
+                </div>
+                <div>
+                    {disability} {tobaccoUse} {mrn}
                 </div>
             </>
         )
