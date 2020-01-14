@@ -3,7 +3,9 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import LoginHeader from '../components/LoginHeader'
 import '../signup';
-import '../Signup.css'
+import '../Signup.css';
+// Import the API:
+import API from '../utils/API.js';
 
 export default class Signup extends Component {
   constructor(props) {

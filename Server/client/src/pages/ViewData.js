@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-// Import the API
-//import API from '../utils/API';
+import { LineChart } from 'react-chartkick'
+import 'chart.js'
 
 class ViewData extends Component {
     constructor() {
@@ -75,6 +75,7 @@ class ViewData extends Component {
                 <div>
                     {disability} {tobaccoUse} {mrn}
                 </div>
+                <LineChart xtitle='date' ytitle='bloodPressure' data={{"2017-05-13": heartRate, "2017-05-14": bloodSugar}} />
             </>
         )
     }
