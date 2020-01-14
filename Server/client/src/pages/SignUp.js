@@ -5,8 +5,7 @@ import LoginHeader from '../components/LoginHeader'
 import '../signup';
 import '../Signup.css'
 
-
-export default class FirstTime extends Component {
+export default class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
