@@ -5,6 +5,7 @@ import API from '../utils/API';
 // Custom Components
 import LoginHeader from '../components/LoginHeader';
 import LoginForm from '../components/LoginForm/LoginForm'
+
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -13,10 +14,6 @@ class Login extends Component {
             redirectTo: null,
             loggedIn: null
         }
-    }
-    // Do we need this?
-    componentDidMount = () => {
-
     }
 
     handleInputChange = event => {

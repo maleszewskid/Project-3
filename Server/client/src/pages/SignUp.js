@@ -5,7 +5,6 @@ import Navbar from '../components/NavBar'
 import PasswordField from '../components/PasswordStrength/PasswordField';
 import Birthdate from '../components/Birthdate'
 
-
 export default class Signup extends Component {
   constructor(props) {
     super(props);
