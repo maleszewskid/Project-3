@@ -7,21 +7,31 @@ class ViewData extends Component {
     constructor() {
         super();
         this.state = {
-            data: ''
+            data: '',
+            loading: true,
+            error: '',
         }
     }
 
     // When this component is mounted to the DOM we want to load in the user data and set the state with it:
     // Need username to make the call to the api, so how do we get the username?
-    componentDidMount = () => {
+    async componentDidMount () {
         const { username } = this.props.location.state;
-        API.allPatientData(username)
-            .then(res => {
-                this.setState({
-                    data: res.data
+        try {
+            API.allPatientData(username)
+                .then(res => {
+                    this.setState({
+                        data: res.data,
+                        loading: false
+                    })
+                    console.log(this.state.data)
                 })
-                console.log(this.state.data)
-            })
+        } catch (error) {
+            this.setState({
+                loading: false,
+                error: error.message
+            });
+        }
     }
 
     // This component will display the data using D3.js
@@ -48,6 +58,7 @@ class ViewData extends Component {
         } = this.state.data;
         return (
             <>
+                {(this.state.loading || this.state.error) && <div>{this.state.loading ? 'Loading...' : this.state.error}</div>}
                 <div>
                     {firstName} {lastName}
                 </div>
@@ -75,7 +86,7 @@ class ViewData extends Component {
                 <div>
                     {disability} {tobaccoUse} {mrn}
                 </div>
-                <LineChart xtitle='date' ytitle='bloodPressure' data={{"2017-05-13": heartRate, "2017-05-14": bloodSugar}} />
+                <LineChart xtitle='date' ytitle='bloodPressure' data={{ "2017-05-13": heartRate, "2017-05-14": bloodSugar }} />
             </>
         )
     }
