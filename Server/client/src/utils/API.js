@@ -14,7 +14,7 @@ export default {
     // userCreds passed via req.body to mongo via express
     // endpoint = 'patientDB'
     Signup: function(userCreds) {
-        return axios.post("/api/authenticate/Signup", userCreds);
+        return axios.post('/api/authenticate/Signup', userCreds);
     },
     // Create new patient in patientInfo upon signup:
     createUser: function(patientInfo) {
@@ -22,11 +22,12 @@ export default {
     },
     // synonymous to the deleteUserCreds method in controller
     DeleteUser: function(username) {
-        return axios.delete("/api/authenticate/DeleteUser/:" + username);
+        return axios.delete('/api/authenticate/DeleteUser/:' + username);
     },
     // ------- USER DATA -------
     // This will grab all patient data and send it to the front end for graphing. 
     allPatientData : function(username) {
-        return axios.get('/api/patient/allData', username)
+        console.log(username.username)
+        return axios.get('/api/patient/allData/' + username.username)
     }
 }

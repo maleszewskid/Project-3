@@ -42,9 +42,7 @@ export default class Signup extends Component {
         password: this.state.password,
       })
         .then(res => {
-          console.log(res)
           if (res.data.error) {
-            console.log('error')
             this.setState({
               error: true
             })
@@ -55,8 +53,9 @@ export default class Signup extends Component {
         }))
       API.createUser({
         email: this.state.email,
-        firstName: this.state.first,
-        lastName: this.state.last,
+        username: this.state.username,
+        firstName: this.state.firstname,
+        lastName: this.state.lastname,
         dateofBirth: this.state.dateofbirth,
         sex: this.state.sex
       })
@@ -66,7 +65,6 @@ export default class Signup extends Component {
               error: true
             })
           } else {
-            console.log('redirect')
             this.setState({
               redirectTo: '/Landing',
               username: this.state.username
@@ -82,10 +80,9 @@ export default class Signup extends Component {
   render() {
     if (this.state.error) {
       return (
-        <div>YOU ALREADY EXIST</div>
+        <div>USERNAME TAKEN MODAL</div>
       )
     } else if (this.state.redirectTo) {
-      console.log('Redirect')
       return <Redirect to={{ pathname: this.state.redirectTo, state: { username: this.state.username } }} />
     } else {
       return (
