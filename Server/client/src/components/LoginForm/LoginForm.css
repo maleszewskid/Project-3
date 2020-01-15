@@ -42,3 +42,7 @@
     width: 400px;
     box-shadow: 0 2px 8px -2px #788183;
 }
+
+.loginError {
+    background-color: lightcoral;
+}

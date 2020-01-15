@@ -27,7 +27,6 @@ export default {
     // ------- USER DATA -------
     // This will grab all patient data and send it to the front end for graphing. 
     allPatientData : function(username) {
-        console.log(username.username)
         return axios.get('/api/patient/allData/' + username.username)
     }
 }

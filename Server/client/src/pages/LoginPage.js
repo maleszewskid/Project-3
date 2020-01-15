@@ -30,7 +30,8 @@ class Login extends Component {
         event.preventDefault();
         let userInfo = {
             username: this.state.username,
-            password: this.state.password
+            password: this.state.password,
+            error: false
         }
         API.Login(userInfo)
             // here -> redirect the user to the landing page
@@ -43,9 +44,15 @@ class Login extends Component {
                         loggedIn: true,
                         username: res.data.username
                     })
+                } else {
+                    this.setState({
+                        error: true
+                    })
                 }
             })
-            .catch(err => console.log(err)
+            .catch(err => this.setState({
+                error: true
+            })
             )
     }
 
@@ -58,12 +65,13 @@ class Login extends Component {
                     <Link
                         to="/Login"
                         className={window.location.pathname === "/Login"}
-                    >
+                        >
                     </Link>
                     <LoginHeader />
                     <LoginForm
                         onChange={this.handleInputChange}
                         onClick={this.handleSubmit}
+                        error={this.state.error}
                     />
                 </div>
             )

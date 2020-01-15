@@ -46,6 +46,11 @@ const LoginForm = props => {
                             </Row>
                         </Form>
                     </Col>
+                    {(props.error) ? <Row>
+                        <Col className='loginError col-5 p-2 my-2 mx-auto text-center rounded'>
+                            Login failure. Please try again.
+                        </Col>
+                    </Row> : null}
                     <br></br>
                     <Row>
                         <Col className="col-12 text-center">
