@@ -109,6 +109,7 @@ export default class Signup extends Component {
                 id="password"
               />
               <div className="alert alert-warning password-alert" role="alert">
+
                 <ul>
                   <li className="requirements leng"><i className="fas fa-check green-text"></i><i className="fas fa-times red-text"></i> Your password must have at least 8 chars.</li>
                   <li className="requirements big-letter"><i className="fas fa-check green-text"></i><i className="fas fa-times red-text"></i> Your password must have at least 1 capital letter.</li>
@@ -126,6 +127,7 @@ export default class Signup extends Component {
                 id="confirmPassword"
               />
             </Form.Group>
+
             <Form.Group controlId="DOB">
               <Form.Control
                 value={this.state.DOB}
@@ -153,4 +155,16 @@ export default class Signup extends Component {
       </div>
     );
   }
+}
+var pass = document.getElementByClassName("btn.success");
+pass.onclick = function passwordChecker () {
+    if(document.getElementById("password").value === document.getElementById("confirmPassword").value){
+        window.location.replace("")
+    }
+    else{
+        alert("Password does not match")
+        document.getElementById('confirmPassword').style.color = 'red'
+        document.getElementById('password').style.color = 'red'
+        // window.scrollTo(300, 500)
+    }
 }
