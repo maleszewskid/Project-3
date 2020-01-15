@@ -86,3 +86,17 @@ document.onkeypress = function Sign() {
         }
     };
 };
+
+
+var pass = document.getElementByClassName("btn.success");
+pass.onclick = function passwordChecker () {
+    if(document.getElementById("password").value === document.getElementById("confirmPassword").value){
+        window.location.replace("")
+    }
+    else{
+        alert("Password does not match")
+        document.getElementById('confirmPassword').style.color = 'red'
+        document.getElementById('password').style.color = 'red'
+        // window.scrollTo(300, 500)
+    }
+}

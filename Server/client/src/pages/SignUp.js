@@ -11,24 +11,42 @@ export default class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      username: "",
       email: "",
       password: "",
       first: "",
       middle: "",
-      last:"",
+      last: "",
     };
   }
   validateForm() {
     return this.state.email.length > 0 && this.state.password.length > 0;
   }
+
+
+
   handleChange = event => {
     this.setState({
       [event.target.id]: event.target.value
     });
   }
-  handleSubmit = event => {
+
+  handleFormSubmit = event => {
     event.preventDefault();
+    if (this.state.email.length > 0 && this.state.password.length > 0) {
+      API.Signup({
+        // email: this.state.email,
+        username: this.state.username, 
+        password: this.state.password,
+        // first: this.state.first,
+        // middle: this.state.middle,
+        // last: this.state.last,
+      })
+      .catch(err => console.log(err))
+    }
   }
+
+
   render() {
     return (
       <div className="Login">
@@ -37,6 +55,15 @@ export default class Signup extends Component {
         <br></br>
         <Form onSubmit={this.handleSubmit}>
           <div className="col">
+          <Form.Group controlId="User Name">
+              <Form.Control
+                type="UserName"
+                value={this.state.username}
+                onChange={this.handleChange}
+                placeholder="User Name"
+              />
+            </Form.Group>
+
             <Form.Group controlId="First Name">
               <Form.Control
                 type="Firstname"
@@ -79,24 +106,26 @@ export default class Signup extends Component {
                 type="password"
                 placeholder="Password"
                 className="form-control validate"
+                id="password"
               />
               <div className="alert alert-warning password-alert" role="alert">
-              <ul>
-                <li className="requirements leng"><i className="fas fa-check green-text"></i><i className="fas fa-times red-text"></i> Your password must have at least 8 chars.</li>
-                <li className="requirements big-letter"><i className="fas fa-check green-text"></i><i className="fas fa-times red-text"></i> Your password must have at least 1 capital letter.</li>
-                <li className="requirements num"><i className="fas fa-check green-text"></i><i className="fas fa-times red-text"></i> Your password must have at least 1 number.</li>
-                <li className="requirements special-char"><i className="fas fa-check green-text"></i><i className="fas fa-times red-text"></i> Your password must have at least 1 special char.</li>
-              </ul>
-            </div>
-              </Form.Group>
-              <Form.Group controlId="Confirm">
-                <Form.Control
-                  placeholder="Confirm Password"
-                  value={this.state.confrimPassword}
-                  onChange={this.handleChange}
-                  type="confirmPassword"
-                />
-              </Form.Group>
+                <ul>
+                  <li className="requirements leng"><i className="fas fa-check green-text"></i><i className="fas fa-times red-text"></i> Your password must have at least 8 chars.</li>
+                  <li className="requirements big-letter"><i className="fas fa-check green-text"></i><i className="fas fa-times red-text"></i> Your password must have at least 1 capital letter.</li>
+                  <li className="requirements num"><i className="fas fa-check green-text"></i><i className="fas fa-times red-text"></i> Your password must have at least 1 number.</li>
+                  <li className="requirements special-char"><i className="fas fa-check green-text"></i><i className="fas fa-times red-text"></i> Your password must have at least 1 special char.</li>
+                </ul>
+              </div>
+            </Form.Group>
+            <Form.Group controlId="Confirm">
+              <Form.Control
+                placeholder="Confirm Password"
+                value={this.state.confrimPassword}
+                onChange={this.handleChange}
+                type="confirmPassword"
+                id="confirmPassword"
+              />
+            </Form.Group>
             <Form.Group controlId="DOB">
               <Form.Control
                 value={this.state.DOB}
