@@ -79,6 +79,7 @@ export default class Signup extends Component {
                 type="password"
                 placeholder="Password"
                 className="form-control validate"
+                id="password"
               />
               <div className="alert alert-warning password-alert" role="alert">
               <ul>
@@ -95,6 +96,7 @@ export default class Signup extends Component {
                   value={this.state.confrimPassword}
                   onChange={this.handleChange}
                   type="confirmPassword"
+                  id="confirmPassword"
                 />
               </Form.Group>
             <Form.Group controlId="DOB">
