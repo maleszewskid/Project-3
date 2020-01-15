@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -35,7 +36,11 @@ const LandingBody = props => {
                             <Card.Text>
                                 Fill out a form to be included in your next Doctor's visit
                         </Card.Text>
+                        <Link to={{ pathname: "/DataEntry",
+                                    state: { username: props.user.username}
+                            }} >
                             <Button className="pfPortalBtn" variant="primary">Begin</Button>
+                        </Link>
                         </Card.Body>
                         <Card.Footer className="text-muted"></Card.Footer>
                     </Card>
@@ -51,7 +56,11 @@ const LandingBody = props => {
                             <Card.Text>
                                 Charts and graphs supporting your overall health
                         </Card.Text>
+                        <Link to={{ pathname: "/viewData",
+                                    state: { username: props.user.username}
+                            }} >
                             <Button className="pfViewBtn" variant="primary">View Data</Button>
+                        </Link>
                         </Card.Body>
                         <Card.Footer className="text-muted"></Card.Footer>
                     </Card>
@@ -67,7 +76,11 @@ const LandingBody = props => {
                             <Card.Text>
                                 All your data is secure and private
                         </Card.Text>
+                        <Link to={{ pathname: "/submit",
+                                    state: { username: props.user.username}
+                            }} >
                             <Button className="pfSendBtn" variant="success">Send to Provider</Button>
+                        </Link>
                         </Card.Body>
                         <Card.Footer className="text-muted"></Card.Footer>
                     </Card>

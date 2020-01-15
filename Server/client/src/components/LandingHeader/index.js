@@ -2,6 +2,7 @@ import React from 'react';
 import './LandingHeader.css';
 
 const LandingHeader = props => {
+    console.log(props);
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light text-center">
             

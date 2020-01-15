@@ -4,8 +4,8 @@ import { LineChart } from 'react-chartkick'
 import 'chart.js'
 
 class ViewData extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             data: '',
             loading: true,
@@ -16,6 +16,7 @@ class ViewData extends Component {
     // When this component is mounted to the DOM we want to load in the user data and set the state with it:
     // Need username to make the call to the api, so how do we get the username?
     async componentDidMount () {
+        console.log(this.props);
         const { username } = this.props.location.state;
         try {
             API.allPatientData(username)
