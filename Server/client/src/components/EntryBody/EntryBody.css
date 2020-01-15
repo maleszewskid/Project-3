@@ -1,17 +1,4 @@
 
-.landingContainer {
-    padding-top: 60px;
-}
-.landingMsg {
-    padding-top: 20px;
-    font-weight: 600;
-    font-size: 22px;
-}
-.landinSubgMsg {
-    padding-top: 20px;
-    font-weight: 500px;
-    font-size: 20px;
-}
 .card-container {
     padding-top: 30px;
 }
@@ -34,12 +21,12 @@
     font-family: 'Lato', sans-serif;
     font-size: 16px;
 }
-.pfSendBtn {
+.BPsubmit {
     width: 200px;
 }
-.pfViewBtn {
+.glucoseSubmit {
     width: 200px;
 }
-.pfPortalBtn {
+.weightSubmit {
     width: 200px;
 }
