@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import LoginHeader from '../components/LoginHeader'
-import '../signup';
+// import '../signup';
 import '../Signup.css';
 // Import the API:
 import API from '../utils/API.js';
@@ -156,7 +156,8 @@ export default class Signup extends Component {
     );
   }
 }
-var pass = document.getElementByClassName("btn.success");
+
+/* var pass = document.getElementByClassName("btn.success");
 pass.onclick = function passwordChecker () {
     if(document.getElementById("password").value === document.getElementById("confirmPassword").value){
         window.location.replace("")
@@ -167,4 +168,4 @@ pass.onclick = function passwordChecker () {
         document.getElementById('password').style.color = 'red'
         // window.scrollTo(300, 500)
     }
-}
+} */
