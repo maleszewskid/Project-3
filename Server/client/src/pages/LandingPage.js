@@ -40,7 +40,7 @@ class Landing extends Component {
                         >
                         </Link>
                         <LandingHeader user={username}/>
-                        <LandingBody />
+                        <LandingBody user={username}/>
                         
                     </div>
                 )
