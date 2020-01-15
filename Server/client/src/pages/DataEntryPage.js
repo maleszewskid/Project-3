@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import EntryBody from '../components/EntryBody';
 import API from '../utils/API';
+import PdfInput from '../components/PdfInput';
+import axios from 'axios';
+import { saveAs } from 'file-saver';
 
 class DataEntry extends Component {
     constructor(props) {
-      super(props);
-      this.state = {
-        DataInputs: {}
-      };
+        super(props);
+        this.state = {
+            DataInputs: {}
+        };
     }
 
     handleInputChange = event => {
@@ -25,12 +28,12 @@ class DataEntry extends Component {
         event.preventDefault();
         this.setState({
             DataInputs: {
-            systolic: this.state.systolic,
-            diastolic: this.state.diastolic,
-            pulse: this.state.pulse,
-            glucose: this.state.glucose,
-            weight: this.state.weight,
-        }
+                systolic: this.state.systolic,
+                diastolic: this.state.diastolic,
+                pulse: this.state.pulse,
+                glucose: this.state.glucose,
+                weight: this.state.weight,
+            }
 
         })
 
@@ -49,25 +52,35 @@ class DataEntry extends Component {
                 }
             })
             .catch(err => console.log(err)
-        )
+            )
     }
 
+    createAndDownloadPdf = () => {
+        axios.post('/create-pdf', this.state)
+          .then(() => axios.get('fetch-pdf', { responseType: 'blob' }))
+          .then((res) => {
+            const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
     
+            saveAs(pdfBlob, 'newPdf.pdf');
+          })
+      }
+
+
 
     render = () => {
         console.log(this.state.DataInputs);
         return (
-        <div>
-            <Link
-                to="/DataEntry"
-                className={window.location.pathname === '/DataEntry'}
-            >
-            </Link>
-            <EntryBody onChange={this.handleInputChange}
-                       onClick={this.handleSubmit} 
-                       data={this.state.DataInputs}/>
-
-        </div>
+            <div>
+                <Link
+                    to="/DataEntry"
+                    className={window.location.pathname === '/DataEntry'}
+                >
+                </Link>
+                <EntryBody onChange={this.handleInputChange}
+                    onClick={this.handleSubmit}
+                    data={this.state.DataInputs} />
+                <PdfInput />
+            </div>
         )
     }
 
