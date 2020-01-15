@@ -53,7 +53,7 @@ module.exports = {
     createData: function (req, res) {
         db.PatientInfo
             .create(req.body)
-            .then(data => res.status(200))
+            .then(data => res.json(data))
             .catch(err => res.status(422).json(err))
     },
     // find all patientInfo where _id = userId

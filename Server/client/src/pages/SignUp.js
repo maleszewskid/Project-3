@@ -19,6 +19,7 @@ export default class Signup extends Component {
       middlename: "",
       lastname: "",
       dateofbirth: '',
+      sex: '',
       redirectTo: '',
       error: false
     };
@@ -27,8 +28,6 @@ export default class Signup extends Component {
     return this.state.email.length > 0 && this.state.password.length > 0;
   }
 
-
-
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -36,7 +35,6 @@ export default class Signup extends Component {
   }
 
   handleFormSubmit = event => {
-
     event.preventDefault();
     if (this.state.email.length > 0 && this.state.password.length > 0) {
       API.Signup({
@@ -44,6 +42,7 @@ export default class Signup extends Component {
         password: this.state.password,
       })
         .then(res => {
+          console.log(res)
           if (res.data.error) {
             console.log('error')
             this.setState({
@@ -56,12 +55,13 @@ export default class Signup extends Component {
         }))
       API.createUser({
         email: this.state.email,
-        first: this.state.first,
-        last: this.state.last
+        firstName: this.state.first,
+        lastName: this.state.last,
+        dateofBirth: this.state.dateofbirth,
+        sex: this.state.sex
       })
         .then(res => {
           if (res.data.error) {
-            console.log('error')
             this.setState({
               error: true
             })
@@ -79,14 +79,13 @@ export default class Signup extends Component {
     }
   }
 
-
   render() {
-
     if (this.state.error) {
       return (
         <div>YOU ALREADY EXIST</div>
       )
     } else if (this.state.redirectTo) {
+      console.log('Redirect')
       return <Redirect to={{ pathname: this.state.redirectTo, state: { username: this.state.username } }} />
     } else {
       return (
