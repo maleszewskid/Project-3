@@ -4,9 +4,9 @@ module.exports = {
     // *** USER CREDENTIALS ****
     // --------------------------------------------------------- //
     //Signup:
-    // Built in a little validation to check if the username works.
+    // Built in a little validation to check if the username is taken.
     signUp: function (req, res) {
-        console.log('User signup');
+        console.log(req.body);
         const { username, password} = req.body;
         db.UserCred.findOne({ username: username }, (err, user) => {
             if (err) {
@@ -19,7 +19,7 @@ module.exports = {
                 console.log('Creating new user')
                 db.UserCred
                     .create({ username: username, password: password })
-                    .then(data => res.status(200))
+                    .then(data => res.json(data))
                     .catch(err => res.status(422).json(err))
             }
         })
@@ -51,16 +51,17 @@ module.exports = {
     // --------------------------------------------------------- //
     // Create patientInfo db
     createData: function (req, res) {
+        console.log(req.body)
         db.PatientInfo
             .create(req.body)
             .then(data => res.json(data))
             .catch(err => res.status(422).json(err))
     },
-    // find all patientInfo where _id = userId
+    // find all patientInfo where username = username
     findAllData: function (req, res) {
+        console.log(req.params.username)
         db.PatientInfo
-            //Change
-            .findOne({ username: req.body.username })
+            .findOne({ username: req.params.username })
             .then(data => res.json(data))
             .catch(err => res.status(422).json(err))
     },

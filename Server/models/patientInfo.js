@@ -6,6 +6,9 @@ const PatientInfo = new Schema ({
     email: {
         type: String
     },
+    username: {
+        type: String
+    },
     firstName: {
         type: String
     },
@@ -75,12 +78,7 @@ const PatientInfo = new Schema ({
     date: [{
         type: Date,
         default: Date.now
-    }],
-    username: {
-        type: Schema.Types.ObjectId,
-        ref: "username"
-    }
-
+    }]
 })
 
 const patientInfo = mongoose.model("patientInfo", PatientInfo);

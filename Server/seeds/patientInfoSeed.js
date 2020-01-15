@@ -8,6 +8,7 @@ mongoose.connect(
 const patientSeed = [
     {
         email: 'jack.jackryan@gmail.com',
+        username: 'dongleKong',
         firstName: 'Jack',
         lastName: 'Ryan',
         dateofBirth: '07.13.1989', 
