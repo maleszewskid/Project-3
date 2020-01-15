@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 import './EntryBody.css';
 
-const LandingBody = props => {
+const EntryBody = props => {
     return (
         <Container className="landingContainer">
             <Row>
@@ -20,7 +20,7 @@ const LandingBody = props => {
                             <Card.Text>
                                 Use the text boxes to enter your systolic/diastolic pressures and pulse.
                         </Card.Text>
-                        <Form onSubmit={this.handleSubmit}>
+                        <Form onSubmit={props.handleSubmit}>
                           
                                  <Form.Group controlId="Systolic">
                                     <Form.Control

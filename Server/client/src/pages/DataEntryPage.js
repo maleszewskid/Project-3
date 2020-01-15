@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import EntryBody from '../components/EntryBody';
 
 class DataEntry extends Component {
@@ -10,20 +10,25 @@ class DataEntry extends Component {
         }
     }
 
+    handleChange = event => {
+        this.setState({
+          [event.target.id]: event.target.value
+        });
+      }
 
     render = () => {
         const username = this.props.location.state;
-                    <div>
-                        <Link
-                            to="/DataEntry"
-                            className={window.location.pathname === '/DataEntry'}
-                        >
-                        </Link>
-                        <EntryBody user={username}/>
-                        
-                    </div>
-                
-        }
+        return (
+        <div>
+            <Link
+                to="/DataEntry"
+                className={window.location.pathname === '/DataEntry'}
+            >
+            </Link>
+            <EntryBody onChange={this.handleChange} user={username} />
+
+        </div>
+        )
     }
 }
 
