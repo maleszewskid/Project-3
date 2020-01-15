@@ -13,10 +13,6 @@ class Landing extends Component {
         }
     }
 
-    getCurrentUsername = () => {
-        
-    }
-
     handleClick = (event) => {
         event.preventDefault();
 
@@ -27,7 +23,7 @@ class Landing extends Component {
     }
 
     render = () => {
-
+        const username = this.props.location.state;
         switch (this.state.redirectTo) {
             case '/Input':
                 return <Redirect to={{ pathname: this.state.redirectTo }} />;
@@ -43,7 +39,7 @@ class Landing extends Component {
                             className={window.location.pathname === '/Landing'}
                         >
                         </Link>
-                        <LandingHeader />
+                        <LandingHeader user={username}/>
                         <LandingBody />
                         
                     </div>
