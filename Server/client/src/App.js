@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // Import Our Pages here
 
 import LoginPage from './pages/LoginPage';
-import Signup from './pages/Signup';
+import SignUp from './pages/SignUp';
 // import ResetpasswordPage from './pages/ResetpasswordPage';
 import LandingPage from './pages/LandingPage';
 import DataEntryPage from './pages/DataEntryPage';
@@ -26,7 +26,7 @@ function App() {
           <Route exact path="/Login" component={LoginPage} />
           <Route exact path="/Landing" component={LandingPage} />
           <Route exact path="/DataEntry" component={DataEntryPage} />
-          <Route exact path="/Signup" component={Signup} /> 
+          <Route exact path="/Signup" component={SignUp} /> 
           {/* 
           <Route exact path="/Resetpassword" component={ResetpasswordPage} /> */}
           <Route exact path='/viewData' component={ViewData} />
