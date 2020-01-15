@@ -16,6 +16,10 @@ export default {
     Signup: function(userCreds) {
         return axios.post("/api/authenticate/Signup", userCreds);
     },
+    // Create new patient in patientInfo upon signup:
+    createUser: function(patientInfo) {
+        return axios.post('/api/patient/createPatient', patientInfo);
+    },
     // synonymous to the deleteUserCreds method in controller
     DeleteUser: function(username) {
         return axios.delete("/api/authenticate/DeleteUser/:" + username);

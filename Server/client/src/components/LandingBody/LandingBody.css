@@ -1,5 +1,7 @@
 
-
+.landingContainer {
+    padding-top: 60px;
+}
 .landingMsg {
     padding-top: 20px;
     font-weight: 600;
