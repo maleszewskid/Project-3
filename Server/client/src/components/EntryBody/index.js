@@ -8,7 +8,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 import './EntryBody.css';
 
-const LandingBody = props => {
+
+const EntryBody = props => {
     return (
         <Container className="landingContainer">
             <Row>

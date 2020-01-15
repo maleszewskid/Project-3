@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import EntryBody from '../components/EntryBody';
 
-class DataEntry extends Component {
+export default class EntryBody extends Component {
     constructor(props) {
-        super(props);
-        this.state = {
-            placeholder: ''
-        }
+      super(props);
+      this.state = {
+        systolic: "",
+        diastolic: "",
+        pulse: "",
+        glucose: "",
+        weight: "",
+      };
     }
+
 
 
     render = () => {
@@ -25,7 +30,7 @@ class DataEntry extends Component {
                 
         }
     }
-}
+
 
 
 export default DataEntry;
