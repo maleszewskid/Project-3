@@ -12,6 +12,9 @@ const PatientInfo = new Schema ({
     lastName: {
         type: String
     },
+    sex: {
+        type: String
+    },
     dateofBirth: {
         //Date formats to: 'mm.dd.yyyy'
         type: Date
