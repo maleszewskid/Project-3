@@ -8,10 +8,6 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 import './EntryBody.css';
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a8d7b51dbe4d5b5687760fc26adc373b992266e3
 const EntryBody = props => {
     return (
         <Container className="landingContainer">
@@ -29,24 +25,24 @@ const EntryBody = props => {
                                  <Form.Group controlId="Systolic">
                                     <Form.Control
                                         type="Systolic"
-                                        value={this.state.systolic}
-                                        onChange={this.handleChange}
+                                        value={props.data.systolic}
+                                        onChange={props.handleChange}
                                         placeholder="Systolic"
                                      />
                                 </Form.Group>
                                 <Form.Group controlId="Diastolic">
                                     <Form.Control
                                         type="Diastolic"
-                                        value={this.state.diastolic}
-                                        onChange={this.handleChange}
+                                        value={props.data.diastolic}
+                                        onChange={props.handleChange}
                                         placeholder="Diastolic"
                                      />
                                 </Form.Group>
                                 <Form.Group controlId="Pulse">
                                     <Form.Control
                                         type="Pulse"
-                                        value={this.state.pulse}
-                                        onChange={this.handleChange}
+                                        value={props.data.pulse}
+                                        onChange={props.handleChange}
                                         placeholder="Pulse"
                                      />
                                 </Form.Group>
@@ -69,13 +65,13 @@ const EntryBody = props => {
                             <Card.Text>
                                 Use the text boxes to enter your blood glucose level.
                         </Card.Text>
-                        <Form onSubmit={this.handleSubmit}>
+                        <Form onSubmit={props.handleSubmit}>
                          
                                  <Form.Group controlId="Glucose">
                                     <Form.Control
                                         type="Glucose"
-                                        value={this.state.glucose}
-                                        onChange={this.handleChange}
+                                        value={props.data.glucose}
+                                        onChange={props.handleChange}
                                         placeholder="Blood Glucose"
                                      />
                                 </Form.Group>
@@ -98,13 +94,13 @@ const EntryBody = props => {
                             <Card.Text>
                                 Use the text boxes to enter your weight in lbs.
                         </Card.Text>
-                        <Form onSubmit={this.handleSubmit}>
+                        <Form onSubmit={props.handleSubmit}>
                             
                                  <Form.Group controlId="Weight">
                                     <Form.Control
                                         type="Weight"
-                                        value={this.state.weight}
-                                        onChange={this.handleChange}
+                                        value={props.data.weight}
+                                        onChange={props.handleChange}
                                         placeholder="Weight (lbs)"
                                      />
                                 </Form.Group>
