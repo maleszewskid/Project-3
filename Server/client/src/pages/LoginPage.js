@@ -39,7 +39,7 @@ class Login extends Component {
                 if (res.status === 200) {
                     // Set the redirect route:
                     this.setState({
-                        redirectTo: '/viewData',
+                        redirectTo: '/Landing',
                         loggedIn: true,
                         username: res.data.username
                     })
