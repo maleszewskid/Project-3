@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import { Link, Redirect } from 'react-router-dom';
+import EntryBody from '../components/EntryBody';
 
 class DataEntry extends Component {
     constructor(props) {
@@ -11,14 +12,20 @@ class DataEntry extends Component {
 
 
     render = () => {
-                return (
+        const username = this.props.location.state;
                     <div>
-                        Hello
+                        <Link
+                            to="/DataEntry"
+                            className={window.location.pathname === '/DataEntry'}
+                        >
+                        </Link>
+                        <EntryBody user={username}/>
                         
                     </div>
-                )
+                
         }
     }
+}
 
 
 export default DataEntry;
