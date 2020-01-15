@@ -11,6 +11,9 @@ router.route("/allData")
     .get(controller.findAllData)
     .post(controller.createData);
 
+router.route('/createPatient')
+    .post(controller.createData);
+
 router.route('/update')
     .post(controller.updateFields)
     .post(controller.updateArrayFields);
