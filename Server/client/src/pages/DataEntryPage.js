@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Header from '../components/Header/Header';
 import EntryBody from '../components/EntryBody';
 import API from '../utils/API';
 import PdfInput from '../components/PdfInput';
@@ -69,7 +70,10 @@ class DataEntry extends Component {
 
     render = () => {
         console.log(this.state.DataInputs);
+        const username = this.props.location.state;
         return (
+            <>
+            <Header user={username} />
             <div>
                 <Link
                     to="/DataEntry"
@@ -81,6 +85,7 @@ class DataEntry extends Component {
                     data={this.state.DataInputs} />
                 <PdfInput />
             </div>
+            </>
         )
     }
 
