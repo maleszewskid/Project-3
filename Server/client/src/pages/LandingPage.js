@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import LandingHeader from '../components/LandingHeader';
 import LandingBody from '../components/LandingBody';
 
@@ -24,27 +24,18 @@ class Landing extends Component {
 
     render = () => {
         const username = this.props.location.state;
-        switch (this.state.redirectTo) {
-            case '/Input':
-                return <Redirect to={{ pathname: this.state.redirectTo }} />;
-            case '/viewData':
-                return <Redirect to={{ pathname: this.state.redirectTo }} />;
-            case '/submit':
-                return <Redirect to={{ pathname: this.state.redirectTo }} />;
-            default:
-                return (
-                    <div>
-                        <Link
-                            to="/Landing"
-                            className={window.location.pathname === '/Landing'}
-                        >
-                        </Link>
-                        <LandingHeader user={username}/>
-                        <LandingBody user={username}/>
-                        
-                    </div>
-                )
-        }
+        return (
+            <div>
+                <Link
+                    to="/Landing"
+                    className={window.location.pathname === '/Landing'}
+                >
+                </Link>
+                <LandingHeader user={username} />
+                <LandingBody user={username} />
+
+            </div>
+        )
     }
 }
 
