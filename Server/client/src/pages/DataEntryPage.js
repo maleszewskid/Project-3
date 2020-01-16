@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header/Header';
 import EntryBody from '../components/EntryBody';
 import API from '../utils/API';
-import PdfInput from '../components/PdfInput';
 import axios from 'axios';
 import { saveAs } from 'file-saver';
 
@@ -83,7 +82,6 @@ class DataEntry extends Component {
                 <EntryBody onChange={this.handleInputChange}
                     onClick={this.handleSubmit}
                     data={this.state.DataInputs} />
-                <PdfInput />
             </div>
             </>
         )
