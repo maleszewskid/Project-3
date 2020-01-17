@@ -28,11 +28,20 @@ class DataEntry extends Component {
         event.preventDefault();
         this.setState({
             DataInputs: {
-                systolic: this.state.systolic,
-                diastolic: this.state.diastolic,
-                pulse: this.state.pulse,
-                glucose: this.state.glucose,
+                ethnicity: this.state.ethnicity,
                 weight: this.state.weight,
+                height: this.state.height,
+                disability: this.state.disability,
+                tobaccoUse: this.state.tobaccoUse,
+                medications: this.state.medications,
+                dosage: this.state.dosage,
+                mrn: this.state.mrn,
+                heartRate: this.state.heartRate,
+                bloodSugar: this.state.bloodSugar,
+                systolicBloodPressure: this.state.systolicBloodPressure,
+                diastolicBloodPressure: this.state.diastolicBloodPressure,
+                moodSentiment: this.state.moodSentiment,
+                journalEntry: this.state.journalEntry
             }
         })
 
