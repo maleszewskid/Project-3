@@ -32,9 +32,9 @@ const EntryTabs = props => {
                                             <Row>
                                                 <Col>
                                                 </Col>
-                                            </Row>                        
+                                            </Row>
 
-                                        
+
                                         </Card.Body>
                                         <Card.Footer className="entry-footer"></Card.Footer>
                                     </Card>
@@ -54,7 +54,7 @@ const EntryTabs = props => {
                                                         name="heartrate"
                                                         value={props.data.heartrate}
                                                         onChange={props.handleChange}
-                                                        placeholder="Heart Rate"
+                                                        placeholder="Heart Rate (bpm)"
                                                     />
                                                 </Form.Group>
                                                 <Form.Group controlId="bloodsugar">
@@ -62,7 +62,7 @@ const EntryTabs = props => {
                                                         name="bloodsugar"
                                                         value={props.data.bloodsugar}
                                                         onChange={props.handleChange}
-                                                        placeholder="Blood Sugar"
+                                                        placeholder="Blood Sugar (mg/dL)"
                                                     />
                                                 </Form.Group>
                                                 <Form.Group controlId="Systolic">
@@ -70,7 +70,7 @@ const EntryTabs = props => {
                                                         name="Systolic"
                                                         value={props.data.systolic}
                                                         onChange={props.handleChange}
-                                                        placeholder="Systolic"
+                                                        placeholder="Systolic (mm Hg)"
                                                     />
                                                 </Form.Group>
                                                 <Form.Group controlId="Diastolic">
@@ -78,15 +78,7 @@ const EntryTabs = props => {
                                                         name="Diastolic"
                                                         value={props.data.diastolic}
                                                         onChange={props.handleChange}
-                                                        placeholder="Diastolic"
-                                                    />
-                                                </Form.Group>
-                                                <Form.Group controlId="Pulse">
-                                                    <Form.Control
-                                                        name="Pulse"
-                                                        value={props.data.pulse}
-                                                        onChange={props.handleChange}
-                                                        placeholder="Pulse"
+                                                        placeholder="Diastolic (mm Hg)"
                                                     />
                                                 </Form.Group>
 
@@ -192,14 +184,41 @@ const EntryTabs = props => {
                                         <Card.Header>General | Stats</Card.Header>
                                         <Card.Body>
                                             <Form onSubmit={props.handleSubmit}>
-                                                <Form.Group controlId="height">
-                                                    <Form.Control
-                                                        name="height"
-                                                        value={props.data.height}
-                                                        onChange={props.handleChange}
-                                                        placeholder="Height"
-                                                    />
-                                                </Form.Group>
+                                                <Row>
+                                                    <Col className="col-2">
+                                                        <Form.Group controlId="exampleForm.ControlSelect2">
+                                                            <Form.Label>Feet</Form.Label>
+                                                            <Form.Control as="select">
+                                                                <option>2</option>
+                                                                <option>3</option>
+                                                                <option>4</option>
+                                                                <option>5</option>
+                                                                <option>6</option>
+                                                                <option>7</option>
+                                                                <option>8</option>
+                                                            </Form.Control>
+                                                        </Form.Group>
+                                                    </Col>
+                                                    <Col className="col-2">
+                                                        <Form.Group className="h-25" controlId="exampleForm.ControlSelect2">
+                                                            <Form.Label>Inches</Form.Label>
+                                                            <Form.Control as="select">
+                                                                <option>0</option>
+                                                                <option>1</option>
+                                                                <option>2</option>
+                                                                <option>3</option>
+                                                                <option>4</option>
+                                                                <option>5</option>
+                                                                <option>6</option>
+                                                                <option>7</option>
+                                                                <option>8</option>
+                                                                <option>9</option>
+                                                                <option>10</option>
+                                                                <option>11</option>
+                                                            </Form.Control>
+                                                        </Form.Group>
+                                                    </Col>
+                                                </Row>
                                                 <Form.Group controlId="weight">
                                                     <Form.Control
                                                         name="weight"
@@ -216,14 +235,35 @@ const EntryTabs = props => {
                                                         placeholder="Ethnicity"
                                                     />
                                                 </Form.Group>
-                                                <Form.Group controlId="disability">
-                                                    <Form.Control
-                                                        name="disability"
-                                                        value={props.data.disability}
-                                                        onChange={props.handleChange}
-                                                        placeholder="Disability"
-                                                    />
-                                                </Form.Group>
+
+                                                <Row>
+                                                    <Col className="col-3 d-flex justify-content-flex-start mx-2">
+                                                        <div>Disability: </div>
+                                                    </Col>
+                                                    <Col className="col-9 d-flex justify-content-flex-start mx-1">
+                                                        <Form.Group key={`default-checkbox`} className="mb-3 checkboxDiv">
+                                                            <Form.Check
+                                                                type={`checkbox`}
+                                                                id={`disability`}
+                                                                label={`Yes`}
+                                                                name="disability"
+                                                                value={false}
+                                                                onClick={props.onClick}
+                                                            />
+                                                            <Form.Group key={`default-checkbox`} className="mb-3 checkboxDiv">
+                                                                <Form.Check
+                                                                    type={`checkbox`}
+                                                                    id={`disability`}
+                                                                    label={`No`}
+                                                                    name="disability"
+                                                                    value={false}
+                                                                    onClick={props.onClick}
+                                                                />
+                                                            </Form.Group>
+                                                        </Form.Group>
+                                                    </Col>
+                                                </Row>
+
                                                 <Form.Group controlId="tobaccouse">
                                                     <Form.Control
                                                         name="tobaccouse"
