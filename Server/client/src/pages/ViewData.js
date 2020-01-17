@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import Header from '../components/Header/Header';
-import { LineChart } from 'react-chartkick'
+import { LineChart, Chart } from 'react-chartkick'
 import 'chart.js'
+
 
 class ViewData extends Component {
     constructor(props) {
@@ -94,5 +95,7 @@ class ViewData extends Component {
     }
 
 }
+
+
 
 export default ViewData;
