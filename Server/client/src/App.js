@@ -11,6 +11,7 @@ import DataEntryPage from './pages/DataEntryPage';
 import SubmitPage from './pages/SubmitPage'
 // import ViewPage from './pages/ViewPage'; */
 import ViewData from './pages/ViewData';
+import Page from '../src/components/PDF/src/Pages/Page'
 
 // Default CSS
 import './App.css';
@@ -23,6 +24,7 @@ function App() {
     <Router>
       <div>
         <Switch>
+          <Route exact path='/' component={Page} />
           <Route exact path="/Login" component={LoginPage} />
           <Route exact path="/Landing" component={LandingPage} />
           <Route exact path="/DataEntry" component={DataEntryPage} />
