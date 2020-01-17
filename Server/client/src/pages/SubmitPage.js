@@ -6,14 +6,22 @@ class SubmitToDoctor extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            username: '',
             placeholder: ''
         }
     }
 
+    componentDidMount() {
+        this.setState({
+            username: this.props.location.state
+        });
+        const { username } = this.props.location.state;
+        console.log(username);
+    }
 
     render = () => {
         console.log(this.props);
-        const username = this.props.location.state;
+        const { username } = this.state;
                 return (
                 <>
                     <Header user={username} />
