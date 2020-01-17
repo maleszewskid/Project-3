@@ -29,7 +29,7 @@ const LandingBody = props => {
 
             <Row>
                 <Col className="col-12 text-center card-container">
-                    <Card className="text-center">
+                    <Card className="text-center card-landing">
                         <Card.Header>Patient Portal</Card.Header>
                         <Card.Body>
                             <Card.Title>Powerful yet simplistic</Card.Title>
@@ -49,7 +49,7 @@ const LandingBody = props => {
 
             <Row>
                 <Col className="col-12 text-center card-container">
-                    <Card className="text-center">
+                    <Card className="text-center card-landing">
                         <Card.Header>Patient View</Card.Header>
                         <Card.Body>
                             <Card.Title>See your health history</Card.Title>
@@ -69,7 +69,7 @@ const LandingBody = props => {
 
             <Row>
                 <Col className="col-12 text-center card-container">
-                    <Card className="text-center">
+                    <Card className="text-center card-landing">
                         <Card.Header>Submit</Card.Header>
                         <Card.Body>
                             <Card.Title>Sends your information to your Health Provider</Card.Title>
