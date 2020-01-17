@@ -74,6 +74,9 @@ const PatientInfo = new Schema ({
     moodSentiment: [{
         type: Number
     }],
+    journalEntry: [{
+        type: String
+    }],
     //Needs to be an array
     date: [{
         type: Date,
