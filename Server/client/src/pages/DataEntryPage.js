@@ -31,12 +31,20 @@ class DataEntry extends Component {
         console.log(this.state);
     };
 
+    handleMedInput = event => {
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value
+        })
+        console.log(this.state.medications)
+    }
 
     // Event Handler to submit Blood data:
     handleBloodSubmit = event => {
         event.preventDefault();
-        const { heartRate, bloodSugar, systolicBloodPressure, diastolicBloodPressure } = this.state;
+        const { username, heartRate, bloodSugar, systolicBloodPressure, diastolicBloodPressure } = this.state;
         const data = {
+            username,
             heartRate,
             bloodSugar,
             systolicBloodPressure,
@@ -49,8 +57,9 @@ class DataEntry extends Component {
     // Event Handler to submit Mood data:
     handleMoodSubmit = event => {
         event.preventDefault();
-        const { journalEntry } = this.state;
+        const { username, journalEntry } = this.state;
         const data = {
+            username,
             journalEntry
         };
         console.log(data);
@@ -60,8 +69,12 @@ class DataEntry extends Component {
     // Event Handler to submit Medication data:
     handleMedsSubmit = event => {
         event.preventDefault();
-        
         // Need to send this to mongoDB via method called addPatientData
+    }
+
+    // Event handler to submit general data:
+    handleGeneralSubmit = event => {
+        event.preventDefault();
     }
 
 
@@ -71,9 +84,11 @@ class DataEntry extends Component {
             <>
                 <Header user={username} />
                 <EntryTabs onChange={this.handleInputChange}
+                    onMedChange={this.handleMedInput}
                     onBloodClick={this.handleBloodSubmit}
                     onMoodClick={this.handleMoodSubmit}
-                    onMedsClick={this.handleMedsSubmit} />
+                    onMedsClick={this.handleMedsSubmit}
+                    onGenClick={this.handleGeneralSubmit} />
             </>
         )
     }

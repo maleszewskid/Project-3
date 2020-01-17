@@ -28,5 +28,9 @@ export default {
     // This will grab all patient data and send it to the front end for graphing. 
     allPatientData : function(username) {
         return axios.get('/api/patient/allData/' + username.username)
+    },
+    // Add patient data to DB:
+    submitPatientData: function(data) {
+        return axios.post('/api/patient/addData', data)
     }
 }

@@ -66,40 +66,11 @@ module.exports = {
             .catch(err => res.status(422).json(err))
     },
     // update non-array items individual patientInfo fields
-    updateFields: function (req, res) {
-        let newFields = {
-            email: req.body.email,
-            firstName: req.body.fName,
-            lastName: req.body.lName,
-            dateOfBirth: req.body.dob,
-            ethnicity: req.body.ethnicity,
-            weight: req.body.weight,
-            height: req.body.height,
-            address: req.body.address,
-            phoneNumber: req.body.phone,
-            disability: req.body.disability,
-            mrn: req.body.mrn,
-            username: req.body.username
-        }
+    addData: function (req, res) {
+        console.log(req.body.data)
+        const newFields = req.body.data;
         db.PatientInfo
-            .findByIdAndUpdate({ _id: req.params.id }, { newFields })
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
-    },
-    //Update array items:
-    updateArrayFields: function (req, res) {
-        let arrayFields = {
-            medications: req.body.medications,
-            doseage: req.body.doseage,
-            heartRate: req.body.hRate,
-            bloodSugar: req.body.bSugar,
-            systolicBloodPressure: req.body.sisBloodPressure,
-            diastolicBloodPressure: req.body.diaBloodPressure,
-            moodSentiment: req.body.mood,
-            date: req.body.date
-        }
-        db.PatientInfo
-            .findByIdAndUpdate({ _id: req.params.id }, { $push: { arrayFields } } , { new: true })
+            .findOneAndUpdate({ username: req.body.data.username }, { newFields })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },

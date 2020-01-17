@@ -114,20 +114,20 @@ const EntryTabs = props => {
                                             <Form className="my-3">
                                                 <Form.Row>
                                                     <Col className="col-8">
-                                                        <Form.Control name="medication1" onChange={props.onChange} placeholder="Medication" />
+                                                        <Form.Control name="medication1" onChange={props.onMedChange} placeholder="Medication" />
                                                     </Col>
                                                     <Col className="col-4">
-                                                        <Form.Control name="doseage1" onChange={props.onChange} placeholder="Dosage (mg)" />
+                                                        <Form.Control name="doseage" onChange={props.onChange} placeholder="Dosage (mg)" />
                                                     </Col>
                                                 </Form.Row>
                                             </Form>
                                             <Form className="my-3">
                                                 <Form.Row>
                                                     <Col className="col-8">
-                                                        <Form.Control name="medication2" onChange={props.onChange} placeholder="Medication" />
+                                                        <Form.Control name="medication2" onChange={props.onMedChange} placeholder="Medication" />
                                                     </Col>
                                                     <Col className="col-4">
-                                                        <Form.Control name="doseage2" onChange={props.onChange} placeholder="Dosage (mg)" />
+                                                        <Form.Control name="doseage" onChange={props.onChange} placeholder="Dosage (mg)" />
                                                     </Col>
                                                 </Form.Row>
                                             </Form>
@@ -269,7 +269,7 @@ const EntryTabs = props => {
                                                                     id={`disability`}
                                                                     label={`No`}
                                                                     name="disability"
-                                                                    onClick={props.onClick}
+                                                                    onClick={props.onGenClick}
                                                                 />
                                                             </Form.Group>
                                                         </Form.Group>
