@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header/Header';
-import EntryBody from '../components/EntryBody';
+/* import EntryBody from '../components/EntryBody'; */
 import API from '../utils/API';
-import axios from 'axios';
-import { saveAs } from 'file-saver';
+// import axios from 'axios';
+import EntryTabs from '../components/EntryTabs';
 
 class DataEntry extends Component {
     constructor(props) {
@@ -34,7 +34,6 @@ class DataEntry extends Component {
                 glucose: this.state.glucose,
                 weight: this.state.weight,
             }
-
         })
 
         // Need to send this to mongoDB via method called addPatientData
@@ -55,16 +54,6 @@ class DataEntry extends Component {
             )
     }
 
-    createAndDownloadPdf = () => {
-        axios.post('/create-pdf', this.state)
-          .then(() => axios.get('fetch-pdf', { responseType: 'blob' }))
-          .then((res) => {
-            const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
-    
-            saveAs(pdfBlob, 'newPdf.pdf');
-          })
-      }
-
 
 
     render = () => {
@@ -79,7 +68,11 @@ class DataEntry extends Component {
                     className={window.location.pathname === '/DataEntry'}
                 >
                 </Link>
-                <EntryBody onChange={this.handleInputChange}
+                {/* <EntryBody onChange={this.handleInputChange}
+                    onClick={this.handleSubmit}
+                    data={this.state.DataInputs} /> */}
+
+                <EntryTabs onChange={this.handleInputChange}
                     onClick={this.handleSubmit}
                     data={this.state.DataInputs} />
             </div>
