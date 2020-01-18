@@ -6,7 +6,7 @@ import API from "../utils/API";
 // import 'chart.js'
 
 
-class ViewData extends Component {
+class PDF extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -84,4 +84,4 @@ const Quote = () => (
 );
 
 
-export default Quote;
+export default PDF;
