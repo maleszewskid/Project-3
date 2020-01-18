@@ -65,12 +65,12 @@ module.exports = {
             .then(data => res.json(data))
             .catch(err => res.status(422).json(err))
     },
-    // update non-array items individual patientInfo fields
+    // update array items individual patientInfo fields
     addData: function (req, res) {
-        console.log(req.body.data)
+        //console.log(req.body)
         const newFields = req.body.data;
         db.PatientInfo
-            .findOneAndUpdate({ username: req.body.data.username }, { newFields })
+            .findOneAndUpdate({ username: req.body.data.username.username }, {  $set: {"ethnicity": newFields.ethnicity, "weight": newFields.weight, 'disability': newFields.disability, 'tobaccoUse': newFields.tobaccoUse}, $push: {"medications": newFields.medications, "doseage": newFields.doseage, 'heartRate': newFields.heartRate, 'bloodSugar': newFields.bloodSugar, 'systolicBloodPressure': newFields.systolicBloodPressure, 'diastolicBloodPressure': newFields.diastolicBloodPressure, 'moodSentiment': newFields.moodSentiment, 'journalEntry': newFields.journalEntry, 'height': newFields.height } }, {returnOriginal: false})
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
