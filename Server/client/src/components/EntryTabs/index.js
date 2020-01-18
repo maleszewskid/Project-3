@@ -179,33 +179,33 @@ const EntryTabs = props => {
                                                     <Col className="col-2">
                                                         <Form.Group controlId="exampleForm.ControlSelect2">
                                                             <Form.Label>Feet</Form.Label>
-                                                            <Form.Control as="select">
-                                                                <option>2</option>
-                                                                <option>3</option>
-                                                                <option>4</option>
-                                                                <option>5</option>
-                                                                <option>6</option>
-                                                                <option>7</option>
-                                                                <option>8</option>
+                                                            <Form.Control onChange={props.onChange} as="select" name='feet'>
+                                                                <option value='2'>2</option>
+                                                                <option value='3'>3</option>
+                                                                <option value='4'>4</option>
+                                                                <option value='5'>5</option>
+                                                                <option value='6'>6</option>
+                                                                <option value='7'>7</option>
+                                                                <option value='8'>8</option>
                                                             </Form.Control>
                                                         </Form.Group>
                                                     </Col>
                                                     <Col className="col-2">
                                                         <Form.Group className="h-25" controlId="exampleForm.ControlSelect2">
                                                             <Form.Label>Inches</Form.Label>
-                                                            <Form.Control as="select">
-                                                                <option>0</option>
-                                                                <option>1</option>
-                                                                <option>2</option>
-                                                                <option>3</option>
-                                                                <option>4</option>
-                                                                <option>5</option>
-                                                                <option>6</option>
-                                                                <option>7</option>
-                                                                <option>8</option>
-                                                                <option>9</option>
-                                                                <option>10</option>
-                                                                <option>11</option>
+                                                            <Form.Control onChange={props.onChange} as="select" name='inches'>
+                                                                <option value='0'>0</option>
+                                                                <option value='1'>1</option>
+                                                                <option value='2'>2</option>
+                                                                <option value='3'>3</option>
+                                                                <option value='4'>4</option>
+                                                                <option value='5'>5</option>
+                                                                <option value='6'>6</option>
+                                                                <option value='7'>7</option>
+                                                                <option value='8'>8</option>
+                                                                <option value='9'>9</option>
+                                                                <option value='10'>10</option>
+                                                                <option value='11'>11</option>
                                                             </Form.Control>
                                                         </Form.Group>
                                                     </Col>
@@ -213,14 +213,14 @@ const EntryTabs = props => {
                                                 <Form.Group controlId="weight">
                                                     <Form.Control
                                                         name="weight"
-                                                        onChange={props.handleChange}
+                                                        onChange={props.onChange}
                                                         placeholder="Weight"
                                                     />
                                                 </Form.Group>
                                                 <Form.Group controlId="ethnicity">
                                                     <Form.Control
                                                         name="ethnicity"
-                                                        onChange={props.handleChange}
+                                                        onChange={props.onChange}
                                                         placeholder="Ethnicity"
                                                     />
                                                 </Form.Group>
@@ -235,16 +235,18 @@ const EntryTabs = props => {
                                                                 type={`checkbox`}
                                                                 id={`disability`}
                                                                 label={`Yes`}
+                                                                value={true}
                                                                 name="disability"
-                                                                onClick={props.onClick}
+                                                                onClick={props.onChange}
                                                             />
                                                             <Form.Group key={`default-checkbox`} className="mb-3 checkboxDiv">
                                                                 <Form.Check
                                                                     type={`checkbox`}
                                                                     id={`disability`}
                                                                     label={`No`}
+                                                                    value={false}
                                                                     name="disability"
-                                                                    onClick={props.onClick}
+                                                                    onClick={props.onChange}
                                                                 />
                                                             </Form.Group>
                                                         </Form.Group>
@@ -260,23 +262,25 @@ const EntryTabs = props => {
                                                                 type={`checkbox`}
                                                                 id={`disability`}
                                                                 label={`Yes`}
-                                                                name="disability"
-                                                                onClick={props.onClick}
+                                                                value={true}
+                                                                name="tobacco"
+                                                                onClick={props.onChange}
                                                             />
                                                             <Form.Group key={`default-checkbox`} className="mb-3 checkboxDiv">
                                                                 <Form.Check
                                                                     type={`checkbox`}
                                                                     id={`disability`}
                                                                     label={`No`}
-                                                                    name="disability"
-                                                                    onClick={props.onGenClick}
+                                                                    value={false}
+                                                                    name="tobacco"
+                                                                    onClick={props.onChange}
                                                                 />
                                                             </Form.Group>
                                                         </Form.Group>
                                                     </Col>
                                                 </Row>
                                             </Form>
-                                            <Button className="general-submit" variant="primary">Submit</Button>
+                                            <Button className="general-submit" onClick={props.onGenClick} variant="primary">Submit</Button>
 
                                         </Card.Body>
                                         <Card.Footer className="entry-footer"></Card.Footer>

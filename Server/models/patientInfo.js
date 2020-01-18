@@ -28,9 +28,9 @@ const PatientInfo = new Schema ({
     weight: {
         type: Number
     },
-    height: {
+    height: [{
         type: Number
-    },
+    }],
     address: {
         type: String
     },
