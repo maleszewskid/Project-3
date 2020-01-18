@@ -65,8 +65,8 @@ class ViewData extends Component {
         } = this.state.data;
 
 const personalData = lastName + ", " + firstName + " DOB: " + dateofBirth + " MRN: " + mrn;
-const heart = "Blood Pressure | Systolic: " + systolicBloodPressure + " mm Hg | Diastolic: " + diastolicBloodPressure + " mm Hg | Pulse: " + heartRate + " bpm"
-const diabetic = "Blood Glucose: " + bloodSugar + " mg/dL | Weight: " + weight + " lbs | BMI: " + (snapshot.val().weight * 703) / (snapshot.val().height * snapshot.val().height)
+const heart = "Blood Pressure | Systolic: " + systolicBloodPressure + " mm Hg | Diastolic: " + diastolicBloodPressure + " mm Hg (View Chart 1) | Pulse: " + heartRate + " bpm (View Chart 2)"
+const diabetic = "Blood Glucose: " + bloodSugar + " mg/dL (View Chart 3) | Weight: " + weight + " lbs | BMI: " + (snapshot.val().weight * 703) / (snapshot.val().height * snapshot.val().height) + " (View Chart 4)"
 const Quote = () => (
   <Document>
     <Page>
