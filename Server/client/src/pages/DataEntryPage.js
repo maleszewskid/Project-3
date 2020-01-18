@@ -4,11 +4,16 @@ import API from '../utils/API';
 // import axios from 'axios';
 import EntryTabs from '../components/EntryTabs';
 
+// Importing sentiment lib
+import Sentiment from 'sentiment';
+
 class DataEntry extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: ''
+            username: '',
+            journalEntry: '',
+            journalEntrySentiment: 0 
         };
     }
 
@@ -16,6 +21,7 @@ class DataEntry extends Component {
         this.setState({
             username: this.props.location.state
         });
+        
     }
 
     handleInputChange = event => {
@@ -25,6 +31,7 @@ class DataEntry extends Component {
         this.setState({
             [name]: value
         });
+        // console.log(this.state);
     };
 
     // Event Handler to submit Blood data:
@@ -48,6 +55,34 @@ class DataEntry extends Component {
             })
     }
 
+    // Event handler to detect Journal sentiment
+    handleMoodInputChange = event => {
+        // Getting the value and name of the input which triggered the change
+        const value = event.target.value
+        // Updating the input’s state
+        this.setState({
+            journalEntry: value
+        });
+
+        console.log(this.state.journalEntry);
+    };
+
+
+    // calculateSentiment
+    calculateSentiment = (journalText) => {
+        let sentiment = new Sentiment();
+        let result = sentiment.analyze(journalText);
+        console.log(result.score);
+
+        this.setState({
+            journalEntrySentiment: result.score
+        })
+
+        console.log(this.state.journalEntrySentiment);
+    }
+
+
+
     // Event Handler to submit Mood data:
     handleMoodSubmit = event => {
         event.preventDefault();
@@ -56,6 +91,9 @@ class DataEntry extends Component {
             username,
             journalEntry
         };
+
+        
+
         // Need to send this to mongoDB via method called addPatientData
         API.submitPatientData({data})
             .then(res => console.log(res))
@@ -133,6 +171,7 @@ class DataEntry extends Component {
             <>
                 <Header user={username} />
                 <EntryTabs onChange={this.handleInputChange}
+                    onMoodChange={this.handleMoodInputChange}
                     onBloodClick={this.handleBloodSubmit}
                     onMoodClick={this.handleMoodSubmit}
                     onMedsClick={this.handleMedsSubmit}

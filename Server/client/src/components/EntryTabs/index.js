@@ -92,7 +92,7 @@ const EntryTabs = props => {
                                         <Card.Body>
 
                                             <Form.Group controlId="exampleForm.ControlTextarea1">
-                                                <Form.Control as="textarea" name="journalEntry" onChange={props.onChange} rows="6" placeholder="Start typing here..." />
+                                                <Form.Control as="textarea" name="journalEntry" onChange={props.onMoodChange} rows="6" placeholder="Start typing here..." />
                                             </Form.Group>
 
                                             <ProgressBar animated now={80} />
