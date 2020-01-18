@@ -9,6 +9,7 @@ class ViewData extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            username: '',
             data: '',
             loading: true,
             error: '',
@@ -18,7 +19,11 @@ class ViewData extends Component {
     // When this component is mounted to the DOM we want to load in the user data and set the state with it:
     // Need username to make the call to the api, so how do we get the username?
     componentDidMount() {
+        this.setState({
+            username: this.props.location.state
+        });
         const { username } = this.props.location.state;
+        console.log(username);
         API.allPatientData({ username })
             .then(res => {
                 this.setState({
@@ -57,10 +62,9 @@ class ViewData extends Component {
             tobaccoUse,
             mrn
         } = this.state.data;
-        const username = this.props.location.state;
         return (
             <>
-                <Header user={username} />
+                <Header user={this.state.username} />
                 {(this.state.loading || this.state.error) && <div>{this.state.loading ? 'Loading...' : this.state.error}</div>}
                 <div>
                     {firstName} {lastName}

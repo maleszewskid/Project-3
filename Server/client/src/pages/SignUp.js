@@ -5,7 +5,6 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import LoginHeader from '../components/LoginHeader';
-//import '../signup';
 // What is this css file for?
 import '../Signup.css';
 import './SignUp.css';
@@ -30,10 +29,6 @@ export default class Signup extends Component {
       usernameTaken: false,
       userCreateFailure: false
     };
-  }
-
-  validateForm() {
-    return this.state.email.length > 0 && this.state.password.length > 0;
   }
 
   handleChange = event => {
@@ -77,14 +72,22 @@ export default class Signup extends Component {
                   })
                 }
               })
-              .catch(err => this.setState({
-                error: true
-              }))
+              .catch(err => {
+                if (err) {
+                  this.setState({
+                    error: true
+                  })
+                }
+              })
           }
         })
-        .catch(err => this.setState({
-          error: true
-        }))
+        .catch(err => {
+          if (err) {
+            this.setState({
+              error: true
+            })
+          }
+        })
     } else {
       this.setState({
         error: true
@@ -201,7 +204,6 @@ export default class Signup extends Component {
             </div>
             <Button
               block
-              disabled={!this.validateForm()}
               type="submit"
               className="btn btn-success"
               onClick={this.handleFormSubmit}
@@ -244,15 +246,3 @@ export default class Signup extends Component {
     }
   }
 }
-// var pass = document.getElementByClassName("btn.success");
-// pass.onclick = function passwordChecker() {
-//   if (document.getElementById("password").value === document.getElementById("confirmPassword").value) {
-//     window.location.replace("")
-//   }
-//   else {
-//     alert("Password does not match")
-//     document.getElementById('confirmPassword').style.color = 'red'
-//     document.getElementById('password').style.color = 'red'
-//     // window.scrollTo(300, 500)
-//   }
-// }

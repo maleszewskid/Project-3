@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import Header from '../components/Header/Header';
 /* import EntryBody from '../components/EntryBody'; */
 import API from '../utils/API';
@@ -10,8 +9,14 @@ class DataEntry extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            DataInputs: {}
+            username: ''
         };
+    }
+
+    componentDidMount() {
+        this.setState({
+            username: this.props.location.state
+        });
     }
 
     handleInputChange = event => {
@@ -21,70 +26,91 @@ class DataEntry extends Component {
         this.setState({
             [name]: value
         });
+        console.log(this.state);
     };
 
-    // event handler for onclick of submit button in login form
-    handleSubmit = event => {
+    // Event Handler to submit Blood data:
+    handleBloodSubmit = event => {
         event.preventDefault();
-        this.setState({
-            DataInputs: {
-                ethnicity: this.state.ethnicity,
-                weight: this.state.weight,
-                height: this.state.height,
-                disability: this.state.disability,
-                tobaccoUse: this.state.tobaccoUse,
-                medications: this.state.medications,
-                dosage: this.state.dosage,
-                mrn: this.state.mrn,
-                heartRate: this.state.heartRate,
-                bloodSugar: this.state.bloodSugar,
-                systolicBloodPressure: this.state.systolicBloodPressure,
-                diastolicBloodPressure: this.state.diastolicBloodPressure,
-                moodSentiment: this.state.moodSentiment,
-                journalEntry: this.state.journalEntry
-            }
-        })
-
+        const { username, heartRate, bloodSugar, systolicBloodPressure, diastolicBloodPressure } = this.state;
+        const data = {
+            username,
+            heartRate,
+            bloodSugar,
+            systolicBloodPressure,
+            diastolicBloodPressure
+        };
+        console.log(data);
         // Need to send this to mongoDB via method called addPatientData
-        API.Login(this.state.DataInputs)
-            // here -> redirect the user to the landing page
-            .then(res => {
-                // Need to have this redirect to the main page:
-                if (res.status === 200) {
-                    // Set the redirect route:
-                    this.setState({
-                        redirectTo: '/Landing',
-                        loggedIn: true,
-                        username: res.data.username
-                    })
-                }
-            })
-            .catch(err => console.log(err)
-            )
+    }
+
+    // Event Handler to submit Mood data:
+    handleMoodSubmit = event => {
+        event.preventDefault();
+        const { username, journalEntry } = this.state;
+        const data = {
+            username,
+            journalEntry
+        };
+        console.log(data);
+        // Need to send this to mongoDB via method called addPatientData
+    }
+
+    // Event Handler to submit Medication data:
+    handleMedsSubmit = event => {
+        event.preventDefault();
+        const medArray = [];
+        const doseArray = [];
+        if (this.state.medication1 && this.state.doseage1) {
+            medArray.push(this.state.medication1);
+            doseArray.push(this.state.doseage1);
+            console.log(medArray);
+            console.log(doseArray);
+        }
+        if (this.state.medication2 && this.state.doseage2) {
+            medArray.push(this.state.medication2);
+            doseArray.push(this.state.doseage2);
+            console.log(medArray);
+            console.log(doseArray);
+        }
+        if (this.state.medication3 && this.state.doseage3) {
+            medArray.push(this.state.medication3);
+            doseArray.push(this.state.doseage3);
+            console.log(medArray);
+            console.log(doseArray);
+        }
+        if (this.state.medication4 && this.state.doseage4) {
+            medArray.push(this.state.medication4);
+            doseArray.push(this.state.doseage4);
+            console.log(medArray);
+            console.log(doseArray);
+        }
+        if (this.state.medication5 && this.state.doseage5) {
+            medArray.push(this.state.medication5);
+            doseArray.push(this.state.doseage5);
+            console.log(medArray);
+            console.log(doseArray);
+        }
+        // Need to send this to mongoDB via method called addPatientData
+    }
+
+    // Event handler to submit general data:
+    handleGeneralSubmit = event => {
+        event.preventDefault();
     }
 
 
-
     render = () => {
-        console.log(this.state.DataInputs);
         const username = this.props.location.state;
         return (
             <>
-            <Header user={username} />
-            <div>
-                <Link
-                    to="/DataEntry"
-                    className={window.location.pathname === '/DataEntry'}
-                >
-                </Link>
-                {/* <EntryBody onChange={this.handleInputChange}
-                    onClick={this.handleSubmit}
-                    data={this.state.DataInputs} /> */}
-
+                <Header user={username} />
                 <EntryTabs onChange={this.handleInputChange}
-                    onClick={this.handleSubmit}
-                    data={this.state.DataInputs} />
-            </div>
+                    onBloodClick={this.handleBloodSubmit}
+                    onMoodClick={this.handleMoodSubmit}
+                    onMedsClick={this.handleMedsSubmit}
+                    onGenClick={this.handleGeneralSubmit}
+                     />
             </>
         )
     }

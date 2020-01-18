@@ -13,9 +13,8 @@ router.route('/allData/:username')
 router.route('/createPatient')
     .post(controller.createData);
 
-router.route('/update')
-    .post(controller.updateFields)
-    .post(controller.updateArrayFields);
+router.route('/addData')
+    .post(controller.addData);
 
 router.route('/removeData')
     .get(controller.deletePatient)   
