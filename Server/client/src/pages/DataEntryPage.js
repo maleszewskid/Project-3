@@ -9,9 +9,7 @@ class DataEntry extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: '',
-            medications: [],
-            doseage: []
+            username: ''
         };
     }
 
@@ -30,14 +28,6 @@ class DataEntry extends Component {
         });
         console.log(this.state);
     };
-
-    handleMedInput = event => {
-        const { name, value } = event.target;
-        this.setState({
-            [name]: value
-        })
-        console.log(this.state.medications)
-    }
 
     // Event Handler to submit Blood data:
     handleBloodSubmit = event => {
@@ -69,6 +59,38 @@ class DataEntry extends Component {
     // Event Handler to submit Medication data:
     handleMedsSubmit = event => {
         event.preventDefault();
+        const medArray = [];
+        const doseArray = [];
+        if (this.state.medication1 && this.state.doseage1) {
+            medArray.push(this.state.medication1);
+            doseArray.push(this.state.doseage1);
+            console.log(medArray);
+            console.log(doseArray);
+        }
+        if (this.state.medication2 && this.state.doseage2) {
+            medArray.push(this.state.medication2);
+            doseArray.push(this.state.doseage2);
+            console.log(medArray);
+            console.log(doseArray);
+        }
+        if (this.state.medication3 && this.state.doseage3) {
+            medArray.push(this.state.medication3);
+            doseArray.push(this.state.doseage3);
+            console.log(medArray);
+            console.log(doseArray);
+        }
+        if (this.state.medication4 && this.state.doseage4) {
+            medArray.push(this.state.medication4);
+            doseArray.push(this.state.doseage4);
+            console.log(medArray);
+            console.log(doseArray);
+        }
+        if (this.state.medication5 && this.state.doseage5) {
+            medArray.push(this.state.medication5);
+            doseArray.push(this.state.doseage5);
+            console.log(medArray);
+            console.log(doseArray);
+        }
         // Need to send this to mongoDB via method called addPatientData
     }
 
@@ -84,11 +106,11 @@ class DataEntry extends Component {
             <>
                 <Header user={username} />
                 <EntryTabs onChange={this.handleInputChange}
-                    onMedChange={this.handleMedInput}
                     onBloodClick={this.handleBloodSubmit}
                     onMoodClick={this.handleMoodSubmit}
                     onMedsClick={this.handleMedsSubmit}
-                    onGenClick={this.handleGeneralSubmit} />
+                    onGenClick={this.handleGeneralSubmit}
+                     />
             </>
         )
     }
