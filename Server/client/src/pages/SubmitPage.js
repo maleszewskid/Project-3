@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../components/Header/Header';
-import { PDFDownloadLink, PDFviewer } from '@react-pdf/renderer';
+import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer';
 import PDF from "../components/createPDF/index2"
 
 class SubmitToDoctor extends Component {
@@ -30,9 +30,9 @@ class SubmitToDoctor extends Component {
                         This is submit to Doctor Page
                     </div>
                     <div>
-                        <PDFviewer>
+                        <PDFViewer>
                         <PDF />
-                        </PDFviewer>
+                        </PDFViewer>
                         </div>
                 </>
                 )
