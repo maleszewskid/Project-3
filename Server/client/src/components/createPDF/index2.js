@@ -71,9 +71,14 @@ const Quote = () => (
   <Document>
     <Page>
       <Text>
-        
-   
+        {personalData}
       </Text>
+      <Text>
+          {heart}
+          </Text>
+          <Text>
+          {diabetic}
+          </Text>
     </Page>
   </Document>
 );
