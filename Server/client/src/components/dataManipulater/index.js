@@ -73,6 +73,9 @@ class DataManipulator extends Component {
                   <option>Weight</option>
                 </select>
               </div>
+              <div>
+                  {/* Need to add two date choosers to get time frame to fetch data */}
+                  </div>
               <button type="button" class="btn btn-primary1" onclick="vitalChooser">Save changes</button>
 
                 </div>
