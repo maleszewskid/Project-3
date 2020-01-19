@@ -13,6 +13,7 @@ import './EntryTabs.css';
 
 const EntryTabs = props => {
     const [key, setKey] = useState('home');
+    
     return (
         <Container className="Main-Tab-Container">
             <Row>
@@ -28,6 +29,7 @@ const EntryTabs = props => {
 
                                             <Row>
                                                 <Col>
+
                                                 </Col>
                                             </Row>
 
@@ -43,7 +45,7 @@ const EntryTabs = props => {
                             <Row>
                                 <Col className="col-12 text-center card-container-entry">
                                     <Card className="text-center card-entry display-block">
-                                        <Card.Header>Blood Pressure | Pulse</Card.Header>
+                                        <Card.Header className="entry-header">Blood Pressure | Pulse</Card.Header>
                                         <Card.Body>
                                             <Form>
                                                 <Form.Group controlId="heartrate">
@@ -88,14 +90,14 @@ const EntryTabs = props => {
                             <Row>
                                 <Col className="col-12 text-center card-container-entry">
                                     <Card className="text-center card-entry display-block">
-                                        <Card.Header>Mood | Journal</Card.Header>
+                                        <Card.Header className="entry-header">Mood | Journal</Card.Header>
                                         <Card.Body>
 
                                             <Form.Group controlId="exampleForm.ControlTextarea1">
                                                 <Form.Control as="textarea" name="journalEntry" onChange={props.onMoodChange} rows="6" placeholder="Start typing here..." />
                                             </Form.Group>
 
-                                            <ProgressBar animated now={80} />
+                                            {(props.sentimentScore) ? <ProgressBar animated now={props.sentimentScore} /> : <ProgressBar animated now={50} />}
                                             <br></br>
                                             <Button onClick={props.onMoodClick} className="mood-submit" variant="primary">Save Entry</Button>
 
@@ -109,7 +111,7 @@ const EntryTabs = props => {
                             <Row>
                                 <Col className="col-12 text-center card-container-entry">
                                     <Card className="text-center card-entry display-block">
-                                        <Card.Header>Medications | Dosage</Card.Header>
+                                        <Card.Header className="entry-header">Medications | Dosage</Card.Header>
                                         <Card.Body>
                                             <Form className="my-3">
                                                 <Form.Row>
@@ -172,7 +174,7 @@ const EntryTabs = props => {
                             <Row>
                                 <Col className="col-12 text-center card-container-entry">
                                     <Card className="text-center card-entry display-block">
-                                        <Card.Header>General | Stats</Card.Header>
+                                        <Card.Header className="entry-header">General | Stats</Card.Header>
                                         <Card.Body>
                                             <Form onSubmit={props.handleSubmit}>
                                                 <Row>

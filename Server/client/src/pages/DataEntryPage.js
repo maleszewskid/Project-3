@@ -64,35 +64,39 @@ class DataEntry extends Component {
             journalEntry: value
         });
 
-        console.log(this.state.journalEntry);
+        // console.log(this.state.journalEntry);
     };
-
 
     // calculateSentiment
     calculateSentiment = (journalText) => {
         let sentiment = new Sentiment();
         let result = sentiment.analyze(journalText);
-        console.log(result.score);
-
+        console.log(result)
+        let score = result.comparative;
+        let percentageScore = Math.round(result.comparative * 100);
+        // console.log('This is score ' + score);
         this.setState({
-            journalEntrySentiment: result.score
+            journalEntrySentiment: percentageScore
         })
-
-        console.log(this.state.journalEntrySentiment);
+        // console.log(this.state.journalEntrySentiment);
     }
 
-
-
     // Event Handler to submit Mood data:
-    handleMoodSubmit = event => {
+    handleMoodSubmit = async event => {
         event.preventDefault();
-        const { username, journalEntry } = this.state;
-        const data = {
-            username,
-            journalEntry
-        };
 
+        this.calculateSentiment(this.state.journalEntry);
+
+        const { username, journalEntry, journalEntrySentiment } = this.state;
         
+        // use await to wait for data to be loaded into state
+        const data = await {
+            username,
+            journalEntry,
+            journalEntrySentiment
+        };
+    
+        console.log(this.state.journalEntry, this.state.journalEntrySentiment + '%');
 
         // Need to send this to mongoDB via method called addPatientData
         API.submitPatientData({data})
@@ -101,7 +105,8 @@ class DataEntry extends Component {
                 if (err) {
                     console.log(err)
                 }
-            })
+        })
+        
     }
 
     // Event Handler to submit Medication data:
@@ -172,11 +177,12 @@ class DataEntry extends Component {
                 <Header user={username} />
                 <EntryTabs onChange={this.handleInputChange}
                     onMoodChange={this.handleMoodInputChange}
+                    sentimentScore={this.state.journalEntrySentiment}
                     onBloodClick={this.handleBloodSubmit}
                     onMoodClick={this.handleMoodSubmit}
                     onMedsClick={this.handleMedsSubmit}
                     onGenClick={this.handleGeneralSubmit}
-                     />
+                    />
             </>
         )
     }
