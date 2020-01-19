@@ -53,3 +53,10 @@
 }
 
 
+.dataEntryError {
+    background-color: lightcoral;
+}
+
+.dataEntrySuccess {
+    background-color: lightgreen;
+}

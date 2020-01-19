@@ -78,6 +78,8 @@ const EntryTabs = props => {
                                                 </Form.Group>
                                             </Form>
                                             <Button onClick={props.onBloodClick} className="blood-submit" variant="primary">Submit</Button>
+                                            {(props.bloodSuccess) ? <div className='dataEntrySuccess col-5 p-2 my-2 mx-auto text-center rounded'>Data recorded!</div> : null}
+                                            {(props.bloodError) ? <div className='dataEntryError col-5 p-2 my-2 mx-auto text-center rounded'>There was an issue submitting your data. Please try again later.</div> : null}
                                         </Card.Body>
                                         <Card.Footer className="entry-footer"></Card.Footer>
                                     </Card>
@@ -100,7 +102,8 @@ const EntryTabs = props => {
                                             {(props.sentimentScore) ? <ProgressBar animated now={props.sentimentScore} /> : <ProgressBar animated now={50} />}
                                             <br></br>
                                             <Button onClick={props.onMoodClick} className="mood-submit" variant="primary">Save Entry</Button>
-
+                                            {(props.moodSuccess) ? <div className='dataEntrySuccess col-5 p-2 my-2 mx-auto text-center rounded'>Data recorded!</div> : null}
+                                            {(props.moodError) ? <div className='dataEntryError col-5 p-2 my-2 mx-auto text-center rounded'>There was an issue submitting your data. Please try again later.</div> : null}
                                         </Card.Body>
                                         <Card.Footer className="entry-footer"></Card.Footer>
                                     </Card>
@@ -164,6 +167,9 @@ const EntryTabs = props => {
                                                 </Form.Row>
                                             </Form>
                                             <Button className="meds-submit my-3" name="medsButton" onClick={props.onMedsClick} variant="primary">Submit</Button>
+                                            {(props.medSuccess) ? <div className='dataEntrySuccess col-5 p-2 my-2 mx-auto text-center rounded'>Data recorded!</div> : null}
+                                            {(props.medError) ? <div className='dataEntryError col-5 p-2 my-2 mx-auto text-center rounded'>There was an issue submitting your data. Please try again later.</div> : null}
+                                            {(props.addDoseage) ? <div className='dataEntryError col-5 p-2 my-2 mx-auto text-center rounded'>Please add the doseage for your medication.</div> : null}
                                         </Card.Body>
                                         <Card.Footer className="entry-footer"></Card.Footer>
                                     </Card>
@@ -283,7 +289,8 @@ const EntryTabs = props => {
                                                 </Row>
                                             </Form>
                                             <Button className="general-submit" onClick={props.onGenClick} variant="primary">Submit</Button>
-
+                                            {(props.genSuccess) ? <div className='dataEntrySuccess col-5 p-2 my-2 mx-auto text-center rounded'>Data recorded!</div> : null}
+                                            {(props.genError) ? <div className='dataEntryError col-5 p-2 my-2 mx-auto text-center rounded'>There was an issue submitting your data. Please try again later.</div> : null}
                                         </Card.Body>
                                         <Card.Footer className="entry-footer"></Card.Footer>
                                     </Card>
