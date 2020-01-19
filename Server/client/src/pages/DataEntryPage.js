@@ -252,9 +252,6 @@ class DataEntry extends Component {
                     onMoodClick={this.handleMoodSubmit}
                     onMedsClick={this.handleMedsSubmit}
                     onGenClick={this.handleGeneralSubmit}
-
-                    />
-
                     bloodError={this.state.bloodError}
                     moodError={this.state.moodError}
                     medError={this.state.medError}
@@ -265,7 +262,6 @@ class DataEntry extends Component {
                     medSuccess={this.state.medSuccess}
                     genSuccess={this.state.genSuccess}
                 />
-
             </>
         )
     }
