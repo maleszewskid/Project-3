@@ -1,45 +1,4 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
-// import Header from '../components/Header/Header';
-import { Page, Text, Document, Image, Font, StyleSheet, PDFDownloadLink, PDFViewer } from '@react-pdf/renderer';
-import Quote from '../components/PDF';
-import { Link } from 'react-router-dom';
-import DownloadLink from '../components/DownloadLink'
-
-
-// const x = 'fasd';
-// const Quote = () => (
-//     <Document>
-//       <Page >
-//         <Text style>
-//           {x}
-//         </Text>
-//       </Page>
-//     </Document>
-//   );
-
-
-class SubmitToDoctor extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         username: '',
-    //         placeholder: ''
-    //     }
-    // }
-
-    // componentDidMount() {
-    //     this.setState({
-    //         username: this.props.location.state
-    //     });
-    //     const { username } = this.props.location.state;
-    //     console.log(username);
-    // }
-render = () =>{
-                return (
-                <>
-                    {/* <Header /> */}
-=======
 import Header from '../components/Header/Header';
 import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer';
 import PDF from "../components/createPDF/index2"
@@ -87,13 +46,9 @@ render = () => {
                 return (
                 <>
                     {/* <Header user={username} /> */}
->>>>>>> 18697b62622902a4659479bd08e69ab44cc17843
                     <div>
                         This is submit to Doctor Page
                     </div>
-<<<<<<< HEAD
-{/* <React.Fragment> */}
-=======
                     <div>
                         <PDFViewer>
                         <PDF />
@@ -114,7 +69,6 @@ render = () => {
         }
     }
 
->>>>>>> 18697b62622902a4659479bd08e69ab44cc17843
 
                     <PDFViewer>
                         <Quote />
