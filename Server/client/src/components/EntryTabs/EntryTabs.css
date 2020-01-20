@@ -1,0 +1,33 @@
+
+.Main-Tab-Container {
+    padding-top: 7rem;
+
+}
+
+.nav-tabs {  
+    display: flex;
+    justify-content: center;
+}
+
+.nav-item {
+    background-color: rgba(19, 33, 49, 0.801);
+    border-radius: 0px!important;
+    width: 20%;
+    color: whitesmoke;
+    padding: 2px 2px 2px 2px;
+    margin: auto;
+}
+
+.card-container-entry {
+    border-radius: 0px!important;
+}
+
+.card-entry {
+    border-radius: 0px!important;
+}
+
+.entry-footer {
+    background-color:rgba(19, 33, 49, 0.801);
+    border-radius: 0px!important;
+}
+

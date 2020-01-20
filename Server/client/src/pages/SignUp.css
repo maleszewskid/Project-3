@@ -1,0 +1,9 @@
+.error {
+    font-size: 1.25rem;
+    background-color: lightcoral;
+}
+
+.good {
+    font-size: 1.25rem;
+    background-color: lightgreen;
+}

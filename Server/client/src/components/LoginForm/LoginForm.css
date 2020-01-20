@@ -1,0 +1,48 @@
+
+.loginSubmitBtn {
+    float: right;
+    border-radius: 8px!important;
+    width: 200px;
+    box-shadow: 0 2px 4px -2px #788183;
+}
+.form-login {
+    margin-top: 20px;
+}
+.welcomeMsg {
+    padding-top: 60px;
+    font-weight: 700;
+}
+.forgotPwd {
+    color: rgb(0, 0, 0)!important;
+    text-decoration: none;
+}
+.forgotPwd:hover {
+    color: rgb(89, 218, 117)!important;
+    text-decoration: none!important;
+}
+.createAccount {
+    padding-top: 20px;
+    margin: auto;
+}
+.createAccountBtn {
+    margin-top: 10px;
+    background-color: rgba(66, 133, 187, 0.959)!important;
+    color: rgb(27, 27, 27)!important;
+    border: 1px solid rgba(66, 133, 187, 0.959)!important;
+    border-radius: 10px!important;
+    width: 400px;
+    box-shadow: 0 2px 8px -2px #788183;
+}
+.createAccountBtn:hover {
+    margin-top: 10px;
+    background-color: rgba(170, 209, 241, 0.959)!important;
+    color: rgb(27, 27, 27)!important;
+    border: 1px solid rgb(139, 139, 139)!important;
+    border-radius: 10px!important;
+    width: 400px;
+    box-shadow: 0 2px 8px -2px #788183;
+}
+
+.loginError {
+    background-color: lightcoral;
+}
