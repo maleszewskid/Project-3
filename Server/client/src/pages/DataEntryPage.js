@@ -96,7 +96,7 @@ class DataEntry extends Component {
         let sentiment = new Sentiment();
         let result = sentiment.analyze(journalText);
         console.log(result)
-        let score = result.comparative;
+        // let score = result.comparative;
         let percentageScore = Math.round(result.comparative * 100);
         // console.log('This is score ' + score);
         this.setState({

@@ -12,7 +12,7 @@ router.route('/Login')
         }
         res.send(userInfo)
     }
-        )
+)
      
 router.route('/Signup')
     .post(controller.signUp);
@@ -21,6 +21,11 @@ router.route('/Logout')
     .post(controller.logoutUser);
 
 router.route('/DeleteUser/:username')
-    .delete(controller.deleteUserCreds);     
+    .delete(controller.deleteUserCreds);
+
+// Jack confirm if this is handled correctly, 
+// need to also add api func in utils to update mongo password
+router.route('/UpdatePassword/:username')
+    .post(controller.updatePatientPassword);
 
 module.exports = router;

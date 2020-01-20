@@ -81,6 +81,13 @@ module.exports = {
             .then(dbModel => dbModel.remove())
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
+    },
+    // update the users password on reset password submit button page
+    updatePatientPassword: function (req, res) {
+        db.PatientInfo
+            .findOneAndUpdate({ username: req.params.username }, { $set: {"password": newFields.password}})
+            .then(data => res.json(data))
+            .catch(err => res.status(422).json(err))
     }
     // --------------------------------------------------------- //
 }

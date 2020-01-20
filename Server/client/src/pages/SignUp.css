@@ -2,8 +2,19 @@
     font-size: 1.25rem;
     background-color: lightcoral;
 }
-
 .good {
     font-size: 1.25rem;
     background-color: lightgreen;
+}
+.signup-container {
+    width: 80%;
+}
+
+.signup {
+    margin: auto;
+}
+.signup-button {
+    display:block;
+    margin: 0 auto;
+    width: 220px;
 }
