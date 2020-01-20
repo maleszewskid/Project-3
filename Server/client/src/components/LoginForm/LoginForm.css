@@ -32,6 +32,9 @@
     border-radius: 10px!important;
     width: 400px;
     box-shadow: 0 2px 8px -2px #788183;
+    display:block;
+    margin: 0 auto;
+    width: 320px;
 }
 .createAccountBtn:hover {
     margin-top: 10px;
@@ -41,8 +44,11 @@
     border-radius: 10px!important;
     width: 400px;
     box-shadow: 0 2px 8px -2px #788183;
+    text-decoration: none!important;
+    display:block;
+    margin: 0 auto;
+    width: 320px;
 }
-
 .loginError {
     background-color: lightcoral;
 }
