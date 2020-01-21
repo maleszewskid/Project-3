@@ -69,28 +69,28 @@ module.exports = {
     addBloodData: function (req, res) {
         const newFields = req.body.data;
         db.PatientInfo
-            .findOneAndUpdate({ username: req.body.data.username.username }, { $push: {heartRate: newFields.heartRate, bloodSugar: newFields.bloodSugar, systolicBloodPressure: newFields.systolicBloodPressure, diastolicBloodPressure: newFields.diastolicBloodPressure} }, {returnOriginal: false})
+            .findOneAndUpdate({ username: req.body.data.username.username }, { $push: {heartRate: newFields.heartRate, bloodSugar: newFields.bloodSugar, systolicBloodPressure: newFields.systolicBloodPressure, diastolicBloodPressure: newFields.diastolicBloodPressure, bloodTimeStamp: Date.now()} }, {returnOriginal: false})
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
     addMoodData: function (req, res) {
         const newFields = req.body.data;
         db.PatientInfo
-            .findOneAndUpdate({ username: req.body.data.username.username }, { $push: {'journalEntry': newFields.journalEntry, 'journalEntrySentiment': newFields.journalEntrySentiment} }, {returnOriginal: false})
+            .findOneAndUpdate({ username: req.body.data.username.username }, { $push: {'journalEntry': newFields.journalEntry, 'journalEntrySentiment': newFields.journalEntrySentiment, moodTimeStamp: Date.now()} }, {returnOriginal: false})
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
     addMedData: function (req, res) {
         const newFields = req.body.data;
         db.PatientInfo
-            .findOneAndUpdate({ username: req.body.data.username.username }, { $push: {'medications': newFields.medications, 'doseage': newFields.doseage} }, {returnOriginal: false})
+            .findOneAndUpdate({ username: req.body.data.username.username }, { $push: {'medications': newFields.medications, 'doseage': newFields.doseage, medsTimeStamp: Date.now()} }, {returnOriginal: false})
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
     addGenData: function (req, res) {
         const newFields = req.body.data;
         db.PatientInfo
-            .findOneAndUpdate({ username: req.body.data.username.username }, { $push: {'height': newFields.height}, $set: { 'weight': newFields.weight, 'ethnicity': newFields.ethnicity, 'disability': newFields.disability, 'tobaccoUse': newFields.tobaccoUse} }, {returnOriginal: false})
+            .findOneAndUpdate({ username: req.body.data.username.username }, { $push: {'height': newFields.height, genTimeStamp: Date.now()}, $set: { 'weight': newFields.weight, 'ethnicity': newFields.ethnicity, 'disability': newFields.disability, 'tobaccoUse': newFields.tobaccoUse} }, {returnOriginal: false})
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },

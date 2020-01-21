@@ -43,6 +43,9 @@ const PatientInfo = new Schema ({
     tobaccoUse: {
         type: Boolean
     },
+    genTimeStamp: [{
+        type: Date
+    }],
     //Needs to be an array
     medications: [{
         type: String
@@ -50,6 +53,9 @@ const PatientInfo = new Schema ({
     //Needs to be an array
     doseage: [{
         type: Number
+    }],
+    medsTimeStamp: [{
+        type: Date
     }],
     mrn: {
         type: Number
@@ -70,6 +76,9 @@ const PatientInfo = new Schema ({
     diastolicBloodPressure: [{
         type: Number
     }],
+    bloodTimeStamp: [{
+        type: Date
+    }],
     //Needs to be an array
     journalEntrySentiment: [{
         type: Number
@@ -77,10 +86,8 @@ const PatientInfo = new Schema ({
     journalEntry: [{
         type: String
     }],
-    //Needs to be an array
-    date: [{
-        type: Date,
-        default: Date.now
+    moodTimeStamp: [{
+        type: Date
     }]
 })
 
