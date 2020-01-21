@@ -44,7 +44,7 @@ class ViewData extends Component {
             <>
                 <Header user={this.state.username} />
                 {(this.state.loading || this.state.error) && <div>{this.state.loading ? 'Loading...' : this.state.error}</div>}
-                <ViewTabs data={this.state.data}/>
+                {(!this.state.loading && !this.state.error) ? <ViewTabs data={this.state.data}/> : null }
             </>
         )
     }

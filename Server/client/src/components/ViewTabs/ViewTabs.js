@@ -36,6 +36,14 @@ const ViewTabs = (props) => {
         genTimeStamp,
         mrn
     } = props.data;
+    let data = [
+        //The data field will be a combination of date and the data value. Date will be the key, and the data item from that date will be the value.
+        {name: 'Heart Rate', data:{}},
+        {name: 'Blood Sugar', data:{}},
+        {name: 'Systolic Blood Pressure', data:{}},
+        {name: 'Diastolic Blood Pressure', data:{}},
+        {name: 'Sentiment', data:{}}
+    ]
     return (
         <Container className='Main-Tab-Container'>
             <Row>
@@ -51,17 +59,36 @@ const ViewTabs = (props) => {
                         <Tab eventKey='journalEntries' title="Journal Entries">
                             <Card>
                                 <Card.Body>
-                                    {journalEntry.map(entry => (
-                                    <div>{entry}</div>
-                                    )
-                                    )}
+                                    <Row>
+                                        <Col>{moodTimeStamp.map(date => (
+                                            <div>{date}</div>
+                                        )
+                                        )}</Col>
+                                        <Col>{journalEntry.map(entry => (
+                                            <div>{entry}</div>
+                                        )
+                                        )}</Col>
+                                    </Row>
                                 </Card.Body>
                             </Card>
                         </Tab>
                         <Tab eventKey='meds' title='Medication'>
                             <Card>
                                 <Card.Body>
-
+                                    <Row>
+                                        <Col>
+                                            {medications.map(med => (
+                                                <div>{med}</div>
+                                            )
+                                            )}
+                                        </Col>
+                                        <Col>
+                                        {doseage.map(dose => (
+                                                <div>{dose}</div>
+                                            )
+                                            )}
+                                        </Col>
+                                    </Row>
                                 </Card.Body>
                             </Card>
                         </Tab>
