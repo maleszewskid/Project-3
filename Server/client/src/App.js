@@ -14,7 +14,6 @@ import ViewData from './pages/ViewData';
 
 // Default CSS
 import './App.css';
-import HomePage from './pages/HomePage';
 
 function App() {
   return (
