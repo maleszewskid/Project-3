@@ -14,14 +14,12 @@ import ViewData from './pages/ViewData';
 
 // Default CSS
 import './App.css';
-import HomePage from './pages/HomePage';
 
 function App() {
   return (
     <Router>
       <div>
         <Switch>
-          {/* <Route exact path='/' component={HomePage} /> */}
           <Route exact path="/" component={LoginPage} />
           <Route exact path="/Landing" component={LandingPage} />
           <Route exact path="/DataEntry" component={DataEntryPage} />

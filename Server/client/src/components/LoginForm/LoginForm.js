@@ -24,7 +24,7 @@ const LoginForm = props => {
                         <Form className="form-login">
                             <Form.Group controlId="formGroupEmail">
                                 <Form.Label></Form.Label>
-                                <Form.Control onChange={props.onChange} name="username" type="username" placeholder="Enter username" />
+                                <Form.Control onChange={props.onChange} name="username" type="username" placeholder="Username" />
                             </Form.Group>
                             <Form.Group controlId="formGroupPassword">
                                 <Form.Label></Form.Label>
@@ -70,7 +70,7 @@ const LoginForm = props => {
                                 to="/Signup"
                                 className={window.location.pathname === "/Signup"}
                             >
-                                <Button className="createAccountBtn" variant="info">Sign up for patientFirst</Button>
+                                <Button className="createAccountBtn" variant="info">Sign up</Button>
                             </Link>
                         </Col>
                     </Row>
