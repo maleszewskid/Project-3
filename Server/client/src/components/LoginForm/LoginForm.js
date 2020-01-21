@@ -42,7 +42,7 @@ const LoginForm = props => {
                                     </div>
                                 </Col>
                                 <Col className='col-sm'>
-                                    <Button onClick={props.onClick} className="loginSubmitBtn" variant="success">Log in</Button>
+                                    <Button onClick={props.onClick} className="loginSubmitBtn" type="submit" variant="success">Log in</Button>
                                 </Col>
                             </Row>
                         </Form>

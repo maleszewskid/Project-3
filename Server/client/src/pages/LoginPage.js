@@ -25,7 +25,7 @@ class Login extends Component {
         });
     };
 
-    
+
     // event handler for onclick of submit button in login form
     handleSubmit = event => {
         event.preventDefault();
@@ -54,7 +54,7 @@ class Login extends Component {
             .catch(err => this.setState({
                 error: true
             })
-            )
+        )
     }
 
     render = () => {
