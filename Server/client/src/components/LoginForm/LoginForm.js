@@ -10,12 +10,13 @@ import './LoginForm.css';
 const LoginForm = props => {
 
     return (
-        <Container className="loginForm">
+        <Container className="loginForm card">
             <Row className="justify-content-md-center">
-                <Col>
+                <Col className='col-sm'></Col>
+                <Col className='col-sm'>
                     <Row>
                         <Col className="col-12 text-center">
-                            <div className="welcomeMsg">To continue, log in to patientFirst</div>
+                            <div className="welcomeMsg">Login</div>
                         </Col>
                     </Row>
                     {/* User login form */}
@@ -40,7 +41,7 @@ const LoginForm = props => {
                                         />
                                     </div>
                                 </Col>
-                                <Col>
+                                <Col className='col-sm'>
                                     <Button onClick={props.onClick} className="loginSubmitBtn" variant="success">Log in</Button>
                                 </Col>
                             </Row>
@@ -52,19 +53,7 @@ const LoginForm = props => {
                         </Col>
                     </Row> : null}
                     <br></br>
-                    <Row>
-                        <Col className="col-12 text-center">
-                            <div>
-                                <Link
-                                to="/Resetpassword"
-                                className={window.location.pathname === "/Resetpassword"}
-                                >
-                                    <div className="forgotPwd">Forgot you password?</div>
-                                </Link>
-                            </div>
-                        </Col>
-                    </Row>
-                    <br></br>
+
                     <Col className="col-md-auto">
                         <hr>
                         </hr>
@@ -81,11 +70,33 @@ const LoginForm = props => {
                                 to="/Signup"
                                 className={window.location.pathname === "/Signup"}
                             >
-                                <Button className="createAccountBtn" variant="success">Sign up for patientFirst</Button>
+                                <Button className="createAccountBtn" variant="info">Sign up for patientFirst</Button>
                             </Link>
                         </Col>
                     </Row>
+                    <br></br>
+                    <hr></hr>
+                    <br></br>
+
+                    <Row>
+                        <Col className="col-12 text-center">
+                            <div>
+                                <Link
+                                    to="/Resetpassword"
+                                    className={window.location.pathname === "/Resetpassword"}
+                                >
+                                    <div className="forgotPwd">Forgot you password?</div>
+                                </Link>
+                            </div>
+                        </Col>
+                    </Row>
+                    <br></br>
+
+
                 </Col>
+
+                <Col className='col-sm'></Col>
+
             </Row>
         </Container>
     )

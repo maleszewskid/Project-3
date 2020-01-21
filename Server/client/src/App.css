@@ -174,4 +174,7 @@ body {
     color: #777;
   }
 }
+button.loginSubmitBtn.btn.btn-success {
+  width: 102%;
+}
 
