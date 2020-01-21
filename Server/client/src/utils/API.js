@@ -30,8 +30,17 @@ export default {
         return axios.get('/api/patient/allData/' + username.username)
     },
     // Add patient data to DB:
-    submitPatientData: function(data) {
-        return axios.post('/api/patient/addData', data)
+    submitBloodData: function(data) {
+        return axios.post('/api/patient/addBloodData', data)
+    },
+    submitMoodData: function(data) {
+        return axios.post('/api/patient/addMoodData', data)
+    },
+    submitMedData: function(data) {
+        return axios.post('/api/patient/addMedData', data)
+    },
+    submitGenData: function(data) {
+        return axios.post('/api/patient/addGenData', data)
     },
     // update patient password here, Jack to test this function
     updatePatientPassword: function(username) {

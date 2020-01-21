@@ -71,7 +71,7 @@ const PatientInfo = new Schema ({
         type: Number
     }],
     //Needs to be an array
-    moodSentiment: [{
+    journalEntrySentiment: [{
         type: Number
     }],
     journalEntry: [{

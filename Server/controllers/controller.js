@@ -66,11 +66,31 @@ module.exports = {
             .catch(err => res.status(422).json(err))
     },
     // update array items individual patientInfo fields
-    addData: function (req, res) {
-        //console.log(req.body)
+    addBloodData: function (req, res) {
         const newFields = req.body.data;
         db.PatientInfo
-            .findOneAndUpdate({ username: req.body.data.username.username }, {  $set: {"ethnicity": newFields.ethnicity, "weight": newFields.weight, 'disability': newFields.disability, 'tobaccoUse': newFields.tobaccoUse}, $push: {"medications": newFields.medications, "doseage": newFields.doseage, 'heartRate': newFields.heartRate, 'bloodSugar': newFields.bloodSugar, 'systolicBloodPressure': newFields.systolicBloodPressure, 'diastolicBloodPressure': newFields.diastolicBloodPressure, 'moodSentiment': newFields.moodSentiment, 'journalEntry': newFields.journalEntry, 'height': newFields.height } }, {returnOriginal: false})
+            .findOneAndUpdate({ username: req.body.data.username.username }, { $push: {heartRate: newFields.heartRate, bloodSugar: newFields.bloodSugar, systolicBloodPressure: newFields.systolicBloodPressure, diastolicBloodPressure: newFields.diastolicBloodPressure} }, {returnOriginal: false})
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    },
+    addMoodData: function (req, res) {
+        const newFields = req.body.data;
+        db.PatientInfo
+            .findOneAndUpdate({ username: req.body.data.username.username }, { $push: {'journalEntry': newFields.journalEntry, 'journalEntrySentiment': newFields.journalEntrySentiment} }, {returnOriginal: false})
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    },
+    addMedData: function (req, res) {
+        const newFields = req.body.data;
+        db.PatientInfo
+            .findOneAndUpdate({ username: req.body.data.username.username }, { $push: {'medications': newFields.medications, 'doseage': newFields.doseage} }, {returnOriginal: false})
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    },
+    addGenData: function (req, res) {
+        const newFields = req.body.data;
+        db.PatientInfo
+            .findOneAndUpdate({ username: req.body.data.username.username }, { $push: {'height': newFields.height}, $set: { 'weight': newFields.weight, 'ethnicity': newFields.ethnicity, 'disability': newFields.disability, 'tobaccoUse': newFields.tobaccoUse} }, {returnOriginal: false})
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
