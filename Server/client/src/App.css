@@ -178,3 +178,6 @@ button.loginSubmitBtn.btn.btn-success {
   width: 102%;
 }
 
+
+/* NAV LINK */
+.navlink { display: flex; justify-content: center }

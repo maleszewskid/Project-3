@@ -10,7 +10,7 @@ const LandingHeader = props => {
             <div className="p-2 m-0 headerUsername">{props.user.username}</div>
 
             <ul className='navbar-nav ml-auto'>
-                <li className='navbar-nav ml-auto'><a>Logout</a></li>
+                <li className='navbar-nav ml-auto'><a id='logout'>Logout</a></li>
             </ul>
         </nav>
     )
