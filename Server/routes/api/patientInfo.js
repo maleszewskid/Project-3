@@ -13,11 +13,20 @@ router.route('/allData/:username')
 router.route('/createPatient')
     .post(controller.createData);
 
-router.route('/addData')
-    .post(controller.addData);
+router.route('/addBloodData')
+    .post(controller.addBloodData);
+
+router.route('/addMoodData')
+    .post(controller.addMoodData);
+
+router.route('/addMedData')
+    .post(controller.addMedData);
+
+router.route('/addGenData')
+    .post(controller.addGenData);
 
 router.route('/removeData')
-    .get(controller.deletePatient)   
-    
-    
+    .get(controller.deletePatient)
+
+
 module.exports = router;

@@ -12,7 +12,6 @@ class DataEntry extends Component {
         super(props);
         this.state = {
             username: '',
-
             addDoseage: false,
             bloodError: false,
             moodError: false,
@@ -62,7 +61,7 @@ class DataEntry extends Component {
             diastolicBloodPressure
         };
         // Need to send this to mongoDB via method called addPatientData
-        API.submitPatientData({ data })
+        API.submitBloodData({ data })
             .then(data => {
                 if (data) {
                     this.setState({
@@ -85,7 +84,8 @@ class DataEntry extends Component {
         const value = event.target.value
         // Updating the input’s state
         this.setState({
-            journalEntry: value
+            journalEntry: value,
+            moodSuccess: false
         });
 
         // console.log(this.state.journalEntry);
@@ -97,8 +97,8 @@ class DataEntry extends Component {
         let result = sentiment.analyze(journalText);
         console.log(result)
         // let score = result.comparative;
-        let percentageScore = Math.round(result.comparative * 100);
-        // console.log('This is score ' + score);
+        console.log(result.comparative);
+        let percentageScore = Math.round(100*((result.comparative+3)/6));
         this.setState({
             journalEntrySentiment: percentageScore
         })
@@ -123,7 +123,7 @@ class DataEntry extends Component {
         console.log(this.state.journalEntry, this.state.journalEntrySentiment + '%');
 
         // Need to send this to mongoDB via method called addPatientData
-        API.submitPatientData({ data })
+        API.submitMoodData({ data })
             .then(data => {
                 if (data) {
                     this.setState({
@@ -192,7 +192,7 @@ class DataEntry extends Component {
             doseage: doseArray
         };
         if (!this.state.addDoseage) {
-            API.submitPatientData({ data })
+            API.submitMedData({ data })
                 .then(data => {
                     if (data) {
                         this.setState({
@@ -222,7 +222,7 @@ class DataEntry extends Component {
             disability,
             tobaccoUse
         };
-        API.submitPatientData({ data })
+        API.submitGenData({ data })
             .then(data => {
                 if (data) {
                     this.setState({

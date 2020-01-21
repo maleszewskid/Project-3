@@ -99,7 +99,7 @@ const EntryTabs = props => {
                                                 <Form.Control as="textarea" name="journalEntry" onChange={props.onMoodChange} rows="6" placeholder="Start typing here..." />
                                             </Form.Group>
 
-                                            {(props.sentimentScore) ? <ProgressBar animated now={props.sentimentScore} /> : <ProgressBar animated now={50} />}
+                                            {(props.sentimentScore) ? <ProgressBar animated now={props.sentimentScore} /> : <ProgressBar animated now={0} />}
                                             <br></br>
                                             <Button onClick={props.onMoodClick} className="mood-submit" variant="primary">Save Entry</Button>
                                             {(props.moodSuccess) ? <div className='dataEntrySuccess col-5 p-2 my-2 mx-auto text-center rounded'>Data recorded!</div> : null}
