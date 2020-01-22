@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card'
 import LoginHeader from '../components/LoginHeader';
-import './SignUp.css';
+import '../../src/assets/css/Signup.css';
 // Import the API:
 import API from '../utils/API.js';
 
