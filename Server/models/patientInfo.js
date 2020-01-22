@@ -12,6 +12,9 @@ const PatientInfo = new Schema ({
     firstName: {
         type: String
     },
+    middleName: {
+        type: String
+    },
     lastName: {
         type: String
     },

@@ -7,7 +7,10 @@ import Tab from 'react-bootstrap/Tab';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 //Import Charts:
-import MainChart from '../Charts/mainChart';
+import BloodPressureChart from '../Charts/BloodPressureChart';
+import BloodSugarChart from '../Charts/BloodSugarChart';
+import HeartRateChart from '../Charts/HeartRateChart';
+import SentimentChart from '../Charts/SentimentChart';
 //import CSS
 
 const loopOverTimeStamp = (timeStamp, data) => {
@@ -55,14 +58,23 @@ const ViewTabs = (props) => {
     let diastolicBloodPressureData = loopOverTimeStamp(bloodTimeStamp, diastolicBloodPressure);
     let journalEntrySentimentData = loopOverTimeStamp(moodTimeStamp, journalEntrySentiment);
     
-    let data = [
-        //The data field will be a combination of date and the data value. Date will be the key, and the data item from that date will be the value.
-        { name: 'Heart Rate', data: {...heartRateData} },
-        { name: 'Blood Sugar', data: {...bloodSugarData} },
+    let bloodPressureGraph = [
         { name: 'Systolic Blood Pressure', data: {...systolicBloodPressureData} },
-        { name: 'Diastolic Blood Pressure', data: {...diastolicBloodPressureData} },
-        { name: 'Sentiment', data: {...journalEntrySentimentData} }
+        { name: 'Diastolic Blood Pressure', data: {...diastolicBloodPressureData} }
     ]
+    
+let bloodSugarGraph = [
+    { name: 'Blood Sugar', data: {...bloodSugarData} }
+]
+
+let heartRateGraph = [
+    { name: 'Heart Rate', data: {...heartRateData} }
+]
+
+let sentimentGraph = [
+    { name: 'Sentiment', data: {...journalEntrySentimentData} }
+]
+
     return (
         <Container className='Main-Tab-Container'>
             <Row>
@@ -71,7 +83,10 @@ const ViewTabs = (props) => {
                         <Tab eventKey='graphs' title='Trend Charts'>
                             <Card>
                                 <Card.Body>
-                                    <MainChart data={data} />
+                                    <BloodPressureChart data={bloodPressureGraph} />
+                                    <BloodSugarChart data={bloodSugarGraph} />
+                                    <HeartRateChart data={heartRateGraph} />
+                                    <SentimentChart data={sentimentGraph} />
                                 </Card.Body>
                             </Card>
                         </Tab>
