@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card'
 import LoginHeader from '../components/LoginHeader';
 import './SignUp.css';
 // Import the API:
@@ -101,11 +102,18 @@ export default class Signup extends Component {
       return (
         <div>
           <LoginHeader />
-          <Container className="signup-container">
-              <div className="Login">
-                <br></br>
-                <br></br>
-                <Form onSubmit={this.handleSubmit}>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <Container className="signup-container card">
+            <Card.Title className='text-center'>Enter Your Information</Card.Title>
+            <hr></hr>
+            <br></br>
+            <div className="Login">
+              <Form onSubmit={this.handleSubmit}>
+                <div className='row'>
+
                   <div className="col">
                     <Form.Group >
                       <Form.Control
@@ -165,7 +173,7 @@ export default class Signup extends Component {
                         className="form-control validate"
                         id="password"
                       />
-                      <div className="alert alert-warning password-alert" role="alert">
+                      {/* <div className="alert alert-warning password-alert" role="alert">
 
                         <ul>
                           <li className="requirements leng"><i className="fas fa-check green-text"></i><i className="fas fa-times red-text"></i> Your password must have at least 8 chars.</li>
@@ -173,7 +181,7 @@ export default class Signup extends Component {
                           <li className="requirements num"><i className="fas fa-check green-text"></i><i className="fas fa-times red-text"></i> Your password must have at least 1 number.</li>
                           <li className="requirements special-char"><i className="fas fa-check green-text"></i><i className="fas fa-times red-text"></i> Your password must have at least 1 special char.</li>
                         </ul>
-                      </div>
+                      </div> */}
                     </Form.Group>
                     <Form.Group>
                       <Form.Control
@@ -196,59 +204,84 @@ export default class Signup extends Component {
                         placeholder="Data of birth as MM/DD/YYY"
                       />
                     </Form.Group>
-                    <Form.Group>
+                    {/* <Form.Group>
                       <select value={this.state.Sex} onChange={this.handleChange} name='sex'>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                       </select>
-                    </Form.Group>
+                    </Form.Group> */}
                   </div>
-                  <Row>
-                    <Col className="col-12 text-center">
-                      <Button
-                        block
-                        type="submit"
-                        className="btn btn-success signup-button"
-                        onClick={this.handleFormSubmit}
-                      >
-                        Sign Up
+                </div>
+                <div className='row'>
+                  <div className='col'></div>
+                  <div className='col'>
+                    <Form>
+                      {['radio'].map(type => (
+                        <div key={`inline-${type}`} className="mb-3">
+                          <Form.Check inline label="Male" type={type} id={`inline-${type}-1`} onChange={this.handleChange} />
+                          <Form.Check inline label="Female" type={type} id={`inline-${type}-2`} onChange={this.handleChange}/>
+                          <Form.Check inline label="Other" type={type} id={`inline-${type}-3`} onChange={this.handleChange} />
+                        </div>
+                      ))}
+                    </Form>
+                  </div>
+
+                  <div className='col'></div>
+                </div>
+
+                <hr></hr>
+                <br></br>
+
+                <Row>
+                  <Col className="col-12 text-center">
+                  </Col>
+                </Row>
+                {(this.state.usernameTaken) ? <Row>
+                  <Col className='error col-5 p-2 my-2 mx-auto text-center rounded'>
+                    The username {this.state.username} is unavailable.
+                        </Col>
+                </Row> : null}
+                {(this.state.userCreateFailure) ? <Row>
+                  <Col className='error col-5 p-2 my-2 mx-auto text-center rounded'>
+                    Could not create user. Contact Jack @ jack.jackryan@gmail.com
+                        </Col>
+                </Row> : null}
+                {(this.state.error) ? <Row>
+                  <Col className='error col-5 p-2 my-2 mx-auto text-center rounded'>
+                    Whoops! Something went wrong. Contact Jack @ jack.jackryan@gmail.com
+                        </Col>
+                </Row> : null}
+                {((this.state.password.length > 6) && (/\d/.test(this.state.password.toString()) && (this.state.confirmPassword === this.state.password))) ? <Row>
+                  <Col className='good col-5 p-2 my-2 mx-auto text-center rounded'>
+                    Your password is strong.
+              </Col>
+                </Row> : null}
+                {((this.state.password.length < 6 || !/\d/.test(this.state.password.toString()))) ? <Row>
+                  <Col className='error col-5 p-2 my-2 mx-auto text-center rounded'>
+                    Your password is not strong enough.
+              </Col>
+                </Row> : null}
+                {((this.state.confirmPassword.length > 0) && (this.state.password !== this.state.confirmPassword)) ? <Row>
+                  <Col className='error col-5 p-2 my-2 mx-auto text-center rounded'>
+                    Your passwords don't match!
+  
+              </Col>
+                </Row> : null}
+                <Button
+                  block
+                  type="submit"
+                  className="btn btn-success signup-button"
+                  onClick={this.handleFormSubmit}
+                >
+                  Sign Up
                 </Button>
-                    </Col>
-                  </Row>
-                  {(this.state.usernameTaken) ? <Row>
-                    <Col className='error col-5 p-2 my-2 mx-auto text-center rounded'>
-                      The username {this.state.username} is unavailable.
-                        </Col>
-                  </Row> : null}
-                  {(this.state.userCreateFailure) ? <Row>
-                    <Col className='error col-5 p-2 my-2 mx-auto text-center rounded'>
-                      Could not create user. Contact Jack @ jack.jackryan@gmail.com
-                        </Col>
-                  </Row> : null}
-                  {(this.state.error) ? <Row>
-                    <Col className='error col-5 p-2 my-2 mx-auto text-center rounded'>
-                      Whoops! Something went wrong. Contact Jack @ jack.jackryan@gmail.com
-                        </Col>
-                  </Row> : null}
-                  {((this.state.password.length > 6) && (/\d/.test(this.state.password.toString()) && (this.state.confirmPassword === this.state.password))) ? <Row>
-                    <Col className='good col-5 p-2 my-2 mx-auto text-center rounded'>
-                      Your password is strong.
-              </Col>
-                  </Row> : null}
-                  {((this.state.password.length < 6 || !/\d/.test(this.state.password.toString()))) ? <Row>
-                    <Col className='error col-5 p-2 my-2 mx-auto text-center rounded'>
-                      Your password is not strong enough.
-              </Col>
-                  </Row> : null}
-                  {((this.state.confirmPassword.length > 0) && (this.state.password !== this.state.confirmPassword)) ? <Row>
-                    <Col className='error col-5 p-2 my-2 mx-auto text-center rounded'>
-                      Your passwords don't match!
-              </Col>
-                  </Row> : null}
-                </Form>
-              </div>
+                <br></br>
+
+              </Form>
+            </div>
+
           </Container>
-        </div>
+        </div >
       );
     }
   }
