@@ -46,7 +46,7 @@ class DataEntry extends Component {
             medSuccess: false,
             genSuccess: false
         });
-        // console.log(this.state);
+        console.log(this.state);
     };
 
     // Event Handler to submit Blood data:
@@ -213,14 +213,15 @@ class DataEntry extends Component {
     // Event handler to submit general data:
     handleGeneralSubmit = event => {
         event.preventDefault();
-        const { username, feet, inches, weight, ethnicity, disability, tobaccoUse } = this.state;
+        const { username, feet, inches, weight, ethnicity, disability, tobaccoUse, sex } = this.state;
         const data = {
             username,
             height: [feet, inches],
             weight,
             ethnicity,
             disability,
-            tobaccoUse
+            tobaccoUse,
+            sex
         };
         API.submitGenData({ data })
             .then(data => {

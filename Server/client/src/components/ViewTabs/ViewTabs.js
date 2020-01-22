@@ -136,7 +136,7 @@ const ViewTabs = (props) => {
                                             <h4>Height</h4>
                                         </Col>
                                         <Col>
-                                            <h4>Weigth</h4>
+                                            <h4>Weight</h4>
                                         </Col>
                                         <Col>
                                             <h4>Ethnicity</h4>

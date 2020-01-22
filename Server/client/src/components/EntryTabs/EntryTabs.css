@@ -90,3 +90,8 @@
 .dataEntrySuccess {
     background-color: lightgreen;
 }
+
+.heightTitle {
+    color: black;
+    font-size: 1.3rem;
+}

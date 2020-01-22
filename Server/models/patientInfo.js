@@ -41,10 +41,10 @@ const PatientInfo = new Schema ({
         type: String
     },
     disability: {
-        type: Boolean
+        type: String
     },
     tobaccoUse: {
-        type: Boolean
+        type: String
     },
     genTimeStamp: [{
         type: Date
