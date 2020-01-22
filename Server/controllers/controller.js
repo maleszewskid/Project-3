@@ -90,7 +90,7 @@ module.exports = {
     addGenData: function (req, res) {
         const newFields = req.body.data;
         db.PatientInfo
-            .findOneAndUpdate({ username: req.body.data.username.username }, { $push: {'height': newFields.height, genTimeStamp: Date.now()}, $set: { 'weight': newFields.weight, 'ethnicity': newFields.ethnicity, 'disability': newFields.disability, 'tobaccoUse': newFields.tobaccoUse} }, {returnOriginal: false})
+            .findOneAndUpdate({ username: req.body.data.username.username }, { $push: {'height': newFields.height, genTimeStamp: Date.now()}, $set: { 'sex': newFields.sex, 'weight': newFields.weight, 'ethnicity': newFields.ethnicity, 'disability': newFields.disability, 'tobaccoUse': newFields.tobaccoUse} }, {returnOriginal: false})
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },

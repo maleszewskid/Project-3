@@ -6,7 +6,7 @@ const SentimentChart = props => {
     console.log(props)
     return (
         <>
-            <h2 className='m-auto'>{props.data[0].name}</h2>
+            <h2 className='m-auto'>Mood</h2>
             <LineChart data={props.data} />
         </>
     )

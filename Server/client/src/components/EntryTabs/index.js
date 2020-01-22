@@ -189,12 +189,13 @@ const EntryTabs = props => {
                             <Row>
                                 <Col className="col-12 text-center card-container-entry">
                                     <Card className="text-center card-entry display-block">
-                                        <Card.Header className="entry-header">General Stats</Card.Header>
+                                        <Card.Header className="entry-header">General Information</Card.Header>
                                         <Card.Body>
                                             <Form onSubmit={props.handleSubmit}>
-                                                <Row className='my-2 center'>
-                                                    <Col className="col-4">
-                                                        <Form.Group className='center' controlId="exampleForm.ControlSelect2">
+                                                <Row className='my-2 mx-auto'>
+                                                    <Col className="col-6 mx-auto">
+                                                        <p className="heightTitle">Height</p>
+                                                        <Form.Group className='mx-2 center w-25' controlId="exampleForm.ControlSelect2">
                                                             <Form.Label>Feet</Form.Label>
                                                             <Form.Control onChange={props.onChange} as="select" name='feet'>
                                                                 <option value='2'>2</option>
@@ -206,9 +207,7 @@ const EntryTabs = props => {
                                                                 <option value='8'>8</option>
                                                             </Form.Control>
                                                         </Form.Group>
-                                                    </Col>
-                                                    <Col className="col-4">
-                                                        <Form.Group className="center" controlId="exampleForm.ControlSelect2">
+                                                        <Form.Group className="mx-2 center w-25" controlId="exampleForm.ControlSelect2">
                                                             <Form.Label>Inches</Form.Label>
                                                             <Form.Control onChange={props.onChange} as="select" name='inches'>
                                                                 <option value='0'>0</option>
@@ -259,6 +258,7 @@ const EntryTabs = props => {
                                                         <Form.Group className='w-25 center' controlId="disability">
                                                             <Form.Label>Disability</Form.Label>
                                                             <Form.Control onChange={props.onChange} as="select" name='disability'>
+                                                                <option value='DoNotWishToSay'>Do Not Wish to Say</option>
                                                                 <option value='Yes'>Yes</option>
                                                                 <option value='No'>No</option>
                                                             </Form.Control>
@@ -270,8 +270,21 @@ const EntryTabs = props => {
                                                         <Form.Group className='w-25 center' controlId="tobaccoUse">
                                                             <Form.Label>Tobacco Use</Form.Label>
                                                             <Form.Control onChange={props.onChange} as="select" name='tobaccoUse'>
+                                                                <option value='DoNotWishToSay'>Do Not Wish to Say</option>
                                                                 <option value='Yes'>Yes</option>
                                                                 <option value='No'>No</option>
+                                                            </Form.Control>
+                                                        </Form.Group>
+                                                    </Col>
+                                                </Row>
+                                                <Row className='my-2'>
+                                                    <Col>
+                                                        <Form.Group className='w-25 center' controlId="tobaccoUse">
+                                                            <Form.Label>Biological Sex</Form.Label>
+                                                            <Form.Control onChange={props.onChange} as="select" name='sex'>
+                                                                <option value='DoNotWishToSay'>Do Not Wish to Say</option>
+                                                                <option value='Female'>Female</option>
+                                                                <option value='Male'>Male</option>
                                                             </Form.Control>
                                                         </Form.Group>
                                                     </Col>
