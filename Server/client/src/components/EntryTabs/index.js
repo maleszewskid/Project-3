@@ -20,20 +20,29 @@ const EntryTabs = props => {
                 <Col className="tab-content">
                     <Tabs className="text-center" id="controlled-tab-example" activeKey={key} onSelect={k => setKey(k)}>
                         <Tab eventKey="home" title="Home">
-                            <div>This is the home page</div>
                             <Row>
                                 <Col className="col-12 text-center card-container-entry">
                                     <Card className="text-center card-entry display-block">
-
                                         <Card.Body>
-
                                             <Row>
                                                 <Col>
-
+                                                    <p>
+                                                        Welcome to the PatientFirst data entry page. 
+                                                    </p>
+                                                    <br></br>
+                                                    <p>
+                                                        Please click on each of the tabs on this page to access the different data entry forms.
+                                                    </p>
+                                                    <br></br>
+                                                    <p>
+                                                        Click submit after you have entered your data to store it on our server.
+                                                    </p>
+                                                    <br></br>
+                                                    <p>
+                                                        Thank you
+                                                    </p>
                                                 </Col>
                                             </Row>
-
-
                                         </Card.Body>
                                         <Card.Footer className="entry-footer"></Card.Footer>
                                     </Card>
