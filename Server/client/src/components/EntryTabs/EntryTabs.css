@@ -63,6 +63,12 @@
     background-color: #7092a8!important;
     opacity: 1!important;
 }
+
+.center {
+    display:inline-block;
+    margin: 0 auto;
+}
+
 .entry-footer {
     background-color: #1b262c;
     border-radius: 0px!important;

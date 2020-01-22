@@ -13,7 +13,7 @@ import './EntryTabs.css';
 
 const EntryTabs = props => {
     const [key, setKey] = useState('home');
-    
+
     return (
         <Container className="Main-Tab-Container">
             <Row>
@@ -27,7 +27,7 @@ const EntryTabs = props => {
                                             <Row>
                                                 <Col>
                                                     <p>
-                                                        Welcome to the PatientFirst data entry page. 
+                                                        Welcome to the PatientFirst data entry page.
                                                     </p>
                                                     <br></br>
                                                     <p>
@@ -54,7 +54,7 @@ const EntryTabs = props => {
                             <Row>
                                 <Col className="col-12 text-center card-container-entry">
                                     <Card className="text-center card-entry display-block">
-                                        <Card.Header className="entry-header">Blood Pressure | Pulse</Card.Header>
+                                        <Card.Header className="entry-header">Heart Rate | Blood Sugar | Blood Pressure | Pulse</Card.Header>
                                         <Card.Body>
                                             <Form>
                                                 <Form.Group controlId="heartrate">
@@ -101,7 +101,7 @@ const EntryTabs = props => {
                             <Row>
                                 <Col className="col-12 text-center card-container-entry">
                                     <Card className="text-center card-entry display-block">
-                                        <Card.Header className="entry-header">Mood | Journal</Card.Header>
+                                        <Card.Header className="entry-header">Mood Journal</Card.Header>
                                         <Card.Body>
 
                                             <Form.Group controlId="exampleForm.ControlTextarea1">
@@ -189,12 +189,12 @@ const EntryTabs = props => {
                             <Row>
                                 <Col className="col-12 text-center card-container-entry">
                                     <Card className="text-center card-entry display-block">
-                                        <Card.Header className="entry-header">General | Stats</Card.Header>
+                                        <Card.Header className="entry-header">General Stats</Card.Header>
                                         <Card.Body>
                                             <Form onSubmit={props.handleSubmit}>
-                                                <Row>
-                                                    <Col className="col-2">
-                                                        <Form.Group controlId="exampleForm.ControlSelect2">
+                                                <Row className='my-2 center'>
+                                                    <Col className="col-4">
+                                                        <Form.Group className='center' controlId="exampleForm.ControlSelect2">
                                                             <Form.Label>Feet</Form.Label>
                                                             <Form.Control onChange={props.onChange} as="select" name='feet'>
                                                                 <option value='2'>2</option>
@@ -207,8 +207,8 @@ const EntryTabs = props => {
                                                             </Form.Control>
                                                         </Form.Group>
                                                     </Col>
-                                                    <Col className="col-2">
-                                                        <Form.Group className="h-25" controlId="exampleForm.ControlSelect2">
+                                                    <Col className="col-4">
+                                                        <Form.Group className="center" controlId="exampleForm.ControlSelect2">
                                                             <Form.Label>Inches</Form.Label>
                                                             <Form.Control onChange={props.onChange} as="select" name='inches'>
                                                                 <option value='0'>0</option>
@@ -227,77 +227,57 @@ const EntryTabs = props => {
                                                         </Form.Group>
                                                     </Col>
                                                 </Row>
-                                                <Form.Group controlId="weight">
-                                                    <Form.Control
-                                                        name="weight"
-                                                        onChange={props.onChange}
-                                                        placeholder="Weight"
-                                                    />
-                                                </Form.Group>
-                                                <Form.Group controlId="ethnicity">
-                                                    <Form.Control
-                                                        name="ethnicity"
-                                                        onChange={props.onChange}
-                                                        placeholder="Ethnicity"
-                                                    />
-                                                </Form.Group>
-
-                                                <Row>
-                                                    <Col className="col-3 d-flex justify-content-flex-start mx-2">
-                                                        <div>Disability: </div>
-                                                    </Col>
-                                                    <Col className="col-9 d-flex justify-content-flex-start mx-1">
-                                                        <Form.Group key={`default-checkbox`} className="mb-3 checkboxDiv">
-                                                            <Form.Check
-                                                                type={`checkbox`}
-                                                                id={`disability`}
-                                                                label={`Yes`}
-                                                                value={true}
-                                                                name="disability"
-                                                                onClick={props.onChange}
+                                                <Row className='my-2'>
+                                                    <Col className='center'>
+                                                        <Form.Group className='center w-25' controlId="weight">
+                                                            <Form.Label>Weight</Form.Label>
+                                                            <Form.Control
+                                                                name="weight"
+                                                                onChange={props.onChange}
+                                                                placeholder="Weight in lbs."
                                                             />
-                                                            <Form.Group key={`default-checkbox`} className="mb-3 checkboxDiv">
-                                                                <Form.Check
-                                                                    type={`checkbox`}
-                                                                    id={`disability`}
-                                                                    label={`No`}
-                                                                    value={false}
-                                                                    name="disability"
-                                                                    onClick={props.onChange}
-                                                                />
-                                                            </Form.Group>
                                                         </Form.Group>
                                                     </Col>
                                                 </Row>
-                                                <Row>
-                                                    <Col className="col-3 d-flex justify-content-flex-start mx-2">
-                                                        <div>Tobacco Use: </div>
+                                                <Row className='my-2'>
+                                                    <Col>
+                                                        <Form.Group className='w-25 center' controlId="ethnicity">
+                                                            <Form.Label>Ethnicity</Form.Label>
+                                                            <Form.Control onChange={props.onChange} as="select" name='ethnicity'>
+                                                                <option value='American Indian or Alaska Native'>American Indian or Alaska Native</option>
+                                                                <option value='Asian'>Asian</option>
+                                                                <option value='Black or African American'>Black or African American</option>
+                                                                <option value='Hispanic or Latino'>Hispanic or Latino</option>
+                                                                <option value='Native Hawaiian or Other Pacific Islander'>Native Hawaiian or Other Pacific Islander</option>
+                                                                <option value='White'>White</option>
+                                                            </Form.Control>
+                                                        </Form.Group>
                                                     </Col>
-                                                    <Col className="col-9 d-flex justify-content-flex-start mx-1">
-                                                        <Form.Group key={`default-checkbox`} className="mb-3 checkboxDiv">
-                                                            <Form.Check
-                                                                type={`checkbox`}
-                                                                id={`disability`}
-                                                                label={`Yes`}
-                                                                value={true}
-                                                                name="tobacco"
-                                                                onClick={props.onChange}
-                                                            />
-                                                            <Form.Group key={`default-checkbox`} className="mb-3 checkboxDiv">
-                                                                <Form.Check
-                                                                    type={`checkbox`}
-                                                                    id={`disability`}
-                                                                    label={`No`}
-                                                                    value={false}
-                                                                    name="tobacco"
-                                                                    onClick={props.onChange}
-                                                                />
-                                                            </Form.Group>
+                                                </Row>
+                                                <Row className='my-2'>
+                                                    <Col className="mx-1">
+                                                        <Form.Group className='w-25 center' controlId="disability">
+                                                            <Form.Label>Disability</Form.Label>
+                                                            <Form.Control onChange={props.onChange} as="select" name='disability'>
+                                                                <option value='Yes'>Yes</option>
+                                                                <option value='No'>No</option>
+                                                            </Form.Control>
+                                                        </Form.Group>
+                                                    </Col>
+                                                </Row>
+                                                <Row className='my-2'>
+                                                    <Col>
+                                                        <Form.Group className='w-25 center' controlId="tobaccoUse">
+                                                            <Form.Label>Tobacco Use</Form.Label>
+                                                            <Form.Control onChange={props.onChange} as="select" name='tobaccoUse'>
+                                                                <option value='Yes'>Yes</option>
+                                                                <option value='No'>No</option>
+                                                            </Form.Control>
                                                         </Form.Group>
                                                     </Col>
                                                 </Row>
                                             </Form>
-                                            <Button className="general-submit" onClick={props.onGenClick} variant="primary">Submit</Button>
+                                            <Button className="general-submit my-4" onClick={props.onGenClick} variant="primary">Submit</Button>
                                             {(props.genSuccess) ? <div className='dataEntrySuccess col-5 p-2 my-2 mx-auto text-center rounded'>Data recorded!</div> : null}
                                             {(props.genError) ? <div className='dataEntryError col-5 p-2 my-2 mx-auto text-center rounded'>There was an issue submitting your data. Please try again later.</div> : null}
                                         </Card.Body>
