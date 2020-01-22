@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card'
 import LoginHeader from '../components/LoginHeader';
-import './SignUp.css';
+import '../../src/assets/css/Signup.css';
 // Import the API:
 import API from '../utils/API.js';
 
@@ -220,7 +220,7 @@ export default class Signup extends Component {
                         <div key={`inline-${type}`} className="mb-3">
                           <Form.Check inline label="Male" type={type} id={`inline-${type}-1`} onChange={this.handleChange} />
                           <Form.Check inline label="Female" type={type} id={`inline-${type}-2`} onChange={this.handleChange}/>
-                          <Form.Check inline label="Other" type={type} id={`inline-${type}-3`} onChange={this.handleChange} />
+                          {/* <Form.Check inline label="Other" type={type} id={`inline-${type}-3`} onChange={this.handleChange} /> */}
                         </div>
                       ))}
                     </Form>

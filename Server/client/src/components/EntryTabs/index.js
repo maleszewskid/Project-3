@@ -19,7 +19,7 @@ const EntryTabs = props => {
             <Row>
                 <Col className="tab-content">
                     <Tabs className="text-center" id="controlled-tab-example" activeKey={key} onSelect={k => setKey(k)}>
-                        <Tab eventKey="home" title="Home">
+                        <Tab className="tab-1-home" eventKey="home" title="Home">
                             <Row>
                                 <Col className="col-12 text-center card-container-entry">
                                     <Card className="text-center card-entry display-block">
@@ -119,7 +119,7 @@ const EntryTabs = props => {
                                 </Col>
                             </Row>
                         </Tab>
-                        <Tab eventKey="meds" title="Medications">
+                        <Tab eventKey="medications" title="Medications">
                             <Row>
                                 <Col className="col-12 text-center card-container-entry">
                                     <Card className="text-center card-entry display-block">

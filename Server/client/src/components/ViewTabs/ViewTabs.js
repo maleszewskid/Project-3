@@ -12,6 +12,7 @@ import BloodSugarChart from '../Charts/BloodSugarChart';
 import HeartRateChart from '../Charts/HeartRateChart';
 import SentimentChart from '../Charts/SentimentChart';
 //import CSS
+import './ViewTabs.css';
 
 const loopOverTimeStamp = (timeStamp, data) => {
     let newObj = {};
@@ -26,7 +27,7 @@ const loopOverTimeStamp = (timeStamp, data) => {
 }
 
 const ViewTabs = (props) => {
-    const [key, setKey] = useState('home');
+    const [key, setKey] = useState('graphs');
     const { firstName,
         lastName,
         dateOfBirth,
@@ -76,13 +77,13 @@ const ViewTabs = (props) => {
     ]
 
     return (
-        <Container className='Main-Tab-Container'>
+        <Container className='View-Tab-Container'>
             <Row>
-                <Col className='tab-content'>
+                <Col className='view-tab-content'>
                     <Tabs className="text-center" id="controlled-tab-example" activeKey={key} onSelect={k => setKey(k)}>
                         <Tab eventKey='graphs' title='Trend Charts'>
-                            <Card>
-                                <Card.Body>
+                            <Card className="chart-card">
+                                <Card.Body className="chart-card-body">
                                     <BloodPressureChart data={bloodPressureGraph} />
                                     <BloodSugarChart data={bloodSugarGraph} />
                                     <HeartRateChart data={heartRateGraph} />
@@ -95,6 +96,7 @@ const ViewTabs = (props) => {
                                 <Card.Body>
                                     <Row>
                                         <Col>{moodTimeStamp.map(date => (
+
                                             <div>{date}</div>
                                         )
                                         )}</Col>
@@ -126,7 +128,7 @@ const ViewTabs = (props) => {
                                 </Card.Body>
                             </Card>
                         </Tab>
-                        <Tab eventKey='general' title='General'>
+                        <Tab eventKey='generalinfo' title='General'>
                             <Card>
                                 <Card.Body>
                                     <Row>
