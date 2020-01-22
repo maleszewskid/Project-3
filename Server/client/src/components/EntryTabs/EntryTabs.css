@@ -37,6 +37,12 @@
     border-radius: 0px!important;
     background-color: rgba(192, 221, 238, 0.774)!important;
 }
+
+.center {
+    display:inline-block;
+    margin: 0 auto;
+}
+
 .entry-footer {
     background-color:rgba(0, 0, 0, 0.904);
     border-radius: 0px!important;

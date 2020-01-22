@@ -19,7 +19,7 @@ const loopOverTimeStamp = (timeStamp, data) => {
     let value = '';
     for (let i = 0; i < timeStamp.length; i++) {
         key = timeStamp[i]
-        value =  data[i]
+        value = data[i]
         newObj[key] = value;
     }
     return newObj;
@@ -57,23 +57,23 @@ const ViewTabs = (props) => {
     let systolicBloodPressureData = loopOverTimeStamp(bloodTimeStamp, systolicBloodPressure);
     let diastolicBloodPressureData = loopOverTimeStamp(bloodTimeStamp, diastolicBloodPressure);
     let journalEntrySentimentData = loopOverTimeStamp(moodTimeStamp, journalEntrySentiment);
-    
+
     let bloodPressureGraph = [
-        { name: 'Systolic Blood Pressure', data: {...systolicBloodPressureData} },
-        { name: 'Diastolic Blood Pressure', data: {...diastolicBloodPressureData} }
+        { name: 'Systolic Blood Pressure', data: { ...systolicBloodPressureData } },
+        { name: 'Diastolic Blood Pressure', data: { ...diastolicBloodPressureData } }
     ]
-    
-let bloodSugarGraph = [
-    { name: 'Blood Sugar', data: {...bloodSugarData} }
-]
 
-let heartRateGraph = [
-    { name: 'Heart Rate', data: {...heartRateData} }
-]
+    let bloodSugarGraph = [
+        { name: 'Blood Sugar', data: { ...bloodSugarData } }
+    ]
 
-let sentimentGraph = [
-    { name: 'Sentiment', data: {...journalEntrySentimentData} }
-]
+    let heartRateGraph = [
+        { name: 'Heart Rate', data: { ...heartRateData } }
+    ]
+
+    let sentimentGraph = [
+        { name: 'Sentiment', data: { ...journalEntrySentimentData } }
+    ]
 
     return (
         <Container className='Main-Tab-Container'>
