@@ -5,13 +5,12 @@
 .nav-tabs {  
     display: flex;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.904);
+    background-color: #1b262c;
     font-family: 'Lato', sans-serif;
 }
 .nav-item {
-    background-color: rgb(50, 150, 145);
+    background-color: #1b262c;
     border-radius: 0px!important;
-    width: 20%;
     color: whitesmoke;
     font-size: 16px;
     padding: 2px 2px 2px 2px;
@@ -22,41 +21,66 @@
     border-bottom: solid 1px rgba(0, 0, 0, 0.404)!important;
     font-family: 'Lato', sans-serif;
 }
+
+#controlled-tab-example-tab-home {
+    color: whitesmoke;
+    width: 20%;
+    font-family: 'Lato', sans-serif;
+}
+#controlled-tab-example-tab-blood {
+    color: whitesmoke;
+    width: 20%;
+    font-family: 'Lato', sans-serif;
+}
+#controlled-tab-example-tab-mood {
+    color: whitesmoke;
+    width: 20%;
+    font-family: 'Lato', sans-serif;
+}
+#controlled-tab-example-tab-medications {
+    color: whitesmoke;
+    width: 20%;
+    font-family: 'Lato', sans-serif;
+}
+#controlled-tab-example-tab-general {
+    color: whitesmoke;
+    width: 20%;
+    font-family: 'Lato', sans-serif;
+}
 .nav-item:hover {
     color: whitesmoke;
-    background-color: rgb(84, 179, 174);  
+    background-color: #0f4c75;  
 }
 .nav-item.active {
-    color: rgba(0, 0, 0, 0.904)!important;
-    background-color: rgb(84, 179, 174)!important;
+    color: whitesmoke!important;
+    background-color: #0f4c75!important;
 }
 .card-container-entry {
     border-radius: 0px!important;
 }
 .card-entry {
     border-radius: 0px!important;
-    background-color: rgba(192, 221, 238, 0.774)!important;
+    background-color: #7092a8!important;
+    opacity: 1!important;
 }
 .entry-footer {
-    background-color:rgba(0, 0, 0, 0.904);
+    background-color: #1b262c;
     border-radius: 0px!important;
 }
 .entry-header {
-    background-color: rgb(255, 255, 255)!important;
+    background-color: #7092a8!important;
     border-radius: 0px!important;
     margin: -1px -1px 0 -1px;
     border-bottom: solid 1px rgba(0, 0, 0, 0.404);
     border-left: solid 1px rgba(0, 0, 0, 0.404);
     border-right: solid 1px rgba(0, 0, 0, 0.404);
     font-family: 'Lato', sans-serif!important;
-    background-color: rgba(155, 195, 218, 0.774)!important;
+    color: whitesmoke;
+    font-size: 20px;
 }
-
-
 .dataEntryError {
     background-color: lightcoral;
 }
-
 .dataEntrySuccess {
     background-color: lightgreen;
 }
