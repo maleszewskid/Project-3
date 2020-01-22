@@ -12,7 +12,7 @@ const LoginForm = props => {
     return (
         <Container className="loginForm card">
             <Row className="justify-content-md-center">
-                <Col className='col-sm'></Col>
+                {/* <Col className='col-sm'></Col> */}
                 <Col className='col-sm'>
                     <Row>
                         <Col className="col-12 text-center">
@@ -95,7 +95,7 @@ const LoginForm = props => {
 
                 </Col>
 
-                <Col className='col-sm'></Col>
+                {/* <Col className='col-sm'></Col> */}
 
             </Row>
         </Container>
