@@ -220,7 +220,7 @@ export default class Signup extends Component {
                         <div key={`inline-${type}`} className="mb-3">
                           <Form.Check inline label="Male" type={type} id={`inline-${type}-1`} onChange={this.handleChange} />
                           <Form.Check inline label="Female" type={type} id={`inline-${type}-2`} onChange={this.handleChange}/>
-                          <Form.Check inline label="Other" type={type} id={`inline-${type}-3`} onChange={this.handleChange} />
+                          {/* <Form.Check inline label="Other" type={type} id={`inline-${type}-3`} onChange={this.handleChange} /> */}
                         </div>
                       ))}
                     </Form>
