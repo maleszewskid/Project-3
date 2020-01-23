@@ -262,6 +262,7 @@ class DataEntry extends Component {
                     moodSuccess={this.state.moodSuccess}
                     medSuccess={this.state.medSuccess}
                     genSuccess={this.state.genSuccess}
+                    username={username}
                 />
             </>
         )
