@@ -7,7 +7,7 @@ const BloodPressureChart = props => {
     return (
         <>
             <h2 className='mx-auto'>Blood Pressure</h2>
-            <LineChart className='my-2' data={props.data} />
+            <LineChart className='my-2' data={props.data} download={true}/>
         </>
     )
 }

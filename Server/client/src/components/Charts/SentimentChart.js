@@ -5,8 +5,8 @@ import 'chart.js'
 const SentimentChart = props => {
     return (
         <>
-            <h2 className='m-auto'>Mood</h2>
-            <LineChart data={props.data} />
+            <h2 className='mx-auto'>Mood</h2>
+            <LineChart className='p-2' data={props.data} download={true}/>
         </>
     )
 }
