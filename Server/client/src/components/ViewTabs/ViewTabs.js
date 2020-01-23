@@ -6,6 +6,7 @@ import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import Card from 'react-bootstrap/Card';
 import Table from 'react-bootstrap/Table';
+import Accordion from 'react-bootstrap/Accordion';
 //Import Charts:
 import BloodPressureChart from '../Charts/BloodPressureChart';
 import BloodSugarChart from '../Charts/BloodSugarChart';
@@ -56,6 +57,8 @@ const ViewTabs = (props) => {
         mrn
     } = props.data;
 
+    let re = new RegExp('^(\d{4}|\d{2}|\d{2})$');
+
     //--- Create data for the graphs: ---
     let heartRateData = makeNewObj(bloodTimeStamp, heartRate);
     let bloodSugarData = makeNewObj(bloodTimeStamp, bloodSugar);
@@ -84,8 +87,8 @@ const ViewTabs = (props) => {
     const medList = makeNewObj(medications, doseage);
 
     //--- Create an object for the journal entries:
-    const journalList = makeNewObj(moodTimeStamp ,journalEntry);
-
+    const journalList = makeNewObj(moodTimeStamp, journalEntry);
+    console.log(journalList);
     //--- Render the page:
     return (
         <Container className='View-Tab-Container'>
@@ -106,41 +109,19 @@ const ViewTabs = (props) => {
                             <Card>
                                 <Card.Body>
                                     <Row>
-                                        <Col className="col-md-3">
-                                            <div className="mb-auto text-center date-header-vd">Date</div>
-                                            <hr></hr>
-                                        </Col>
-                                        <Col className="col-md-7">
-                                            <div className="text-center journal-header-vd">Journal</div>
-                                            <hr></hr>
-                                        </Col>
-                                        <Col className="col-md-2">
-                                            <div className="mb-auto text-center mood-header-vd">Mood</div>
-                                            <hr></hr>
-                                        </Col>
-                                    </Row>
-                                    <Row>
-
-                                        <Col className="col-md-3">{moodTimeStamp.map(date => (
-                                            <div className="d-flex justify-content-center journal-date-bd">
-                                                <div>{console.log(date.slice(0, 10))}</div>
-                                                <div>{date.slice(0, 10)}</div>
-
-                                            </div>
-                                        )
-                                        )}
-                                        </Col>
-
-                                        <Col className="col-md-7">{journalEntry.map(entry => (
-                                            <div className="journal-entry-bd">{`"${entry}"`}</div>
-                                        )
-                                        )}</Col>
-
-                                        <Col className="col-md-2">{journalEntrySentiment.map(score => (
-                                            <div className="d-flex justify-content-center journal-score-bd">{`${score}%`}</div>
-                                        )
-                                        )}</Col>
-
+                                        <Accordion defaultActiveKey="0">
+                                            {Object.entries(journalList).map(elem => (
+                                                <Card>
+                                                    <Accordion.Toggle className='text-center' as={Card.Header} eventKey={elem[0]}>
+                                                        {elem[0].slice(0, 10)}
+                                                    </Accordion.Toggle>
+                                                    <Accordion.Collapse eventKey={elem[0]}>
+                                                        <Card.Body>{elem[1]}</Card.Body>
+                                                    </Accordion.Collapse>
+                                                </Card>
+                                            )
+                                            )}
+                                        </Accordion>
                                     </Row>
                                 </Card.Body>
                             </Card>
