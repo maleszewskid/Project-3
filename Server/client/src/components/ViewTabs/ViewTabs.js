@@ -6,6 +6,7 @@ import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import Card from 'react-bootstrap/Card';
 import Table from 'react-bootstrap/Table';
+import Accordion from 'react-bootstrap/Accordion';
 //Import Charts:
 import BloodPressureChart from '../Charts/BloodPressureChart';
 import BloodSugarChart from '../Charts/BloodSugarChart';
@@ -53,6 +54,8 @@ const ViewTabs = (props) => {
         mrn
     } = props.data;
 
+    let re = new RegExp('^(\d{4}|\d{2}|\d{2})$');
+
     //--- Create data for the graphs: ---
     let heartRateData = makeNewObj(bloodTimeStamp, heartRate);
     let bloodSugarData = makeNewObj(bloodTimeStamp, bloodSugar);
@@ -81,8 +84,8 @@ const ViewTabs = (props) => {
     const medList = makeNewObj(medications, doseage);
 
     //--- Create an object for the journal entries:
-    const journalList = makeNewObj(moodTimeStamp ,journalEntry);
-
+    const journalList = makeNewObj(moodTimeStamp, journalEntry);
+    console.log(journalList);
     //--- Render the page:
     return (
         <Container className='View-Tab-Container'>
@@ -103,15 +106,19 @@ const ViewTabs = (props) => {
                             <Card>
                                 <Card.Body>
                                     <Row>
-                                        <Col>{moodTimeStamp.map(date => (
-
-                                            <div>{date}</div>
-                                        )
-                                        )}</Col>
-                                        <Col>{journalEntry.map(entry => (
-                                            <div>{entry}</div>
-                                        )
-                                        )}</Col>
+                                        <Accordion defaultActiveKey="0">
+                                            {Object.entries(journalList).map(elem => (
+                                                <Card>
+                                                    <Accordion.Toggle className='text-center' as={Card.Header} eventKey={elem[0]}>
+                                                        {elem[0].slice(0, 10)}
+                                                    </Accordion.Toggle>
+                                                    <Accordion.Collapse eventKey={elem[0]}>
+                                                        <Card.Body>{elem[1]}</Card.Body>
+                                                    </Accordion.Collapse>
+                                                </Card>
+                                            )
+                                            )}
+                                        </Accordion>
                                     </Row>
                                 </Card.Body>
                             </Card>
