@@ -14,6 +14,7 @@ import HeartRateChart from '../Charts/HeartRateChart';
 import SentimentChart from '../Charts/SentimentChart';
 //import CSS
 import './ViewTabs.css';
+import { type } from 'os';
 
 const makeNewObj = (k, v) => {
     let newObj = {};
@@ -26,6 +27,8 @@ const makeNewObj = (k, v) => {
     }
     return newObj;
 }
+
+
 
 const ViewTabs = (props) => {
     const [key, setKey] = useState('graphs');
