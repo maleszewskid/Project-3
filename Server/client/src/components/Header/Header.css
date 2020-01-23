@@ -1,14 +1,14 @@
 .navbar {
-  background-color: rgba(0, 0, 0, 0.904) !important;
+  background-color: #eaddb2 !important;
   box-shadow: 0 2px 10px -2px #12343b;
-  color: ghostwhite;
+  color: black;
   font-family: "Lato", sans-serif;
   display: flex;
   height: 60px;
   position: fixed;
 }
 p {
-  color: whitesmoke;
+  color: black;
   font-family: "Lato", sans-serif;
   font-size: 22px;
   text-align: center;
@@ -19,11 +19,16 @@ i {
 .headerUsername {
   float: right;
   color: whitesmoke;
+  border: solid black 1px;
+  background-color: black;
+  border-radius: 40%;
 }
 
 .nav-link {
-  color: white;
+  color: black;
   display: flex;
   justify-content: center;
 list-style: none;
 }
+
+
