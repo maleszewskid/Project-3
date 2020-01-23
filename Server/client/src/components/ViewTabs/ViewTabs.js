@@ -13,6 +13,7 @@ import HeartRateChart from '../Charts/HeartRateChart';
 import SentimentChart from '../Charts/SentimentChart';
 //import CSS
 import './ViewTabs.css';
+import { type } from 'os';
 
 const makeNewObj = (k, v) => {
     let newObj = {};
@@ -25,6 +26,8 @@ const makeNewObj = (k, v) => {
     }
     return newObj;
 }
+
+
 
 const ViewTabs = (props) => {
     const [key, setKey] = useState('graphs');
@@ -103,15 +106,41 @@ const ViewTabs = (props) => {
                             <Card>
                                 <Card.Body>
                                     <Row>
-                                        <Col>{moodTimeStamp.map(date => (
+                                        <Col className="col-md-3">
+                                            <div className="mb-auto text-center date-header-vd">Date</div>
+                                            <hr></hr>
+                                        </Col>
+                                        <Col className="col-md-7">
+                                            <div className="text-center journal-header-vd">Journal</div>
+                                            <hr></hr>
+                                        </Col>
+                                        <Col className="col-md-2">
+                                            <div className="mb-auto text-center mood-header-vd">Mood</div>
+                                            <hr></hr>
+                                        </Col>
+                                    </Row>
+                                    <Row>
 
-                                            <div>{date}</div>
+                                        <Col className="col-md-3">{moodTimeStamp.map(date => (
+                                            <div className="d-flex justify-content-center journal-date-bd">
+                                                <div>{console.log(date.slice(0, 10))}</div>
+                                                <div>{date.slice(0, 10)}</div>
+
+                                            </div>
+                                        )
+                                        )}
+                                        </Col>
+
+                                        <Col className="col-md-7">{journalEntry.map(entry => (
+                                            <div className="journal-entry-bd">{`"${entry}"`}</div>
                                         )
                                         )}</Col>
-                                        <Col>{journalEntry.map(entry => (
-                                            <div>{entry}</div>
+
+                                        <Col className="col-md-2">{journalEntrySentiment.map(score => (
+                                            <div className="d-flex justify-content-center journal-score-bd">{`${score}%`}</div>
                                         )
                                         )}</Col>
+
                                     </Row>
                                 </Card.Body>
                             </Card>
