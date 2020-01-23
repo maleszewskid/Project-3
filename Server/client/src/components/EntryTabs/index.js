@@ -198,9 +198,21 @@ const EntryTabs = props => {
                                         <Card.Header className="entry-header">General Information</Card.Header>
                                         <Card.Body>
                                             <Form onSubmit={props.handleSubmit}>
-                                                <Row className='my-2 mx-auto'>
+                                            <Row className='my-2'>
+                                                    <Col className='center'>
+                                                        <Form.Group className='center w-25' controlId="mrn">
+                                                            <Form.Label>Medical Record Number</Form.Label>
+                                                            <Form.Control
+                                                                name="mrn"
+                                                                onChange={props.onChange}
+                                                                placeholder="Medical Record Number"
+                                                            />
+                                                        </Form.Group>
+                                                    </Col>
+                                                </Row>
+                                                <Row className='mx-auto'>
                                                     <Col className="col-6 mx-auto">
-                                                        <p className="heightTitle">Height</p>
+                                                        <p className="heightTitle mt-2">Height</p>
                                                         <Form.Group className='mx-2 center w-25' controlId="exampleForm.ControlSelect2">
                                                             <Form.Label>Feet</Form.Label>
                                                             <Form.Control onChange={props.onChange} as="select" name='feet'>

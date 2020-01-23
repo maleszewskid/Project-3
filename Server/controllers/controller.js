@@ -51,7 +51,6 @@ module.exports = {
     // --------------------------------------------------------- //
     // Create patientInfo db
     createData: function (req, res) {
-        console.log(req.body)
         db.PatientInfo
             .create(req.body)
             .then(data => res.json(data))
@@ -59,7 +58,6 @@ module.exports = {
     },
     // find all patientInfo where username = username
     findAllData: function (req, res) {
-        console.log(req.params.username)
         db.PatientInfo
             .findOne({ username: req.params.username })
             .then(data => res.json(data))
@@ -90,7 +88,7 @@ module.exports = {
     addGenData: function (req, res) {
         const newFields = req.body.data;
         db.PatientInfo
-            .findOneAndUpdate({ username: req.body.data.username.username }, { $push: {'height': newFields.height, genTimeStamp: Date.now()}, $set: { 'sex': newFields.sex, 'weight': newFields.weight, 'ethnicity': newFields.ethnicity, 'disability': newFields.disability, 'tobaccoUse': newFields.tobaccoUse} }, {returnOriginal: false})
+            .findOneAndUpdate({ username: req.body.data.username.username }, { $push: {'height': newFields.height, genTimeStamp: Date.now()}, $set: { 'mrn': newFields.mrn, 'sex': newFields.sex, 'weight': newFields.weight, 'ethnicity': newFields.ethnicity, 'disability': newFields.disability, 'tobaccoUse': newFields.tobaccoUse} }, {returnOriginal: false})
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
@@ -104,8 +102,8 @@ module.exports = {
     },
     // update the users password on reset password submit button page
     updatePatientPassword: function (req, res) {
-        db.PatientInfo
-            .findOneAndUpdate({ username: req.params.username }, { $set: {"password": newFields.password}})
+        db.UserCreds
+            .findOneAndUpdate({ username: req.params.username }, { $set: {"password": req.body.password}})
             .then(data => res.json(data))
             .catch(err => res.status(422).json(err))
     }

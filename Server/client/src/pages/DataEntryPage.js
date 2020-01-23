@@ -95,14 +95,10 @@ class DataEntry extends Component {
     calculateSentiment = (journalText) => {
         let sentiment = new Sentiment();
         let result = sentiment.analyze(journalText);
-        console.log(result)
-        // let score = result.comparative;
-        console.log(result.comparative);
         let percentageScore = Math.round(100*((result.comparative+3)/6));
         this.setState({
             journalEntrySentiment: percentageScore
         })
-        // console.log(this.state.journalEntrySentiment);
     }
 
     // Event Handler to submit Mood data:
@@ -213,7 +209,7 @@ class DataEntry extends Component {
     // Event handler to submit general data:
     handleGeneralSubmit = event => {
         event.preventDefault();
-        const { username, feet, inches, weight, ethnicity, disability, tobaccoUse, sex } = this.state;
+        const { username, feet, inches, weight, ethnicity, disability, tobaccoUse, sex, mrn } = this.state;
         const data = {
             username,
             height: [feet, inches],
@@ -221,7 +217,8 @@ class DataEntry extends Component {
             ethnicity,
             disability,
             tobaccoUse,
-            sex
+            sex,
+            mrn
         };
         API.submitGenData({ data })
             .then(data => {

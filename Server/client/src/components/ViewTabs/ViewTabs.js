@@ -7,6 +7,8 @@ import Tab from 'react-bootstrap/Tab';
 import Card from 'react-bootstrap/Card';
 import Table from 'react-bootstrap/Table';
 import Accordion from 'react-bootstrap/Accordion';
+import ListGroup from 'react-bootstrap/ListGroup';
+import ListGroupItem from 'react-bootstrap/ListGroupItem';
 //Import Charts:
 import BloodPressureChart from '../Charts/BloodPressureChart';
 import BloodSugarChart from '../Charts/BloodSugarChart';
@@ -33,6 +35,7 @@ const makeNewObj = (k, v) => {
 const ViewTabs = (props) => {
     const [key, setKey] = useState('graphs');
     const { firstName,
+        middleName,
         lastName,
         dateOfBirth,
         medications,
@@ -50,6 +53,7 @@ const ViewTabs = (props) => {
         weight,
         height,
         address,
+        sex,
         phoneNumber,
         disability,
         tobaccoUse,
@@ -117,19 +121,19 @@ const ViewTabs = (props) => {
                                 <Card.Body>
                                     <Row>
                                         <Col className="col-md-12">
-                                        <Accordion defaultActiveKey="0">
-                                            {Object.entries(journalList).map(elem => (
-                                                <Card className="card-accordian-container">
-                                                    <Accordion.Toggle className='text-center accordian-header' as={Card.Header} eventKey={elem[0]}>
-                                                        {elem[0].slice(0, 10)}
-                                                    </Accordion.Toggle>
-                                                    <Accordion.Collapse eventKey={elem[0]}>
-                                                        <Card.Body className="journal-entry-bd">{`"${elem[1]}"`}</Card.Body>
-                                                    </Accordion.Collapse>
-                                                </Card>
-                                            )
-                                            )}
-                                        </Accordion>
+                                            <Accordion defaultActiveKey="0">
+                                                {Object.entries(journalList).map(elem => (
+                                                    <Card className="card-accordian-container">
+                                                        <Accordion.Toggle className='text-center accordian-header' as={Card.Header} eventKey={elem[0]}>
+                                                            {elem[0].slice(0, 10)}
+                                                        </Accordion.Toggle>
+                                                        <Accordion.Collapse eventKey={elem[0]}>
+                                                            <Card.Body className="journal-entry-bd">{`"${elem[1]}"`}</Card.Body>
+                                                        </Accordion.Collapse>
+                                                    </Card>
+                                                )
+                                                )}
+                                            </Accordion>
                                         </Col>
                                     </Row>
                                 </Card.Body>
@@ -164,25 +168,22 @@ const ViewTabs = (props) => {
                                 <Card.Body>
                                     <Row>
                                         <Col>
-                                            <h4>Height</h4>
-                                        </Col>
-                                        <Col>
-                                            <h4>Weight</h4>
-                                        </Col>
-                                        <Col>
-                                            <h4>Ethnicity</h4>
-                                        </Col>
-
-                                    </Row>
-                                    <Row>
-                                        <Col>
-                                            <div>{height[0]},{height[1]}</div>
-                                        </Col>
-                                        <Col>
-                                            <div>{weight}</div>
-                                        </Col>
-                                        <Col>
-                                            <div>{ethnicity}</div>
+                                            <Card>
+                                                <Card.Header as='h1' className='text-center my-2'>General Information</Card.Header>
+                                                <Card.Body>
+                                                    <ListGroup className="list-group-flush">
+                                                        <ListGroupItem> {firstName} {middleName} {lastName} </ListGroupItem>
+                                                        <ListGroupItem>DOB: {dateOfBirth}</ListGroupItem>
+                                                        <ListGroupItem>Medical Record Number: {mrn}</ListGroupItem>
+                                                        <ListGroupItem>Ethnicity: {ethnicity}</ListGroupItem>
+                                                        <ListGroupItem>Sex: {sex}</ListGroupItem>
+                                                        <ListGroupItem>Height: {height[0]} feet {height[1]} inches</ListGroupItem>
+                                                        <ListGroupItem>Weight: {weight}</ListGroupItem>
+                                                        <ListGroupItem>Disability: {disability}</ListGroupItem>
+                                                        <ListGroupItem>Tobacco Use: {tobaccoUse}</ListGroupItem>
+                                                    </ListGroup>
+                                                </Card.Body>
+                                            </Card>
                                         </Col>
                                     </Row>
                                 </Card.Body>
