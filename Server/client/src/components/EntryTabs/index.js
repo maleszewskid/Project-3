@@ -210,6 +210,19 @@ const EntryTabs = props => {
                                                         </Form.Group>
                                                     </Col>
                                                 </Row>
+
+                                                <Row className='my-2'>
+                                                    <Col className='center'>
+                                                        <Form.Group className='center w-25' controlId='BirthDate'>
+                                                            <Form.Label>Date Of Birth</Form.Label>
+                                                            <Form.Control
+                                                            name='Birthdate'
+                                                            onChange={props.onChange}
+                                                            placeholder='MM/DD/YYYY'
+                                                            />
+                                                        </Form.Group>
+                                                    </Col>
+                                                </Row>
                                                 <Row className='mx-auto'>
                                                     <Col className="col-6 mx-auto">
                                                         <p className="heightTitle mt-2">Height</p>
