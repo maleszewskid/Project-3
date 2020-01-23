@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { LineChart, Chart } from 'react-chartkick';
+import React from 'react';
+import { LineChart } from 'react-chartkick';
 import 'chart.js'
 
 const BloodPressureChart = props => {
-    console.log(props);
+    
     return (
         <>
             <h2 className='mx-auto'>Blood Pressure</h2>

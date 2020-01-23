@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+import Table from 'react-bootstrap/Table';
 //Import Charts:
 import BloodPressureChart from '../Charts/BloodPressureChart';
 import BloodSugarChart from '../Charts/BloodSugarChart';
@@ -14,13 +14,13 @@ import SentimentChart from '../Charts/SentimentChart';
 //import CSS
 import './ViewTabs.css';
 
-const loopOverTimeStamp = (timeStamp, data) => {
+const makeNewObj = (k, v) => {
     let newObj = {};
     let key = '';
     let value = '';
-    for (let i = 0; i < timeStamp.length; i++) {
-        key = timeStamp[i]
-        value = data[i]
+    for (let i = 0; i < k.length; i++) {
+        key = k[i]
+        value = v[i]
         newObj[key] = value;
     }
     return newObj;
@@ -53,11 +53,12 @@ const ViewTabs = (props) => {
         mrn
     } = props.data;
 
-    let heartRateData = loopOverTimeStamp(bloodTimeStamp, heartRate);
-    let bloodSugarData = loopOverTimeStamp(bloodTimeStamp, bloodSugar);
-    let systolicBloodPressureData = loopOverTimeStamp(bloodTimeStamp, systolicBloodPressure);
-    let diastolicBloodPressureData = loopOverTimeStamp(bloodTimeStamp, diastolicBloodPressure);
-    let journalEntrySentimentData = loopOverTimeStamp(moodTimeStamp, journalEntrySentiment);
+    //--- Create data for the graphs: ---
+    let heartRateData = makeNewObj(bloodTimeStamp, heartRate);
+    let bloodSugarData = makeNewObj(bloodTimeStamp, bloodSugar);
+    let systolicBloodPressureData = makeNewObj(bloodTimeStamp, systolicBloodPressure);
+    let diastolicBloodPressureData = makeNewObj(bloodTimeStamp, diastolicBloodPressure);
+    let journalEntrySentimentData = makeNewObj(moodTimeStamp, journalEntrySentiment);
 
     let bloodPressureGraph = [
         { name: 'Systolic Blood Pressure', data: { ...systolicBloodPressureData } },
@@ -76,6 +77,13 @@ const ViewTabs = (props) => {
         { name: 'Sentiment', data: { ...journalEntrySentimentData } }
     ]
 
+    //--- Create an object for the medications:
+    const medList = makeNewObj(medications, doseage);
+
+    //--- Create an object for the journal entries:
+    const journalList = makeNewObj(moodTimeStamp ,journalEntry);
+
+    //--- Render the page:
     return (
         <Container className='View-Tab-Container'>
             <Row>
@@ -108,22 +116,26 @@ const ViewTabs = (props) => {
                                 </Card.Body>
                             </Card>
                         </Tab>
-                        <Tab eventKey='meds' title='Medication'>
+                        <Tab eventKey='meds' title='Medications'>
                             <Card>
                                 <Card.Body>
                                     <Row>
-                                        <Col>
-                                            {medications.map(med => (
-                                                <div>{med}</div>
-                                            )
-                                            )}
-                                        </Col>
-                                        <Col>
-                                            {doseage.map(dose => (
-                                                <div>{dose}</div>
-                                            )
-                                            )}
-                                        </Col>
+                                        <Table striped bordered hover size="sm">
+                                            <thead>
+                                                <tr>
+                                                    <th>Medication</th>
+                                                    <th>Doseage</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {Object.entries(medList).map(elem => (
+                                                    <tr>
+                                                        <td key={elem[0]}>{elem[0]}</td>
+                                                        <td key={elem[1]}>{elem[1]}</td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </Table>
                                     </Row>
                                 </Card.Body>
                             </Card>

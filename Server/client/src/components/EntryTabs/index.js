@@ -8,6 +8,7 @@ import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import ProgressBar from 'react-bootstrap/ProgressBar';
+import MedsDisplay from '../../components/MedicationsDisplay/MedsDisplay';
 import './EntryTabs.css';
 
 
@@ -180,6 +181,11 @@ const EntryTabs = props => {
                                             {(props.medError) ? <div className='dataEntryError col-5 p-2 my-2 mx-auto text-center rounded'>There was an issue submitting your data. Please try again later.</div> : null}
                                             {(props.addDoseage) ? <div className='dataEntryError col-5 p-2 my-2 mx-auto text-center rounded'>Please add the doseage for your medication.</div> : null}
                                         </Card.Body>
+                                        <Card>
+                                            <Card.Body>
+                                                <MedsDisplay username={props.username} />
+                                            </Card.Body>
+                                        </Card>
                                         <Card.Footer className="entry-footer"></Card.Footer>
                                     </Card>
                                 </Col>
