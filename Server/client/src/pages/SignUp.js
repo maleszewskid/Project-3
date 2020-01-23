@@ -56,6 +56,7 @@ export default class Signup extends Component {
               email: this.state.email,
               username: this.state.username,
               firstName: this.state.firstname,
+              middleName: this.state.middlename,
               lastName: this.state.lastname,
               dateofBirth: this.state.dateofbirth,
               sex: this.state.sex
@@ -129,7 +130,7 @@ export default class Signup extends Component {
                       <Form.Control
                         name='firstname'
                         type="Firstname"
-                        value={this.state.fist}
+                        value={this.state.firstname}
                         onChange={this.handleChange}
                         placeholder="First Name"
                       />
@@ -138,7 +139,7 @@ export default class Signup extends Component {
                       <Form.Control
                         name='middlename'
                         type="MiddleInitial"
-                        value={this.state.middle}
+                        value={this.state.middlename}
                         onChange={this.handleChange}
                         placeholder="Middle Initial"
                       />
@@ -147,7 +148,7 @@ export default class Signup extends Component {
                       <Form.Control
                         name='lastname'
                         type="lastname"
-                        value={this.state.fist}
+                        value={this.state.lastname}
                         onChange={this.handleChange}
                         placeholder="Last Name"
                       />
@@ -173,15 +174,6 @@ export default class Signup extends Component {
                         className="form-control validate"
                         id="password"
                       />
-                      {/* <div className="alert alert-warning password-alert" role="alert">
-
-                        <ul>
-                          <li className="requirements leng"><i className="fas fa-check green-text"></i><i className="fas fa-times red-text"></i> Your password must have at least 8 chars.</li>
-                          <li className="requirements big-letter"><i className="fas fa-check green-text"></i><i className="fas fa-times red-text"></i> Your password must have at least 1 capital letter.</li>
-                          <li className="requirements num"><i className="fas fa-check green-text"></i><i className="fas fa-times red-text"></i> Your password must have at least 1 number.</li>
-                          <li className="requirements special-char"><i className="fas fa-check green-text"></i><i className="fas fa-times red-text"></i> Your password must have at least 1 special char.</li>
-                        </ul>
-                      </div> */}
                     </Form.Group>
                     <Form.Group>
                       <Form.Control
@@ -198,18 +190,12 @@ export default class Signup extends Component {
                     <Form.Group>
                       <Form.Control
                         name='dateofbirth'
-                        value={this.state.DOB}
+                        value={this.state.dateofbirth}
                         onChange={this.handleChange}
                         type="Date of birth"
-                        placeholder="Data of birth as MM/DD/YYY"
+                        placeholder="Date of birth as MM/DD/YYY"
                       />
                     </Form.Group>
-                    {/* <Form.Group>
-                      <select value={this.state.Sex} onChange={this.handleChange} name='sex'>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                      </select>
-                    </Form.Group> */}
                   </div>
                 </div>
                 <div className='row'>
@@ -218,9 +204,8 @@ export default class Signup extends Component {
                     <Form>
                       {['radio'].map(type => (
                         <div key={`inline-${type}`} className="mb-3">
-                          <Form.Check inline label="Male" type={type} id={`inline-${type}-1`} onChange={this.handleChange} />
-                          <Form.Check inline label="Female" type={type} id={`inline-${type}-2`} onChange={this.handleChange}/>
-                          {/* <Form.Check inline label="Other" type={type} id={`inline-${type}-3`} onChange={this.handleChange} /> */}
+                          <Form.Check inline label="Male" type={type} name='sex' value='male' id={`inline-${type}-1`} onChange={this.handleChange} />
+                          <Form.Check inline label="Female" type={type} name='sex' value='female' id={`inline-${type}-2`} onChange={this.handleChange}/>
                         </div>
                       ))}
                     </Form>

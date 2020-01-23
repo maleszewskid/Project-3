@@ -23,7 +23,7 @@ const PatientInfo = new Schema ({
     },
     dateofBirth: {
         //Date formats to: 'mm.dd.yyyy'
-        type: Date
+        type: String
     },
     ethnicity: {
         type: String

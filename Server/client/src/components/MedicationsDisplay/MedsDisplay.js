@@ -45,7 +45,7 @@ const MedsDisplay = props => {
     if (medList) {
         return (
             <>
-                <div>Existing Medications</div>
+                <div>Current Medications</div>
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr>
