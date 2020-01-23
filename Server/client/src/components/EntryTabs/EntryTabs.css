@@ -21,7 +21,9 @@
     border-bottom: solid 1px rgba(0, 0, 0, 0.404)!important;
     font-family: 'Lato', sans-serif;
 }
-
+.nav-link:hover {
+    text-decoration: none!important;
+}
 #controlled-tab-example-tab-home {
     color: whitesmoke;
     width: 20%;

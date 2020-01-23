@@ -86,9 +86,16 @@ const ViewTabs = (props) => {
     //--- Create an object for the medications:
     const medList = makeNewObj(medications, doseage);
 
+    //--- Reverse the order of the mood time stamps and journal entry arrays
+    //--- Will display the most recent journal entries at the top
+    const sortedMoodTimeStamp = moodTimeStamp.reverse();
+    const sortedJournalEntry = journalEntry.reverse();
+
     //--- Create an object for the journal entries:
-    const journalList = makeNewObj(moodTimeStamp, journalEntry);
+    const journalList = makeNewObj(sortedMoodTimeStamp, sortedJournalEntry);
     console.log(journalList);
+
+
     //--- Render the page:
     return (
         <Container className='View-Tab-Container'>
@@ -109,19 +116,21 @@ const ViewTabs = (props) => {
                             <Card>
                                 <Card.Body>
                                     <Row>
+                                        <Col className="col-md-12">
                                         <Accordion defaultActiveKey="0">
                                             {Object.entries(journalList).map(elem => (
-                                                <Card>
-                                                    <Accordion.Toggle className='text-center' as={Card.Header} eventKey={elem[0]}>
+                                                <Card className="card-accordian-container">
+                                                    <Accordion.Toggle className='text-center accordian-header' as={Card.Header} eventKey={elem[0]}>
                                                         {elem[0].slice(0, 10)}
                                                     </Accordion.Toggle>
                                                     <Accordion.Collapse eventKey={elem[0]}>
-                                                        <Card.Body>{elem[1]}</Card.Body>
+                                                        <Card.Body className="journal-entry-bd">{`"${elem[1]}"`}</Card.Body>
                                                     </Accordion.Collapse>
                                                 </Card>
                                             )
                                             )}
                                         </Accordion>
+                                        </Col>
                                     </Row>
                                 </Card.Body>
                             </Card>
