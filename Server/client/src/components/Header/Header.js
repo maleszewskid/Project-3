@@ -13,6 +13,7 @@ const Header = (props) => {
             <Link to={{ pathname: "/Landing", state: { username } }}>
                 <p className="p-2 m-0 headerTitle"><i className="fa fa-heartbeat 2x"></i>PatientFirst</p>
             </Link>
+            <select></select>
             <div className="p-2 m-0 headerUsername">{props.user.username}</div>
                     {/* <Link className="nav-link ml-auto" to={{ pathname: "/Landing", state: { username } }}>Home</Link> */}
                     <Link className="nav-link" to={{ pathname: "/DataEntry", state: { username } }}>Add Data</Link>
