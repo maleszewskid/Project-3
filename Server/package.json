@@ -33,6 +33,8 @@
     "morgan": "^1.9.1",
     "passport": "^0.4.1",
     "passport-local-mongoose": "^6.0.1",
+    "react-bootstrap-table-next": "^3.3.3",
+    "react-bootstrap-table2-editor": "^1.4.0",
     "react-chartkick": "^0.4.0"
   }
 }
