@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../components/Header/Header';
-import { PDFViewer } from '@react-pdf/renderer';
+import { PDFViewer, PDFDownloadLink } from '@react-pdf/renderer';
 import ViewPDF from "../components/createPDF/"
 import API from "../utils/API";
 import '../assets/css/PDFViewer.css'
@@ -60,22 +60,23 @@ class SubmitToDoctor extends Component {
                                     <ViewPDF data={this.state.data} />
                                 </PDFViewer>
                             </div>
-                            <div className='col'></div>
+                            <PDFDownloadLink>Download</PDFDownloadLink>
+                                <div className='col'></div>
 
+                            </div>
                         </div>
-                    </div>
 
                 </>
-            )
+                    )
         } else {
             return (
                 <div>Loading data...</div>
-            )
+                    )
+                }
+            }
         }
-    }
-}
-
-
-
-
-export default SubmitToDoctor;
+        
+        
+        
+        
+        export default SubmitToDoctor;

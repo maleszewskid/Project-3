@@ -35,14 +35,14 @@ const ViewPDF = (props) => {
   let diabetic = "Blood Glucose: " + bloodSugar + " mg/dL (View Chart 3) | Weight: " + weight + " lbs | BMI: " + (weight * 703) / (height1 * height1) + " (View Chart 4)\n"
 
   const styles = StyleSheet.create({
-    page: { backgroundColor: 'tomato' },
-    section: { color: 'white', textAlign: 'center', margin: 30 }
+    page: { backgroundColor: 'white' },
+    section: { color: 'black', textAlign: 'center', margin: 30 },
   });
 
 
   return (
     <Document>
-      <Page size='A4' style={{ backgroundColor: 'black', color: 'white' }}>
+      <Page size='A4' style={styles.page}>
         <View style={styles.section}>
           {/* <Header>Medical Data</Header> */}
   {/* <Author>{firstName}{lastName}</Author>          */}
