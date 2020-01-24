@@ -17,6 +17,7 @@
   "author": "Dom Maleszewski, Sam Levy, Jack Ryan, Phil Swartz",
   "license": "ISC",
   "dependencies": {
+    "@react-pdf/renderer": "^1.6.8",
     "axios": "^0.19.1",
     "bcrypt": "^3.0.7",
     "concurrently": "^5.0.2",

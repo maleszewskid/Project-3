@@ -1,0 +1,17 @@
+
+.footer-main {
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.904)!important;
+    margin-top: 20px;
+}
+.footer-text {
+    font-family: 'Lato', sans-serif;
+    color: whitesmoke!important;
+    text-align: center!important;
+    margin: auto;
+}
+#footer-a {
+    font-family: 'Lato', sans-serif;
+    color: whitesmoke!important;
+    text-decoration: none;
+}
