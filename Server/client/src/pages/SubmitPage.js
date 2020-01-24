@@ -52,7 +52,7 @@ class SubmitToDoctor extends Component {
                     </div >
                 <div>
                     <PDFViewer>
-                        <ViewPDF />
+                        <ViewPDF data={this.state.data} />
                     </PDFViewer>
                 </div>
 
