@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import Header from '../components/Header/Header';
+import Header from '../components/Header/Header';
 import { PDFViewer } from '@react-pdf/renderer';
 import ViewPDF from "../components/createPDF/"
 import API from "../utils/API";
@@ -44,20 +44,21 @@ class SubmitToDoctor extends Component {
     };
 
     render = () => {
-        return (
-            <>
-                {/* <Header user={username} /> */}
-                < div >
-                    This is submit to Doctor Page
-                    </div >
-                <div>
-                    <PDFViewer>
-                        <ViewPDF data={this.state.data} />
-                    </PDFViewer>
-                </div>
-
-            </>
-        )
+        if (this.state.data) {
+            return (
+                <>
+                     <Header user={this.state.username} />
+                    <div>
+                            <ViewPDF data={this.state.data} />
+                    </div>
+    
+                </>
+            )
+        } else {
+            return (
+                <div>Loading data...</div>
+            )
+        }
     }
 }
 
