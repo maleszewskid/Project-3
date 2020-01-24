@@ -19,10 +19,7 @@ const LandingBody = props => {
                         </Col>
                     </Row>
                     <Row>
-                        <Col className="col-12 text-center">
-                            <div className="landinSubgMsg">
-                                To manage your health information please select an option below, we reccomend beginning with the Pf Portal</div>
-                        </Col>
+                        
                     </Row>
                 </Col>
             </Row>
