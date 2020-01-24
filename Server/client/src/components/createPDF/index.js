@@ -1,5 +1,5 @@
 import React from 'react'
-import { Page, Text, Document, View, Title, Author } from '@react-pdf/renderer';
+import { Page, Text, Document, View, Title, Author, StyleSheet } from '@react-pdf/renderer';
 import Header from '../Header/Header';
 
 
@@ -34,15 +34,18 @@ const ViewPDF = (props) => {
   let heart = "Blood Pressure | Systolic: " + systolicBloodPressure + " mm Hg | Diastolic: " + diastolicBloodPressure + " mm Hg (View Chart 1) | Pulse: " + heartRate + " bpm (View Chart 2)\n"
   let diabetic = "Blood Glucose: " + bloodSugar + " mg/dL (View Chart 3) | Weight: " + weight + " lbs | BMI: " + (weight * 703) / (height1 * height1) + " (View Chart 4)\n"
 
-
+  const styles = StyleSheet.create({
+    page: { backgroundColor: 'tomato' },
+    section: { color: 'white', textAlign: 'center', margin: 30 }
+  });
 
 
   return (
     <Document>
       <Page size='A4' style={{ backgroundColor: 'black', color: 'white' }}>
-        <View style={{ color: 'white', textAlign: 'center', margin: 30 }}>
+        <View style={styles.section}>
           {/* <Header>Medical Data</Header> */}
-          {/* <Title>Don Quijote de la Mancha</Title> */}          
+  {/* <Author>{firstName}{lastName}</Author>          */}
           <Text>
             {personalData}
             {diabetic}
