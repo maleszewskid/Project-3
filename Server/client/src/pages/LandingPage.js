@@ -1,7 +1,7 @@
 import React, { Component } from 'react';	
 import LandingHeader from '../components/LandingHeader';	
 import LandingBody from '../components/LandingBody';	
-
+import Footer from '../components/Footer';
 
 class Landing extends Component {	
     constructor(props) {	
@@ -18,6 +18,7 @@ class Landing extends Component {
             <div>	
                 <LandingHeader user={username} />	
                 <LandingBody user={username} />	
+                <Footer />
             </div>	
         )	
     }	
