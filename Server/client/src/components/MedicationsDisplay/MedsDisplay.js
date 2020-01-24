@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import Table from 'react-bootstrap/Table';
 import API from '../../utils/API';
+import BootstrapTable from 'react-bootstrap-table-next';
+import cellEditFactory from 'react-bootstrap-table2-editor';
+import Button from 'react-bootstrap/button';
 
 const MedsDisplay = props => {
     const [data, setData] = useState(null);
-    const [medList, setMedList] = useState(null);
+    const [newMeds, setNewMeds] = useState(null);
+    const [medArr, setMedArr] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
 
@@ -23,45 +26,62 @@ const MedsDisplay = props => {
     }
 
     const makeMedObj = (medications, doseage) => {
-        let medObj = {};
+        let medArr = [];
         let med = '';
         let dose = '';
+        let medObj = {};
         for (let i = 0; i < medications.length; i++) {
             med = medications[i]
             dose = doseage[i]
-            medObj[med] = dose;
+            medObj = {
+                'id': i,
+                'medications': med,
+                'doseage': dose
+            };
+            medArr.push(medObj);
         }
-        setMedList(medObj);
+        setMedArr(medArr);
     }
+
+    const columns = [{
+        dataField: 'id',
+        text: 'ID'
+    }, {
+        dataField: 'medications',
+        text: 'Medications'
+    }, {
+        dataField: 'doseage',
+        text: 'Doseage'
+    }];
 
     useEffect(() => {
         const { username } = props.username;
         getData(username);
         if (data) {
-            makeMedObj(data.medications, data.doseage)
+            makeMedObj(data.medications, data.doseage);
         }
     }, [loading]);
 
-    if (medList) {
+    const submitChanges = () => {
+        console.log('Clicked');
+    }
+
+    if (medArr) {
         return (
             <>
                 <div>Current Medications</div>
-                <Table striped bordered hover size="sm">
-                    <thead>
-                        <tr>
-                            <th>Medication</th>
-                            <th>Doseage</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {Object.entries(medList).map(elem => (
-                            <tr>
-                                <td key={elem[0]}>{elem[0]}</td>
-                                <td key={elem[1]}>{elem[1]}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </Table>
+                <BootstrapTable
+                    keyField="id"
+                    data={medArr}
+                    columns={columns}
+                    cellEdit={cellEditFactory({
+                        mode: 'click',
+                        onStartEdit: (row, column, rowIndex, columnIndex) => { console.log("On Start" + row, column, rowIndex, columnIndex); },
+                        beforeSaveCell: (oldValue, newValue, row, column) => { console.log("Before Save" + oldValue, newValue, row, column); },
+                        afterSaveCell: (oldValue, newValue, row, column) => { console.log(oldValue, newValue, row); }
+                    })}
+                />
+                <Button onClick={submitChanges}>Submit Changes</Button>
             </>
         );
     } else {
