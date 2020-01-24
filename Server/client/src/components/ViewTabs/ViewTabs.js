@@ -16,7 +16,6 @@ import HeartRateChart from '../Charts/HeartRateChart';
 import SentimentChart from '../Charts/SentimentChart';
 //import CSS
 import './ViewTabs.css';
-import { type } from 'os';
 
 const makeNewObj = (k, v) => {
     let newObj = {};
@@ -52,16 +51,11 @@ const ViewTabs = (props) => {
         ethnicity,
         weight,
         height,
-        address,
         sex,
-        phoneNumber,
         disability,
         tobaccoUse,
-        genTimeStamp,
         mrn
     } = props.data;
-
-    let re = new RegExp('^(\d{4}|\d{2}|\d{2})$');
 
     //--- Create data for the graphs: ---
     let heartRateData = makeNewObj(bloodTimeStamp, heartRate);
