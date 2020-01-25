@@ -16,16 +16,12 @@ p {
 i {
   padding: 0 2px 0 2px;
 }
-.headerUsername {
+.headerUsernameHead {
   float: right;
   color: whitesmoke;
-  /* border: solid black 1px;
-  background-color: black; 
-  border-radius: 40%; */
 }
-
 .nav-link {
-  color: white;
+  color: whitesmoke;
   display: flex;
   justify-content: center;
   list-style: none;
@@ -33,5 +29,42 @@ i {
 .headerTitle:hover{
   text-decoration: none!important;
 }
-
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown {
+  background-color: rgba(0, 0, 0, 0.904)!important;
+  float: right!important;
+}
+.dropbtn {
+  background-color: rgba(0, 0, 0, 0.904)!important;
+  color: whitesmoke!important;
+  border: none;
+  font-family: "Lato", sans-serif!important;
+}
+.dropdown-item {
+  background-color: rgba(0, 0, 0, 0.904)!important;
+  color: whitesmoke!important;
+  font-family: "Lato", sans-serif!important;
+  font-size: 16px!important;
+}
 
