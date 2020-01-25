@@ -1,7 +1,6 @@
 
-const chartIMG = () => {
-let x = document.getElementsByTagName("a").getAttribute("href");
-};
 
+let x = document.getElementsByTagName("a").getAttribute("href").value;
+console.log(x)
 
             
