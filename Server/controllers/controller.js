@@ -86,6 +86,13 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
+    updateMedData: function(req, res) {
+        const newFields = req.body.data;
+        db.PatientInfo
+            .findOneAndUpdate({ username: req.body.data.username.username }, { $push: {'medications': newFields.medications, 'doseage': newFields.doseage, medsTimeStamp: Date.now()} }, {returnOriginal: false})
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    },  
     addGenData: function (req, res) {
         const newFields = req.body.data;
         db.PatientInfo

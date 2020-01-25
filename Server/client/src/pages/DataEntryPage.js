@@ -91,9 +91,6 @@ class DataEntry extends Component {
             journalEntry: value,
             moodSuccess: false
         });
-
-        // console.log(this.state.journalEntry);
-        // this.calculateSentiment(this.journalEntry);
     };
 
     // calculateSentiment
@@ -121,9 +118,6 @@ class DataEntry extends Component {
             journalEntrySentiment
         };
     
-        console.log(this.state.journalEntry, this.state.journalEntrySentiment + '%');
-
-        // Need to send this to mongoDB via method called addPatientData
         API.submitMoodData({ data })
             .then(data => {
                 if (data) {
