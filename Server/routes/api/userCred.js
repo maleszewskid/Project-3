@@ -18,7 +18,7 @@ router.route('/Signup')
     .post(controller.signUp);
 
 router.route('/Logout')
-    .post(controller.logoutUser);
+    .get(controller.logoutUser);
 
 router.route('/DeleteUser/:username')
     .delete(controller.deleteUserCreds);

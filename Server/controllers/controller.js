@@ -32,8 +32,9 @@ module.exports = {
     logoutUser: function(req, res) {
         console.log('Logout user')
         if (req.user) {
-            req.logout
+            req.logout();
             res.send({message: 'logging out'})
+            console.log('logged out');
         } else {
             res.send({message: 'No user to logout'})
         }

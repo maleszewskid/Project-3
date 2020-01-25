@@ -6,6 +6,7 @@ import EntryTabs from '../components/EntryTabs';
 
 // Importing sentiment lib
 import Sentiment from 'sentiment';
+import Reset from './ResetpasswordPage';
 
 class DataEntry extends Component {
     constructor(props) {
@@ -24,6 +25,10 @@ class DataEntry extends Component {
             journalEntry: '',
             journalEntrySentiment: 0
         };
+    }
+
+    reset() {
+        this.setState({username: ''});
     }
 
     componentDidMount() {
@@ -241,7 +246,7 @@ class DataEntry extends Component {
         const username = this.props.location.state;
         return (
             <>
-                <Header user={username} />
+                <Header user={username} reset={this.reset}/>
                 <EntryTabs onChange={this.handleInputChange}
                     onMoodChange={this.handleMoodInputChange}
                     sentimentScore={this.state.journalEntrySentiment}

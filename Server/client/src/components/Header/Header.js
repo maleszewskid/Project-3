@@ -6,7 +6,15 @@ import './Header.css';
 import '../../App.css'
 import FontAwesome from 'react-fontawesome'
 
+
 const Header = (props) => {
+
+    const handleClick = event => {
+        API.Logout().then(() => {
+            
+        });
+    }
+
     const { username } = props.user;
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
@@ -24,7 +32,7 @@ const Header = (props) => {
                     <Link className="nav-link dropdown-item" to={{ pathname: "/viewData", state: { username } }}>View</Link>
                     <Link className="nav-link dropdown-item" to={{ pathname: "/submit", state: { username } }}>Submit</Link>
                     {/* Here we need to send a request to logout user from DB */}
-                    <Link className="nav-link dropdown-item ml-auto" to={{ pathname: "/", state: { username } }}>Logout</Link>
+                    <Link className="nav-link dropdown-item ml-auto" onClick={() => handleClick()} to={{ pathname: "/", state: { username: "" } }}>Logout</Link>
                 </div>
             </div>
         </nav>
