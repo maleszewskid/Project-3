@@ -22,8 +22,7 @@ class DataEntry extends Component {
             medSuccess: false,
             genSuccess: false,
             journalEntry: '',
-            journalEntrySentiment: 0 
-
+            journalEntrySentiment: 0
         };
     }
 
@@ -89,6 +88,7 @@ class DataEntry extends Component {
         });
 
         // console.log(this.state.journalEntry);
+        // this.calculateSentiment(this.journalEntry);
     };
 
     // calculateSentiment
@@ -134,7 +134,6 @@ class DataEntry extends Component {
                     })
                 }
         })
-        
     }
 
     // Event Handler to submit Medication data:
