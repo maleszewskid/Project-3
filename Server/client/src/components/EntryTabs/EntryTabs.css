@@ -65,12 +65,10 @@
     background-color: #7092a8!important;
     opacity: 1!important;
 }
-
 .center {
     display:inline-block;
     margin: 0 auto;
 }
-
 .entry-footer {
     background-color: #1b262c;
     border-radius: 0px!important;
@@ -92,8 +90,13 @@
 .dataEntrySuccess {
     background-color: lightgreen;
 }
-
 .heightTitle {
     color: black;
     font-size: 1.3rem;
+}
+.percent-score {
+    font-family: 'Lato', sans-serif!important;
+    color: whitesmoke;
+    font-size: 16px;
+    font-weight: 400;
 }
