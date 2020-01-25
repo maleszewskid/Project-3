@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactDOM from 'react-dom';
 import API from "../utils/API";
 import Header from '../components/Header/Header';
 import ViewTabs from '../components/ViewTabs/ViewTabs';
@@ -39,6 +40,7 @@ class ViewData extends Component {
             })
     };
 
+    
     render = () => {
         return (
             <>
@@ -46,7 +48,7 @@ class ViewData extends Component {
                 {(this.state.loading || this.state.error) && <div>{this.state.loading ? 'Loading...' : this.state.error}</div>}
                 {(!this.state.loading && !this.state.error) ? <ViewTabs data={this.state.data}/> : null }
             </>
-        )
+        )   
     }
 
 }

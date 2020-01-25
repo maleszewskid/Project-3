@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -29,7 +30,7 @@ const makeNewObj = (k, v) => {
     return newObj;
 }
 
-
+const checkStats = event => {console.log(event.target)};
 
 const ViewTabs = (props) => {
     const [key, setKey] = useState('graphs');
@@ -92,7 +93,6 @@ const ViewTabs = (props) => {
     //--- Create an object for the journal entries:
     const journalList = makeNewObj(sortedMoodTimeStamp, sortedJournalEntry);
     console.log(journalList);
-
 
     //--- Render the page:
     return (
