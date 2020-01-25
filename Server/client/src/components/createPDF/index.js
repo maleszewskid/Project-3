@@ -1,8 +1,8 @@
 import React from 'react'
 import { Page, Text, Document, View, Title, Author, StyleSheet } from '@react-pdf/renderer';
 import Header from '../Header/Header';
-
-
+import styled from '@react-pdf/styled-components'
+import './PDFViewer.css'
 
 
 const ViewPDF = (props) => {
@@ -28,7 +28,7 @@ const ViewPDF = (props) => {
     mrn
   } = props.data;
   let height1 = (height[0] * 12) + height[1];
-  let personalData = lastName + ", " + firstName + " DOB: " + dateOfBirth + " MRN: "+ mrn;
+  let personalData = lastName + ", " + firstName + " DOB: " + dateOfBirth + " MRN: " + mrn;
 
 
   let heart = "Blood Pressure | Systolic: " + systolicBloodPressure + " mm Hg | Diastolic: " + diastolicBloodPressure + " mm Hg (View Chart 1) | Pulse: " + heartRate + " bpm (View Chart 2)\n"
@@ -38,18 +38,38 @@ const ViewPDF = (props) => {
     page: { backgroundColor: 'white' },
     section: { color: 'black', textAlign: 'center', margin: 30 },
   });
+  const Heading = styled.Text`
+  margin: 10px;
+  font-size: 22px;
+  font-family: 'Helvetica';
+`;
+const Author = styled.Text`
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 40px;
+`;  
+const Header = styled.Text`
+  color: grey;
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 20px;
+`;
+
 
 
   return (
     <Document>
-      <Page size='A4' style={styles.page}>
+      <Page style={styles.page}>
         <View style={styles.section}>
-          {/* <Header>Medical Data</Header> */}
-  {/* <Author>{firstName}{lastName}</Author>          */}
+        <Header fixed>
+        Patient First
+      </Header>
+          <Heading>Medical Data</Heading>
+          <Author>{firstName} {lastName}</Author>
           <Text>
-            {personalData}
-            {diabetic}
-            {heart}
+            {/* {personalData} */}
+            {diabetic}\n
+            {heart}\n
           </Text>
         </View>
       </Page>
