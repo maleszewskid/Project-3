@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import Header from '../components/Header/Header';
 import { PDFViewer, PDFDownloadLink } from '@react-pdf/renderer';
-import ViewPDF from "../components/createPDF/"
-import API from "../utils/API";
-import '../assets/css/PDFViewer.css'
+import ViewPDF from '../components/createPDF'
+import EmailForm from '../components/EmailForm';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import API from '../utils/API';
+import '../components/createPDF/PDFViewer.css';
 
 // import { LineChart, Chart } from 'react-chartkick'
 // import 'chart.js'
@@ -16,6 +19,7 @@ class SubmitToDoctor extends Component {
             data: '',
             loading: true,
             error: '',
+            email: ''
         }
     }
 
@@ -44,6 +48,25 @@ class SubmitToDoctor extends Component {
             })
     };
 
+    // Handle email form input change, pass as props
+    handleInputChange = event => {
+        // Getting the value and name of the input which triggered the change
+        const { name, value } = event.target;
+        // Updating the input’s state
+        this.setState({
+            email: value
+        });
+    };
+
+    // Handle submit of email
+    handleEmailSubmit = event => {
+        event.preventDefault();
+        
+        API.sendEmail("http://localhost:3002/send", this.state.email).then(console.log('email sent'))
+
+
+    }
+
     render = () => {
         if (this.state.data) {
             return (
@@ -53,30 +76,35 @@ class SubmitToDoctor extends Component {
                         <br></br>
                         <br></br>
                         <br></br>
-                        <div className='row'>
-                            <div className='col'></div>
-                            <div className='col'>
+                        <PDFDownloadLink document={<ViewPDF data={this.state.data} />} fileName={`PatientFirst_${this.state.data.lastName}.pdf`}>
+                            {({ blob, url, loading, error }) => (loading ? 'Loading document...' : 'Download now!')}
+                        </PDFDownloadLink>
+
+                        <Row>
+                            <Col className="col-md-12">
+                                <EmailForm />
+                            </Col>
+                        </Row>
+                        <Row>
+                            <div className='col-md-12 viewer-column'>
                                 <PDFViewer id='PDFViewer'>
                                     <ViewPDF data={this.state.data} />
                                 </PDFViewer>
                             </div>
-                            <PDFDownloadLink>Download</PDFDownloadLink>
-                                <div className='col'></div>
-
-                            </div>
-                        </div>
+                        </Row>
+                    </div>
 
                 </>
-                    )
+            )
         } else {
             return (
                 <div>Loading data...</div>
-                    )
-                }
-            }
+            )
         }
-        
-        
-        
-        
-        export default SubmitToDoctor;
+    }
+}
+
+
+
+
+export default SubmitToDoctor;

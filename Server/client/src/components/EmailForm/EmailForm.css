@@ -1,0 +1,11 @@
+.emailSend {
+    /* float: right!important; */
+    margin-left: 6px;
+    height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center!important;
+    border: none!important;
+    color: whitesmoke!important;
+    font-family: "Lato", sans-serif!important;
+}

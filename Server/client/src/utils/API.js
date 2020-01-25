@@ -53,6 +53,9 @@ export default {
     // update patient password here, Jack to test this function
     updatePatientPassword: function(username) {
         return axios.update('/UpdatePassword/:' + username)
+    },
+    sendEmail: function(url, email) {
+        return axios.post('/email/send')
     }
 
 }
