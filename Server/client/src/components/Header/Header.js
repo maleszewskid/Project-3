@@ -23,7 +23,7 @@ const Header = (props) => {
                 <p className="p-2 m-0 headerTitle"><i className="fa fa-heartbeat 2x"></i>PatientFirst</p>
             </Link>
             <div className="p-2 m-0 headerUsernameHead">{props.user.username}</div>
-            <div className="dropdown">
+            <div className="dropdown dropleft">
                 <button className="dropbtn">
                 <FontAwesome className='fas fa-bars' />
                 </button>
