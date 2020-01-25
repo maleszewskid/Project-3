@@ -53,14 +53,16 @@ class SubmitToDoctor extends Component {
                         <br></br>
                         <br></br>
                         <br></br>
+                        <PDFDownloadLink document={<ViewPDF data={this.state.data} />} fileName={`PatientFirst_${this.state.data.lastName}.pdf`}>
+                            {({ blob, url, loading, error }) => (loading ? 'Loading document...' : 'Download now!')}
+                        </PDFDownloadLink>
+
                         <div className='row'>
                             <div className='col-md-12 viewer-column'>
                                 <PDFViewer id='PDFViewer'>
                                     <ViewPDF data={this.state.data} />
                                 </PDFViewer>
                             </div>
-                            <PDFDownloadLink>Download</PDFDownloadLink>
-
                         </div>
                     </div>
 
