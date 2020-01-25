@@ -21,14 +21,12 @@ class ViewData extends Component {
             username: this.props.location.state
         });
         const { username } = this.props.location.state;
-        console.log(username);
        API.allPatientData({ username })
             .then(res => {
                 this.setState({
                     data: res.data,
                     loading: false
                 })
-                console.log(res.data)
             })
             .catch(error => {
                 this.setState({

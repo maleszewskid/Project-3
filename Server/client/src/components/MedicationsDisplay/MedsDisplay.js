@@ -17,12 +17,31 @@ const MedsDisplay = props => {
                 setData(res.data);
                 setLoading(false);
                 setError(false);
+                makeMedObj(data.medications, data.doseage);
             })
             .catch(error => {
                 setData('');
                 setLoading(false);
                 setError(error);
             });
+    }
+
+    const sendData = (data) => {
+        API.updateMedData({ data })
+            .then(res => console.log(res.data))
+    }
+
+    const makeDataObj = (username, medications) => {
+        let dataObj = {};
+        let key = '';
+        let value = '';
+        for (let i = 0; i < medications.length; i++ ) {
+            key = medications[i].medications;
+            value = medications[i].doseage;
+            dataObj[key] = value;
+        }
+        dataObj.username = username;
+        sendData(dataObj);
     }
 
     const makeMedObj = (medications, doseage) => {
@@ -57,34 +76,48 @@ const MedsDisplay = props => {
     useEffect(() => {
         const { username } = props.username;
         getData(username);
-        if (data) {
-            makeMedObj(data.medications, data.doseage);
-        }
     }, [loading]);
 
-    const submitChanges = () => {
-        console.log('Clicked');
-    }
+    const cellEdit = {
+        mode: 'click',
+        onStartEdit: (row, column, rowIndex, columnIndex) => { console.log("On Start" + row, column, rowIndex, columnIndex); },
+        beforeSaveCell: (oldValue, newValue, row, column) => { console.log("Before Save" + oldValue, newValue, row, column); },
+        afterSaveCell: (oldValue, newValue, row, column) => { console.log(oldValue, newValue, row, column); },
+      };
+
+     const handleTableChange = (type, { data, cellEdit: { rowId, dataField, newValue } }) => {
+        if (newValue === '') {
+            setNewMeds(data);
+            setError("Please enter a value.") 
+            } else {
+                const result = data.map((row) => {
+                    if (row.id === rowId) {
+                      const newRow = { ...row };
+                      newRow[dataField] = newValue;
+                      return newRow;
+                    }
+                    return row;
+                });
+                setMedArr(result);
+                makeDataObj(props.username, medArr);
+            }
+      }
 
     if (medArr) {
         return (
             <>
                 <div>Current Medications</div>
                 <BootstrapTable
+                    remote={ { cellEdit: true } }
                     keyField="id"
                     data={medArr}
                     columns={columns}
-                    cellEdit={cellEditFactory({
-                        mode: 'click',
-                        onStartEdit: (row, column, rowIndex, columnIndex) => { console.log("On Start" + row, column, rowIndex, columnIndex); },
-                        beforeSaveCell: (oldValue, newValue, row, column) => { console.log("Before Save" + oldValue, newValue, row, column); },
-                        afterSaveCell: (oldValue, newValue, row, column) => { console.log(oldValue, newValue, row); }
-                    })}
+                    cellEdit={cellEditFactory(cellEdit)}
+                    onTableChange={ handleTableChange }
                 />
-                <Button onClick={submitChanges}>Submit Changes</Button>
             </>
         );
-    } else {
+    } else if (!medArr){
         return (
             <>
                 <div>Error returning your data.</div>
