@@ -1,0 +1,7 @@
+iframe#PDFViewer {
+    width: 100%;
+    height: 580px;
+}
+.viewer-column {
+    padding: 40px;
+}
