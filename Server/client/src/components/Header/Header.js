@@ -5,7 +5,7 @@ import {
 import './Header.css';
 import '../../App.css'
 import FontAwesome from 'react-fontawesome'
-
+import API from '../../utils/API';
 
 const Header = (props) => {
 
