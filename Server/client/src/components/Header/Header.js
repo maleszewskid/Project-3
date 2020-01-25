@@ -4,7 +4,8 @@ import {
 } from "react-router-dom";
 import './Header.css';
 import '../../App.css'
-import API from '../../utils/API';
+import FontAwesome from 'react-fontawesome'
+
 
 const Header = (props) => {
 
@@ -23,8 +24,8 @@ const Header = (props) => {
             </Link>
             <div className="p-2 m-0 headerUsernameHead">{props.user.username}</div>
             <div className="dropdown">
-                <button className="dropbtn">Menu
-                <i className="fa fa-caret-down"></i>
+                <button className="dropbtn">
+                <FontAwesome className='fas fa-bars' />
                 </button>
                 <div className="dropdown-content">
                     <Link className="nav-link dropdown-item" to={{ pathname: "/DataEntry", state: { username } }}>Enter</Link>
