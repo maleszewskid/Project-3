@@ -43,12 +43,19 @@ export default {
     submitMedData: function(data) {
         return axios.post('/api/patient/addMedData', data)
     },
+    updateMedData: function(data) {
+        console.log(data)
+        return axios.post('/api/patient/updateMedData', data)
+    },
     submitGenData: function(data) {
         return axios.post('/api/patient/addGenData', data)
     },
     // update patient password here, Jack to test this function
     updatePatientPassword: function(username) {
         return axios.update('/UpdatePassword/:' + username)
+    },
+    sendEmail: function(url, email) {
+        return axios.post('/email/send')
     }
 
 }

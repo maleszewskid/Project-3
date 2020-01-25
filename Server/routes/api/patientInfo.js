@@ -22,6 +22,9 @@ router.route('/addMoodData')
 router.route('/addMedData')
     .post(controller.addMedData);
 
+router.route('/updateMedData')
+    .post(controller.updateMedData);
+
 router.route('/addGenData')
     .post(controller.addGenData);
 

@@ -55,13 +55,13 @@ const PatientInfo = new Schema ({
     }],
     //Needs to be an array
     doseage: [{
-        type: Number
+        type: String
     }],
     medsTimeStamp: [{
         type: Date
     }],
     mrn: {
-        type: Number
+        type: String
     },
     //Needs to be an array
     heartRate: [{
