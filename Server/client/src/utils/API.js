@@ -9,6 +9,10 @@ export default {
     Login: function(userCreds) {
         return axios.post("/api/authenticate/Login", userCreds);
     },
+    // Logout user
+    Logout: function() {
+        return axios.get("/api/authenticate/Logout");
+    },
     // synonymous to the createUser method in controller
     // pass userCreds as an object
     // userCreds passed via req.body to mongo via express
