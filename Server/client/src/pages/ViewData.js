@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import Header from '../components/Header/Header';
 import ViewTabs from '../components/ViewTabs/ViewTabs';
-
+import '../components/dataManipulater/index';
 class ViewData extends Component {
     constructor(props) {
         super(props);

@@ -1,6 +1,6 @@
 
 
-let x = document.getElementsByTagName("a").getAttribute("href").value;
+let x = document.getElementById("link")[0].getAttribute("href");
 console.log(x)
 
             
