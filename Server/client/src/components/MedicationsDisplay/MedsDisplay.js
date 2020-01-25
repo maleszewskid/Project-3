@@ -96,6 +96,7 @@ const MedsDisplay = props => {
                       newRow[dataField] = newValue;
                       return newRow;
                     }
+                    console.log(row)
                     return row;
                 });
                 setMedArr(result);
