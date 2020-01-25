@@ -1,5 +1,5 @@
-let y = document.getElementById("chart-1")
-y.addEventListener("mouseover", function (){
+let y = document.getElementsByClassName("chartjs-size-monitor")
+y.onmouseover = function (){
 let x = document.getElementsByTagName("link").getAttribute("href");
 console.log(x)
 }
