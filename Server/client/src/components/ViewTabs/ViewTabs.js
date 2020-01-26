@@ -18,6 +18,7 @@ import SentimentChart from '../Charts/SentimentChart';
 //import CSS
 import './ViewTabs.css';
 
+
 const makeNewObj = (k, v) => {
     let newObj = {};
     let key = '';
@@ -187,6 +188,7 @@ const ViewTabs = (props) => {
                 </Col>
             </Row>
         </Container>
+        
     );
 
 };
