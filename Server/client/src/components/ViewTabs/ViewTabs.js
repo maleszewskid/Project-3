@@ -17,7 +17,7 @@ import HeartRateChart from '../Charts/HeartRateChart';
 import SentimentChart from '../Charts/SentimentChart';
 //import CSS
 import './ViewTabs.css';
-import '../dataManipulater/index'
+import '../dataManipulator/index'
 
 const makeNewObj = (k, v) => {
     let newObj = {};
