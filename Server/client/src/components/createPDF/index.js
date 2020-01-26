@@ -63,8 +63,9 @@ const ViewPDF = (props) => {
   font-family: 'Times-Roman';
 `;
   const Subtitle = styled.Text`
+  font-weight: bold;
   margin: 12px;
-  font-size: 12px;
+  font-size: 20;
   font-family: 'Times-Roman';
   text-align: center;
 `;
@@ -91,14 +92,14 @@ const ViewPDF = (props) => {
             Patient First
             </Header>
           <Heading>Medical Data</Heading>
-          <Author>{firstName} {lastName}</Author>
-          <Subtitle>{mrn}</Subtitle>
-          <Subtitle>{address}</Subtitle>
-          <Subtitle>{phoneNumber}</Subtitle>
-
+          {/* <Author>{firstName} {lastName}</Author> */}
+          <Author>{personalData}</Author>
+          {/* <Subtitle>Medical Record Number: {mrn}</Subtitle> */}
+          {/* <Subtitle>{address}</Subtitle>
+          <Subtitle>{phoneNumber}</Subtitle> */}
+          
 
           <Paragraph>
-            {/* {personalData} */}
             {diabetic}
           </Paragraph>
           <Paragraph>
