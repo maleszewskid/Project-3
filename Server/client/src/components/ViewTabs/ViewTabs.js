@@ -17,7 +17,7 @@ import HeartRateChart from '../Charts/HeartRateChart';
 import SentimentChart from '../Charts/SentimentChart';
 //import CSS
 import './ViewTabs.css';
-import '../dataManipulator/index'
+
 
 const makeNewObj = (k, v) => {
     let newObj = {};
@@ -105,7 +105,6 @@ const ViewTabs = (props) => {
                             <Card className="chart-card">
                                 <Card.Body className="chart-card-body">
                                     <BloodPressureChart data={bloodPressureGraph} />
-                                    <div style="display:none" id="chartPNG"></div>
                                     <BloodSugarChart data={bloodSugarGraph} />
                                     <HeartRateChart data={heartRateGraph} />
                                     <SentimentChart data={sentimentGraph} />
