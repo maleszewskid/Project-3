@@ -58,7 +58,7 @@ const MedsDisplay = props => {
             };
             medArr.push(medObj);
         }
-        //setMedArr(medArr);
+        setMedArr(medArr);
     }
 
     const columns = [{
