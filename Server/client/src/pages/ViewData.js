@@ -16,8 +16,7 @@ class ViewData extends Component {
 
     // When this component is mounted to the DOM we want to load in the user data and set the state with it:
     // Need username to make the call to the api, so how do we get the username?
-    //    async
-    componentDidMount() {
+    async componentDidMount() {
         this.setState({
             username: this.props.location.state
         });
