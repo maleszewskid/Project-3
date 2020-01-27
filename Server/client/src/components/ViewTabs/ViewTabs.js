@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -30,7 +29,7 @@ const makeNewObj = (k, v) => {
     return newObj;
 }
 
-const checkStats = event => {console.log(event.target)};
+// const checkStats = event => {console.log(event.target)};
 
 const ViewTabs = (props) => {
     const [key, setKey] = useState('graphs');
@@ -40,7 +39,7 @@ const ViewTabs = (props) => {
         dateOfBirth,
         medications,
         doseage,
-        medsTimeStamp,
+        // medsTimeStamp,
         heartRate,
         bloodSugar,
         systolicBloodPressure,
@@ -146,7 +145,7 @@ const ViewTabs = (props) => {
                                             </thead>
                                             <tbody>
                                                 {Object.entries(medList).map(elem => (
-                                                    <tr>
+                                                    <tr id={`medications-${elem[0]}`}>
                                                         <td key={elem[0]}>{elem[0]}</td>
                                                         <td key={elem[1]}>{elem[1]}</td>
                                                     </tr>
