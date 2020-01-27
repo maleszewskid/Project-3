@@ -16,12 +16,13 @@ class ViewData extends Component {
 
     // When this component is mounted to the DOM we want to load in the user data and set the state with it:
     // Need username to make the call to the api, so how do we get the username?
-   async componentDidMount() {
+    //    async
+    componentDidMount() {
         this.setState({
             username: this.props.location.state
         });
         const { username } = this.props.location.state;
-       API.allPatientData({ username })
+        API.allPatientData({ username })
             .then(res => {
                 this.setState({
                     data: res.data,
@@ -29,6 +30,7 @@ class ViewData extends Component {
                 })
             })
             .catch(error => {
+                console.log("this is the error" + error)
                 this.setState({
                     data: '',
                     loading: false,
@@ -37,15 +39,15 @@ class ViewData extends Component {
             })
     };
 
-    
+
     render = () => {
         return (
             <>
                 <Header user={this.state.username} />
                 {(this.state.loading || this.state.error) && <div>{this.state.loading ? 'Loading...' : this.state.error}</div>}
-                {(!this.state.loading && !this.state.error) ? <ViewTabs data={this.state.data}/> : null } 
+                {(!this.state.loading && !this.state.error) ? <ViewTabs data={this.state.data} /> : null}
             </>
-        )   
+        )
     }
 
 }
