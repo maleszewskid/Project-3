@@ -14,7 +14,7 @@ Print or email your information to your doctor via the Submit Page:
 
 'Screenshot forthcoming'
 
-##How to upload data:
+## How to upload data:
 
 * Navigate to the Patient Portal: 
   * You can use the drop-down navigation bar or click the PatientFirst logo in the heading to navigate to the landing page, and then click on the Patient Portal button.
@@ -26,14 +26,14 @@ Print or email your information to your doctor via the Submit Page:
     * General Information: Medical Record Number, Date of Birth, height (in feet and inches), weight, ethnicity, disability, tobacco use and biological sex
   * To submit your data to our secure servers just click the 'Submit' button at the bottom of the page.
   
-#How to view data: 
+## How to view data: 
 
 * Navigate to the Data View page:
   * You can either click on the 'View Data' button on the landing page or select 'View' from the drop down menu in the navigation bar.
   * Click on the tabs to view specific data:
     * Trend Charts: click this heading to view charts of data you have entered. You can view Heart Rate, Blood Pressure, Blood Sugar and Mood sentiment scores here. **To download your charts hover over the chart and click the downward facing arrow in the upper right-hand corner of the chart to begin the download process.** 
 
-#How to submit data:
+## How to submit data:
 
 * Either click the Submit to Provider button towards the bottom of the landing page or click 'Submit' from the drop down menu in the navigation bar.
 * Once you arrive, your .pdf will begin loading on the page. This may take a moment. 
