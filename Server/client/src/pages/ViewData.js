@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ReactDOM from 'react-dom';
 import API from "../utils/API";
 import Header from '../components/Header/Header';
 import ViewTabs from '../components/ViewTabs/ViewTabs';

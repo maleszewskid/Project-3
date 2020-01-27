@@ -1,10 +1,14 @@
 import React from 'react'
-import { Page, Text, Document, View, Footer, Title, Author, Subtitle, StyleSheet, BlobProvider, Paragraph } from '@react-pdf/renderer';
-import Header from '../Header/Header';
+
+import { Page,  Document, View,   StyleSheet, } from '@react-pdf/renderer';
+// Footer,
+// Text,
+// Title, Author, Subtitle,
+// BlobProvider,
+// Paragraph 
+
 import styled from '@react-pdf/styled-components'
 import './PDFViewer.css'
-
-
 const ViewPDF = (props) => {
   const {
     firstName,
@@ -16,24 +20,21 @@ const ViewPDF = (props) => {
     systolicBloodPressure,
     diastolicBloodPressure,
     moodSentiment,
-    data,
+    // data,
     dateOfBirth,
-    ethnicity,
+    // ethnicity,
     weight,
     height,
     address,
     phoneNumber,
     disability,
-    tobaccoUse,
+    // tobaccoUse,
     mrn
   } = props.data;
   let height1 = (height[0] * 12) + height[1];
   let personalData = lastName + ", " + firstName + " DOB: " + dateOfBirth + " MRN: " + mrn;
-
-
   let heart = "Blood Pressure | Systolic: " + systolicBloodPressure + " mm Hg | Diastolic: " + diastolicBloodPressure + " mm Hg (View Chart 1) | Pulse: " + heartRate + " bpm (View Chart 2)\n"
   let diabetic = "Blood Glucose: " + bloodSugar + " mg/dL (View Chart 3) | Weight: " + weight + " lbs | BMI: " + (weight * 703) / (height1 * height1) + " (View Chart 4)\n"
-
   const styles = StyleSheet.create({
     page: { backgroundColor: 'white' },
     section: { color: 'black', textAlign: 'center', margin: 30 },
@@ -65,23 +66,20 @@ const ViewPDF = (props) => {
   const Subtitle = styled.Text`
   font-weight: bold;
   margin: 12px;
-  font-size: 20;
+  font-size: 12px;
   font-family: 'Times-Roman';
   text-align: center;
 `;
-  const Footer = styled.Text`
-  left: 0px;
-  right: 0px;
-  color: grey;
-  bottom: 30px;
-  font-size: 12px;
-  position: absolute;
-  text-align: center;
-`;
 
-
-
-
+//   const Footer = styled.Text`
+//   left: 0px;
+//   right: 0px;
+//   color: grey;
+//   bottom: 30px;
+//   font-size: 12px;
+//   position: absolute;
+//   text-align: center;
+// `;
 
   return (
     <Document title={`PatientFirst_${lastName}.pdf`} fileName={lastName}>
@@ -92,12 +90,15 @@ const ViewPDF = (props) => {
             Patient First
             </Header>
           <Heading>Medical Data</Heading>
-          {/* <Author>{firstName} {lastName}</Author> */}
+
+          <Author>{firstName} {lastName}</Author>
+          <Subtitle>{mrn}</Subtitle>
+          <Subtitle>{address}</Subtitle>
+          <Subtitle>{phoneNumber}</Subtitle>
+
           <Author>{personalData}</Author>
-          {/* <Subtitle>Medical Record Number: {mrn}</Subtitle> */}
-          {/* <Subtitle>{address}</Subtitle>
-          <Subtitle>{phoneNumber}</Subtitle> */}
-          
+
+
 
           <Paragraph>
             {diabetic}
@@ -119,18 +120,9 @@ const ViewPDF = (props) => {
           <Paragraph>
             {disability}
           </Paragraph>
-
-          {/* <Footer render={({ pageNumber, totalPages }) => (
-            `${pageNumber} / ${totalPages}`
-          )} fixed /> */}
-
         </View>
       </Page>
     </Document>
   )
-
-  // renderQueue.push(() => PDFPDF())
-
 }
-
 export default ViewPDF;

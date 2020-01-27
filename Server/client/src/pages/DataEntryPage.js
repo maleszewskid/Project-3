@@ -6,7 +6,7 @@ import EntryTabs from '../components/EntryTabs';
 
 // Importing sentiment lib
 import Sentiment from 'sentiment';
-import Reset from './ResetpasswordPage';
+// import Reset from './ResetpasswordPage';
 
 class DataEntry extends Component {
     constructor(props) {
@@ -27,9 +27,9 @@ class DataEntry extends Component {
         };
     }
 
-    reset() {
-        this.setState({username: ''});
-    }
+    // reset() {
+    //     this.setState({username: ''});
+    // }
 
     componentDidMount() {
         this.setState({
