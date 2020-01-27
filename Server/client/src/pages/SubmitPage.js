@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import API from '../utils/API';
 import '../components/createPDF/PDFViewer.css';
+import Button from 'react-bootstrap/Button';
 
 // import { LineChart, Chart } from 'react-chartkick'
 // import 'chart.js'
@@ -61,7 +62,7 @@ class SubmitToDoctor extends Component {
     // Handle submit of email
     handleEmailSubmit = event => {
         event.preventDefault();
-        
+
         API.sendEmail("http://localhost:3002/send", this.state.email).then(console.log('email sent'))
 
 
@@ -76,13 +77,19 @@ class SubmitToDoctor extends Component {
                         <br></br>
                         <br></br>
                         <br></br>
-                        <PDFDownloadLink document={<ViewPDF data={this.state.data} />} fileName={`PatientFirst_${this.state.data.lastName}.pdf`}>
-                            {({ blob, url, loading, error }) => (loading ? 'Loading document...' : 'Download now!')}
-                        </PDFDownloadLink>
 
                         <Row>
                             <Col className="col-md-12">
                                 <EmailForm />
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col className='col-md-12 text-center'>
+                                <Button type="submit" variant="light">
+                                    <PDFDownloadLink document={<ViewPDF data={this.state.data} />} fileName={`PatientFirst_${this.state.data.lastName}.pdf`}>
+                                        {({ blob, url, loading, error }) => (loading ? 'Loading document...' : 'Download now!')}
+                                    </PDFDownloadLink>
+                                </Button>
                             </Col>
                         </Row>
                         <Row>

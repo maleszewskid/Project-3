@@ -1,5 +1,5 @@
 import React from 'react'
-import { Page, Text, Document, View, Title, Author, StyleSheet, BlobProvider, Image } from '@react-pdf/renderer';
+import { Page, Text, Document, View, Footer, Title, Author, Subtitle, StyleSheet, BlobProvider, Paragraph } from '@react-pdf/renderer';
 import Header from '../Header/Header';
 import styled from '@react-pdf/styled-components'
 import './PDFViewer.css'
@@ -38,13 +38,15 @@ const ViewPDF = (props) => {
     page: { backgroundColor: 'white' },
     section: { color: 'black', textAlign: 'center', margin: 30 },
   });
+
+
   const Heading = styled.Text`
   margin: 10px;
   font-size: 22px;
   font-family: 'Helvetica';
 `;
   const Author = styled.Text`
-  font-size: 12px;
+  font-size: 24px;
   text-align: center;
   margin-bottom: 40px;
 `;
@@ -54,6 +56,29 @@ const ViewPDF = (props) => {
   text-align: center;
   margin-bottom: 20px;
 `;
+  const Paragraph = styled.Text`
+  margin: 12px;
+  font-size: 14px;
+  text-align: center;
+  font-family: 'Times-Roman';
+`;
+  const Subtitle = styled.Text`
+  font-weight: bold;
+  margin: 12px;
+  font-size: 20;
+  font-family: 'Times-Roman';
+  text-align: center;
+`;
+  const Footer = styled.Text`
+  left: 0px;
+  right: 0px;
+  color: grey;
+  bottom: 30px;
+  font-size: 12px;
+  position: absolute;
+  text-align: center;
+`;
+
 
 
 
@@ -62,16 +87,43 @@ const ViewPDF = (props) => {
     <Document title={`PatientFirst_${lastName}.pdf`} fileName={lastName}>
       <Page style={styles.page}>
         <View style={styles.section}>
+
           <Header fixed>
             Patient First
-      </Header>
+            </Header>
           <Heading>Medical Data</Heading>
-          <Author>{firstName} {lastName}</Author>
-          <Text>
-            {/* {personalData} */}
+          {/* <Author>{firstName} {lastName}</Author> */}
+          <Author>{personalData}</Author>
+          {/* <Subtitle>Medical Record Number: {mrn}</Subtitle> */}
+          {/* <Subtitle>{address}</Subtitle>
+          <Subtitle>{phoneNumber}</Subtitle> */}
+          
+
+          <Paragraph>
             {diabetic}
+          </Paragraph>
+          <Paragraph>
             {heart}
-          </Text>
+          </Paragraph>
+          <Subtitle>Medications</Subtitle>
+          <Paragraph>
+            {medications}, {doseage} mg/ml
+          </Paragraph>
+
+          <Subtitle>General Mood</Subtitle>
+          <Paragraph>
+            {moodSentiment}
+          </Paragraph>
+
+          <Subtitle>Identified Disability</Subtitle>
+          <Paragraph>
+            {disability}
+          </Paragraph>
+
+          {/* <Footer render={({ pageNumber, totalPages }) => (
+            `${pageNumber} / ${totalPages}`
+          )} fixed /> */}
+
         </View>
       </Page>
     </Document>
