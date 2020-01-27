@@ -44,7 +44,6 @@ export default {
         return axios.post('/api/patient/addMedData', data)
     },
     updateMedData: function(data) {
-        console.log(data)
         return axios.post('/api/patient/updateMedData', data)
     },
     submitGenData: function(data) {

@@ -37,7 +37,7 @@ const ViewTabs = (props) => {
     const { firstName,
         middleName,
         lastName,
-        dateOfBirth,
+        dateofBirth,
         medications,
         doseage,
         // medsTimeStamp,
@@ -167,7 +167,7 @@ const ViewTabs = (props) => {
                                                 <Card.Body>
                                                     <ListGroup className="list-group-flush">
                                                         <ListGroupItem> {firstName} {middleName} {lastName} </ListGroupItem>
-                                                        <ListGroupItem>DOB: {dateOfBirth}</ListGroupItem>
+                                                        <ListGroupItem>DOB: {dateofBirth}</ListGroupItem>
                                                         <ListGroupItem>Medical Record Number: {mrn}</ListGroupItem>
                                                         <ListGroupItem>Ethnicity: {ethnicity}</ListGroupItem>
                                                         <ListGroupItem>Sex: {sex}</ListGroupItem>

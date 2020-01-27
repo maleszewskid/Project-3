@@ -25,10 +25,10 @@ const MedsDisplay = props => {
             });
     }
 
-    const sendData = (data) => {
-        API.updateMedData({ data })
-            .then(res => console.log(res.data))
-    }
+    // const sendData = (data) => {
+    //     API.updateMedData({ data })
+    //         .then(res => console.log(res.data))
+    // }
 
     const makeDataObj = (username, medications) => {
         let dataObj = {};
@@ -40,7 +40,7 @@ const MedsDisplay = props => {
             dataObj[key] = value;
         }
         dataObj.username = username;
-        sendData(dataObj);
+        //sendData(dataObj);
     }
 
     const makeMedObj = (medications, doseage) => {
@@ -58,7 +58,7 @@ const MedsDisplay = props => {
             };
             medArr.push(medObj);
         }
-        setMedArr(medArr);
+        //setMedArr(medArr);
     }
 
     const columns = [{
@@ -95,6 +95,7 @@ const MedsDisplay = props => {
                       newRow[dataField] = newValue;
                       return newRow;
                     }
+                    console.log(row)
                     return row;
                 });
                 setMedArr(result);

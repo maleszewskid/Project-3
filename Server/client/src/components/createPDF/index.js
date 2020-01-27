@@ -21,7 +21,7 @@ const ViewPDF = (props) => {
     diastolicBloodPressure,
     moodSentiment,
     // data,
-    dateOfBirth,
+    dateofBirth,
     // ethnicity,
     weight,
     height,
@@ -32,7 +32,7 @@ const ViewPDF = (props) => {
     mrn
   } = props.data;
   let height1 = (height[0] * 12) + height[1];
-  let personalData = lastName + ", " + firstName + " DOB: " + dateOfBirth + " MRN: " + mrn;
+  let personalData = lastName + ", " + firstName + " DOB: " + dateofBirth + " MRN: " + mrn;
   let heart = "Blood Pressure | Systolic: " + systolicBloodPressure + " mm Hg | Diastolic: " + diastolicBloodPressure + " mm Hg (View Chart 1) | Pulse: " + heartRate + " bpm (View Chart 2)\n"
   let diabetic = "Blood Glucose: " + bloodSugar + " mg/dL (View Chart 3) | Weight: " + weight + " lbs | BMI: " + (weight * 703) / (height1 * height1) + " (View Chart 4)\n"
   const styles = StyleSheet.create({
