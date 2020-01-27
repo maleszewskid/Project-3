@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { Page,  Document, View,   StyleSheet, } from '@react-pdf/renderer';
 // Footer,
 // Text,
@@ -38,6 +39,8 @@ const ViewPDF = (props) => {
     page: { backgroundColor: 'white' },
     section: { color: 'black', textAlign: 'center', margin: 30 },
   });
+
+
   const Heading = styled.Text`
   margin: 10px;
   font-size: 22px;
@@ -64,10 +67,10 @@ const ViewPDF = (props) => {
   font-weight: bold;
   margin: 12px;
   font-size: 12px;
-  font-size: 20;
   font-family: 'Times-Roman';
   text-align: center;
 `;
+
 //   const Footer = styled.Text`
 //   left: 0px;
 //   right: 0px;
@@ -77,14 +80,17 @@ const ViewPDF = (props) => {
 //   position: absolute;
 //   text-align: center;
 // `;
+
   return (
     <Document title={`PatientFirst_${lastName}.pdf`} fileName={lastName}>
       <Page style={styles.page}>
         <View style={styles.section}>
+
           <Header fixed>
             Patient First
             </Header>
           <Heading>Medical Data</Heading>
+
           <Author>{firstName} {lastName}</Author>
           <Subtitle>{mrn}</Subtitle>
           <Subtitle>{address}</Subtitle>
@@ -95,7 +101,6 @@ const ViewPDF = (props) => {
 
 
           <Paragraph>
-
             {diabetic}
           </Paragraph>
           <Paragraph>
@@ -105,15 +110,16 @@ const ViewPDF = (props) => {
           <Paragraph>
             {medications}, {doseage} mg/ml
           </Paragraph>
+
           <Subtitle>General Mood</Subtitle>
           <Paragraph>
             {moodSentiment}
           </Paragraph>
+
           <Subtitle>Identified Disability</Subtitle>
           <Paragraph>
             {disability}
           </Paragraph>
-
         </View>
       </Page>
     </Document>

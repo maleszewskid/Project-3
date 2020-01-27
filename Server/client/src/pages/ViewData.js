@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import Header from '../components/Header/Header';
 import ViewTabs from '../components/ViewTabs/ViewTabs';
-import '../components/dataManipulater/index';
+// import '../components/dataManipulater/index';
 class ViewData extends Component {
     constructor(props) {
         super(props);
@@ -43,7 +43,7 @@ class ViewData extends Component {
             <>
                 <Header user={this.state.username} />
                 {(this.state.loading || this.state.error) && <div>{this.state.loading ? 'Loading...' : this.state.error}</div>}
-                {(!this.state.loading && !this.state.error) ? <ViewTabs data={this.state.data}/> : null }
+                {(!this.state.loading && !this.state.error) ? <ViewTabs data={this.state.data}/> : null } 
             </>
         )   
     }
