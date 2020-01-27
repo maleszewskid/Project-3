@@ -7,7 +7,9 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import API from '../utils/API';
 import '../components/createPDF/PDFViewer.css';
-import Button from 'react-bootstrap/Button';
+
+import Button from 'react-bootstrap/Button'
+
 
 // import { LineChart, Chart } from 'react-chartkick'
 // import 'chart.js'
@@ -52,7 +54,7 @@ class SubmitToDoctor extends Component {
     // Handle email form input change, pass as props
     handleInputChange = event => {
         // Getting the value and name of the input which triggered the change
-        const { name, value } = event.target;
+        const { value } = event.target;
         // Updating the input’s state
         this.setState({
             email: value
@@ -79,17 +81,17 @@ class SubmitToDoctor extends Component {
                         <br></br>
 
                         <Row>
-                            <Col className="col-md-12">
-                                <EmailForm />
-                            </Col>
-                        </Row>
-                        <Row>
                             <Col className='col-md-12 text-center'>
                                 <Button type="submit" variant="light">
                                     <PDFDownloadLink document={<ViewPDF data={this.state.data} />} fileName={`PatientFirst_${this.state.data.lastName}.pdf`}>
-                                        {({ blob, url, loading, error }) => (loading ? 'Loading document...' : 'Download now!')}
+                                        {({ loading }) => (loading ? 'Loading document...' : 'Download now!')}
                                     </PDFDownloadLink>
                                 </Button>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col className="col-md-12">
+                                <EmailForm />
                             </Col>
                         </Row>
                         <Row>
