@@ -82,17 +82,6 @@ class DataEntry extends Component {
             })
     }
 
-    // Event handler to detect Journal sentiment
-    handleMoodInputChange = event => {
-        // Getting the value and name of the input which triggered the change
-        const value = event.target.value
-        // Updating the input’s state
-        this.setState({
-            journalEntry: value,
-            moodSuccess: false
-        });
-    };
-
     // calculateSentiment
     calculateSentiment = (journalText) => {
         let sentiment = new Sentiment();
@@ -103,16 +92,27 @@ class DataEntry extends Component {
         })
     }
 
+    // Event handler to detect Journal sentiment
+    handleMoodInputChange = event => {
+        // Getting the value and name of the input which triggered the change
+        const value = event.target.value
+        // Updating the input’s state
+        this.setState({
+            journalEntry: value,
+            moodSuccess: false
+        });
+        this.calculateSentiment(this.state.journalEntry);
+    };
+
+
     // Event Handler to submit Mood data:
-    handleMoodSubmit = async event => {
+    handleMoodSubmit = event => {
         event.preventDefault();
 
-        this.calculateSentiment(this.state.journalEntry);
-
+        //this.calculateSentiment(this.state.journalEntry);
         const { username, journalEntry, journalEntrySentiment } = this.state;
-        
         // use await to wait for data to be loaded into state
-        const data = await {
+        const data = {
             username,
             journalEntry,
             journalEntrySentiment

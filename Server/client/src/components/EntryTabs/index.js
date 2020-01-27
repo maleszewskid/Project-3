@@ -109,8 +109,8 @@ const EntryTabs = props => {
                                                 <Form.Control as="textarea" name="journalEntry" onChange={props.onMoodChange} rows="6" placeholder="Start typing here..." />
                                             </Form.Group>
 
-                                            {(props.sentimentScore) < 50 ? <ProgressBar now={props.sentimentScore} variant="danger" /> :
-                                                (props.sentimentScore) > 50 ? <ProgressBar now={props.sentimentScore} variant="success" />
+                                            {(props.sentimentScore < 50) ? <ProgressBar now={props.sentimentScore} variant="danger" /> :
+                                                (props.sentimentScore > 50) ? <ProgressBar now={props.sentimentScore} variant="success" />
                                             : <ProgressBar now={50} variant="success"/>}
                                             <Row>
                                             <Col className="col-4 d-flex justify-content-start">
