@@ -12,7 +12,7 @@
     "seed": "node Server/seeds/patientInfoSeed.js",
     "install": "cd Server/client && npm install",
     "build": "cd Server/client && npm run build"
-    //"heroku-postbuild": "npm install -- prefix client && npm run build --prefix client"
+    
   },
   "author": "Dominick Maleszewski, Sam Levy, Jack Ryan, Phil Swartz",
   "license": "ISC",
