@@ -31,5 +31,4 @@ router.route('/addGenData')
 router.route('/removeData')
     .get(controller.deletePatient)
 
-
 module.exports = router;
