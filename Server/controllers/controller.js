@@ -1,4 +1,6 @@
 const db = require('../models');
+const nodemailer = require('nodemailer');
+const creds = require('../config/emailConfig.js');
 
 module.exports = {
     // *** USER CREDENTIALS ****
@@ -7,7 +9,7 @@ module.exports = {
     // Built in a little validation to check if the username is taken.
     signUp: function (req, res) {
         console.log(req.body);
-        const { username, password} = req.body;
+        const { username, password } = req.body;
         db.UserCred.findOne({ username: username }, (err, user) => {
             if (err) {
                 console.log(err);
@@ -29,14 +31,14 @@ module.exports = {
         next()
     },
     // Logout: 
-    logoutUser: function(req, res) {
+    logoutUser: function (req, res) {
         console.log('Logout user')
         if (req.user) {
             req.logout();
-            res.send({message: 'logging out'})
+            res.send({ message: 'logging out' })
             console.log('logged out');
         } else {
-            res.send({message: 'No user to logout'})
+            res.send({ message: 'No user to logout' })
         }
     },
     //Delete user *NOTE: not sure if this route is necessary yet:
@@ -68,35 +70,35 @@ module.exports = {
     addBloodData: function (req, res) {
         const newFields = req.body.data;
         db.PatientInfo
-            .findOneAndUpdate({ username: req.body.data.username.username }, { $push: {heartRate: newFields.heartRate, bloodSugar: newFields.bloodSugar, systolicBloodPressure: newFields.systolicBloodPressure, diastolicBloodPressure: newFields.diastolicBloodPressure, bloodTimeStamp: Date.now()} }, {returnOriginal: false})
+            .findOneAndUpdate({ username: req.body.data.username.username }, { $push: { heartRate: newFields.heartRate, bloodSugar: newFields.bloodSugar, systolicBloodPressure: newFields.systolicBloodPressure, diastolicBloodPressure: newFields.diastolicBloodPressure, bloodTimeStamp: Date.now() } }, { returnOriginal: false })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
     addMoodData: function (req, res) {
         const newFields = req.body.data;
         db.PatientInfo
-            .findOneAndUpdate({ username: req.body.data.username.username }, { $push: {'journalEntry': newFields.journalEntry, 'journalEntrySentiment': newFields.journalEntrySentiment, moodTimeStamp: Date.now()} }, {returnOriginal: false})
+            .findOneAndUpdate({ username: req.body.data.username.username }, { $push: { 'journalEntry': newFields.journalEntry, 'journalEntrySentiment': newFields.journalEntrySentiment, moodTimeStamp: Date.now() } }, { returnOriginal: false })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
     addMedData: function (req, res) {
         const newFields = req.body.data;
         db.PatientInfo
-            .findOneAndUpdate({ username: req.body.data.username.username }, { $push: {'medications': newFields.medications, 'doseage': newFields.doseage, medsTimeStamp: Date.now()} }, {returnOriginal: false})
+            .findOneAndUpdate({ username: req.body.data.username.username }, { $push: { 'medications': newFields.medications, 'doseage': newFields.doseage, medsTimeStamp: Date.now() } }, { returnOriginal: false })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
-    updateMedData: function(req, res) {
+    updateMedData: function (req, res) {
         const newFields = req.body.data;
         db.PatientInfo
-            .findOneAndUpdate({ username: req.body.data.username.username }, { $push: {'medications': newFields.medications, 'doseage': newFields.doseage, medsTimeStamp: Date.now()} }, {returnOriginal: false})
+            .findOneAndUpdate({ username: req.body.data.username.username }, { $push: { 'medications': newFields.medications, 'doseage': newFields.doseage, medsTimeStamp: Date.now() } }, { returnOriginal: false })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
-    },  
+    },
     addGenData: function (req, res) {
         const newFields = req.body.data;
         db.PatientInfo
-            .findOneAndUpdate({ username: req.body.data.username.username }, { $push: {'height': newFields.height, genTimeStamp: Date.now()}, $set: { 'mrn': newFields.mrn, 'sex': newFields.sex, 'weight': newFields.weight, 'ethnicity': newFields.ethnicity, 'disability': newFields.disability, 'tobaccoUse': newFields.tobaccoUse} }, {returnOriginal: false})
+            .findOneAndUpdate({ username: req.body.data.username.username }, { $push: { 'height': newFields.height, genTimeStamp: Date.now() }, $set: { 'mrn': newFields.mrn, 'sex': newFields.sex, 'weight': newFields.weight, 'ethnicity': newFields.ethnicity, 'disability': newFields.disability, 'tobaccoUse': newFields.tobaccoUse } }, { returnOriginal: false })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
@@ -111,9 +113,48 @@ module.exports = {
     // update the users password on reset password submit button page
     updatePatientPassword: function (req, res) {
         db.UserCreds
-            .findOneAndUpdate({ username: req.params.username }, { $set: {"password": req.body.password}})
+            .findOneAndUpdate({ username: req.params.username }, { $set: { "password": req.body.password } })
             .then(data => res.json(data))
             .catch(err => res.status(422).json(err))
+    },
+    sendEmail: function (req, res) {
+        // pass email template through as req.body
+        console.log(req.body);
+        // console.log(creds.USER, creds.PASS);
+
+        // create reusable transporter object using the default SMTP transport
+        let transporter = nodemailer.createTransport({
+            host: 'smtp.gmail.com',
+            port: 587,
+            secure: false, // true for 465, false for other ports
+            auth: {
+                user: creds.USER, // generated ethereal user
+                pass: creds.PASS  // generated ethereal password
+            },
+            tls: {
+                rejectUnauthorized: false
+            }
+        });
+
+        // setup email data with unicode symbols
+        let mailOptions = {
+            from: '"Nodemailer Contact" <patient.first.contact@gmail.com>', // sender address
+            to: req.body.emailAddress, // list of receivers
+            subject: 'Node Contact Request', // Subject line
+            text: 'Hello world?', // plain text body
+            // html: output // html body
+        };
+
+        // // send mail with defined transport object
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                return console.log(error);
+            }
+            console.log('Message sent: %s', info.messageId);
+            console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+            res.render('contact', { msg: 'Email has been sent' });
+        });
     }
+
     // --------------------------------------------------------- //
 }
