@@ -1,0 +1,41 @@
+{
+  "name": "project-3-server",
+  "version": "1.0.0",
+  "description": "Final Project Server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "if-env NODE_ENV=production && npm run start-prod || npm run start-dev || node server.js",
+    "start-prod": "node server.js",
+    "start-dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "seed": "node seeds/patientInfoSeed.js",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build"
+  },
+  "author": "Dominick Maleszewski, Sam Levy, Jack Ryan, Phil Swartz",
+  "license": "ISC",
+  "dependencies": {
+    "@react-pdf/renderer": "^1.6.8",
+    "axios": "^0.19.1",
+    "bcrypt": "^3.0.6",
+    "concurrently": "^5.0.2",
+    "connect-mongo": "^3.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "file-saver": "^2.0.2",
+    "if-env": "^1.0.4",
+    "jquery": "^3.4.1",
+    "mongoose": "^5.8.5",
+    "morgan": "^1.9.1",
+    "node-pre-gyp": "^0.14.0",
+    "nodemailer": "^6.4.2",
+    "passport": "^0.4.1",
+    "passport-local-mongoose": "^6.0.1",
+    "react-bootstrap-table-next": "^3.3.3",
+    "react-bootstrap-table2-editor": "^1.4.0",
+    "react-chartkick": "^0.4.0"
+  }
+}
