@@ -14,7 +14,7 @@
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm install -- prefix client && npm run build --prefix client"
   },
-  "author": "Dom Maleszewski, Sam Levy, Jack Ryan, Phil Swartz",
+  "author": "Dominick Maleszewski, Sam Levy, Jack Ryan, Phil Swartz",
   "license": "ISC",
   "dependencies": {
     "@react-pdf/renderer": "^1.6.8",
