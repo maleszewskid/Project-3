@@ -33,7 +33,7 @@ app.use(routes);
 
 const endpoint = 'patientDB';
 //Start up the mongoose server
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://user:password1@ds023500.mlab.com:23500/heroku_xdcjjrc5');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://maleszewskid:Project3@ds243607.mlab.com:43607/heroku_5n737486');
 
 //Start up our server:
 app.listen(PORT, () => {
