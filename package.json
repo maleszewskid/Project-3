@@ -2,17 +2,17 @@
   "name": "project-3-server",
   "version": "1.0.0",
   "description": "Final Project Server",
-  "main": "server.js",
+  "main": "Server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "if-env NODE_ENV=production && npm run start-prod || npm run start-dev || node server.js",
-    "start-prod": "node server.js",
+    "start": "if-env NODE_ENV=production && npm run start-prod || npm run start-dev || node Server/server.js",
+    "start-prod": "node Server/server.js",
     "start-dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd Server/client && npm run start",
-    "seed": "node seeds/patientInfoSeed.js",
+    "seed": "node Server/seeds/patientInfoSeed.js",
     "install": "cd Server/client && npm install",
     "build": "cd Server/client && npm run build",
-    "heroku-postbuild": "npm install -- prefix client && npm run build --prefix client"
+    "heroku-postbuild": "npm install -- prefix Server/client && npm run build --prefix Server/client"
   },
   "author": "Dominick Maleszewski, Sam Levy, Jack Ryan, Phil Swartz",
   "license": "ISC",
