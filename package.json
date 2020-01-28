@@ -10,7 +10,7 @@
     "start-dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd /Server/client && npm run start",
     "seed": "node seeds/patientInfoSeed.js",
-    "install": "cd /Server/client && npm install",
+    "install": "cd Server/client && npm install",
     "build": "cd /Server/client && npm run build",
     "heroku-postbuild": "npm install -- prefix client && npm run build --prefix client"
   },
