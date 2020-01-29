@@ -4,13 +4,11 @@ Patient First is a health data collection app. It allows users to quickly and ea
 
 Upload health-related data via the Patient Portal:
 
-![Data upload gif]
-(https://media.giphy.com/media/TgsNUw53zXmPzbMnJz/giphy.gif)
+![Data upload gif](https://media.giphy.com/media/TgsNUw53zXmPzbMnJz/giphy.gif)
 
 View your data and trends in your data via the Patient View Page:
 
-![View data gif]
-(https://media.giphy.com/media/S9oAafwUpkfwfVUvGk/giphy.gif)
+![View data gif](https://media.giphy.com/media/S9oAafwUpkfwfVUvGk/giphy.gif)
 
 Print, download or email your information to your doctor via the Submit Page:
 
@@ -19,8 +17,7 @@ Print, download or email your information to your doctor via the Submit Page:
 
 ## How to Signup:
 
-![Signup page gif]
-(https://media.giphy.com/media/lOlCOq9qDrltJq6KfC/giphy.gif)
+![Signup page gif](https://media.giphy.com/media/lOlCOq9qDrltJq6KfC/giphy.gif)
 
 * Navigate to https://patient-first.herokuapp.com/signup
 * Enter the following information:
@@ -61,9 +58,9 @@ Print, download or email your information to your doctor via the Submit Page:
 
 
 This application was built by:
-[Dom Maleszewski](https://github.com/maleszewskid)
-[Sam Levy](https://github.com/Slevy239)
-[Jack Ryan](https://github.com/JackRyan1989)
-[Phil Swartz](https://github.com/pswartz66) 
+*[Dom Maleszewski](https://github.com/maleszewskid)
+*[Sam Levy](https://github.com/Slevy239)
+*[Jack Ryan](https://github.com/JackRyan1989)
+*[Phil Swartz](https://github.com/pswartz66) 
 
 January, 2020
