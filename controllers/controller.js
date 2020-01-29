@@ -124,14 +124,19 @@ module.exports = {
 
         const emailBody = `
         <h1> Hello ${req.body.firstName} ${req.body.lastName}</h1>
-        <h2>Here's your Patient First information!<h2>
+        <h2>Here's your Patient First information!</h2>
+        <h4>Instructions</h4>
+        <hr>
+        <p>This email was generated from the Patient First web application. It may contain
+            sensitive medical information. This information can be forwarded to your primary
+            care provider prior to your next visit.</p>
         <ul>
-            <li> Date of Birth: ${req.body.dateofBirth} </li>
+            <li> Date of Birth: ${req.body.dateofBirth.slice(0,16)} </li>
             <li> MRN: ${req.body.mrn}</li>
             <li> Ethnicity: ${req.body.ethnicity}</li>
             <li> Sex: ${req.body.sex}</li>
-            <li> Height: ${req.body.height[0]}, ${req.body.height[1]}</li>
-            <li> Weight: ${req.body.weight}</li>
+            <li> Height: ${req.body.height[0]}ft ${req.body.height[1]}in</li>
+            <li> Weight: ${req.body.weight}lbs</li>
             <li> Disability: ${req.body.disability}</li>
             <li> Tobacco Use: ${req.body.tobaccoUse}</li>
         </ul>
@@ -153,10 +158,10 @@ module.exports = {
 
         // setup email data with unicode symbols
         let mailOptions = {
-            from: '"Nodemailer Contact" <patient.first.contact@gmail.com>', // sender address
+            from: '"Patient First" <patient.first.contact@gmail.com>', // sender address
             to: req.body.emailAddress, // list of receivers
-            subject: 'Node Contact Request', // Subject line
-            text: 'Hello world?', // plain text body
+            subject: 'Patient Medical Form', // Subject line
+            text: '', // plain text body
             html: emailBody // html body
         };
 
