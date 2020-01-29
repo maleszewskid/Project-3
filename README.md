@@ -58,9 +58,12 @@ Print, download or email your information to your doctor via the Submit Page:
 
 
 This application was built by:
-*[Dom Maleszewski](https://github.com/maleszewskid)
-*[Sam Levy](https://github.com/Slevy239)
-*[Jack Ryan](https://github.com/JackRyan1989)
-*[Phil Swartz](https://github.com/pswartz66) 
+[Dom Maleszewski](https://github.com/maleszewskid)
+
+[Sam Levy](https://github.com/Slevy239)
+
+[Jack Ryan](https://github.com/JackRyan1989)
+
+[Phil Swartz](https://github.com/pswartz66) 
 
 January, 2020
