@@ -66,16 +66,16 @@ const ViewTabs = (props) => {
     let journalEntrySentimentData = makeNewObj(moodTimeStamp, journalEntrySentiment);
 
     let bloodPressureGraph = [
-        { name: 'Systolic Blood Pressure', data: { ...systolicBloodPressureData } },
-        { name: 'Diastolic Blood Pressure', data: { ...diastolicBloodPressureData } }
+        { name: 'Systolic Blood Pressure (mm Hg)', data: { ...systolicBloodPressureData } },
+        { name: 'Diastolic Blood Pressure (mm Hg)', data: { ...diastolicBloodPressureData } }
     ]
 
     let bloodSugarGraph = [
-        { name: 'Blood Sugar', data: { ...bloodSugarData } }
+        { name: 'Blood Sugar (mg/dL)', data: { ...bloodSugarData } }
     ]
 
     let heartRateGraph = [
-        { name: 'Heart Rate', data: { ...heartRateData } }
+        { name: 'Heart Rate (bpm)', data: { ...heartRateData } }
     ]
 
     let sentimentGraph = [
