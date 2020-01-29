@@ -12,8 +12,7 @@ View your data and trends in your data via the Patient View Page:
 
 Print, download or email your information to your doctor via the Submit Page:
 
-![Submit pdf gif]
-(https://media.giphy.com/media/Qy1sjJuG1pskPVmflj/giphy.gif)
+![Submit pdf gif](https://media.giphy.com/media/Qy1sjJuG1pskPVmflj/giphy.gif)
 
 ## How to Signup:
 
