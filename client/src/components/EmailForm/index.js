@@ -9,18 +9,19 @@ import API from '../../utils/API';
 
 const Email = (props) => {
 
+    const [emailSent, setEmailSent] = useState('false');    
     const [emailInput, setEmailInput] = useState({'emailAddress': ''});
     const getEmailInput = (event) => {
         const { name, value } = event.target;
         setEmailInput({'emailAddress': value});
-        console.log(emailInput);
-
     }
     
     const sendEmailAddress = (event) => {
         event.preventDefault();
-        API.sendEmail(emailInput)
-            .then(res => console.log(res))
+        API.sendEmail(emailInput, props.data)
+            .then(res => {
+                setEmailSent('true')
+            })
             .catch(err => console.log(err));
     }
 
@@ -32,6 +33,9 @@ const Email = (props) => {
                         <Form.Control onChange={(event) => getEmailInput(event)} type="email" placeholder="Email address" />
                     </Form.Group>
                     <Button onClick={(event) => sendEmailAddress(event)} className="emailSend" type="submit" variant="primary">Send Email</Button>   
+                </Col>
+                <Col className="col-md-12 d-flex justify-content-center">
+                     {(emailSent=== 'true') ? <div className="emailSent"><strong>Email sent!</strong></div> : null}
                 </Col>
             </Row>
         </Container>

@@ -10,10 +10,6 @@ import '../components/createPDF/PDFViewer.css';
 
 import Button from 'react-bootstrap/Button'
 
-
-// import { LineChart, Chart } from 'react-chartkick'
-// import 'chart.js'
-
 class SubmitToDoctor extends Component {
     constructor(props) {
         super(props);
@@ -33,14 +29,12 @@ class SubmitToDoctor extends Component {
             username: this.props.location.state
         });
         const { username } = this.props.location.state;
-        console.log(username);
         API.allPatientData({ username })
             .then(res => {
                 this.setState({
                     data: res.data,
                     loading: false
                 })
-                console.log(res.data)
             })
             .catch(error => {
                 this.setState({
@@ -61,15 +55,6 @@ class SubmitToDoctor extends Component {
         });
     };
 
-    // Handle submit of email
-    handleEmailSubmit = event => {
-        event.preventDefault();
-
-        API.sendEmail("http://localhost:3002/send", this.state.email).then(console.log('email sent'))
-
-
-    }
-
     render = () => {
         if (this.state.data) {
             return (
@@ -79,7 +64,11 @@ class SubmitToDoctor extends Component {
                         <br></br>
                         <br></br>
                         <br></br>
-
+                        <Row>
+                            <Col className="col-md-12">
+                                <EmailForm data={this.state.data}/>
+                            </Col>
+                        </Row>
                         <Row>
                             <Col className='col-md-12 text-center'>
                                 <Button type="submit" variant="light">
@@ -87,11 +76,6 @@ class SubmitToDoctor extends Component {
                                         {({ loading }) => (loading ? 'Loading document...' : 'Download now!')}
                                     </PDFDownloadLink>
                                 </Button>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col className="col-md-12">
-                                <EmailForm />
                             </Col>
                         </Row>
                         <Row>
