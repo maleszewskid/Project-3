@@ -125,11 +125,12 @@ module.exports = {
         const emailBody = `
         <h1> Hello ${req.body.firstName} ${req.body.lastName}</h1>
         <h2>Here's your Patient First information!</h2>
-        <h4>Instructions</h4>
         <hr>
-        <p>This email was generated from the Patient First web application. It may contain
+        <p>
+            <strong>INSTRUCTIONS:</strong>This email was generated from the Patient First web application. It may contain
             sensitive medical information. This information can be forwarded to your primary
-            care provider prior to your next visit.</p>
+            care provider prior to your next visit.
+        </p>
         <ul>
             <li> Date of Birth: ${req.body.dateofBirth.slice(0,16)} </li>
             <li> MRN: ${req.body.mrn}</li>
@@ -140,6 +141,21 @@ module.exports = {
             <li> Disability: ${req.body.disability}</li>
             <li> Tobacco Use: ${req.body.tobaccoUse}</li>
         </ul>
+        <br>
+            <p>Thank you,</p>
+            <p>Patient First Team</p>
+        <br>
+        <p>
+            <strong>CONFIDENTIALITY NOTICE:</strong>
+            This email message, including any attachment(s), is intended
+            only for the named recipient(s) and contains confidential, 
+            proprietary or legally privileged information. Unauthorized 
+            individuals or entities are not permitted access to this information. 
+            Any dissemination, distribution, disclosure, or copying of this 
+            information is unauthorized and strictly prohibited. If you have 
+            received this message in error, please advise the sender by reply email, 
+            and delete this message and any attachments.
+        </p>
         `;
 
         // create reusable transporter object using the default SMTP transport
