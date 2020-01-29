@@ -26,7 +26,6 @@ if (process.env.NODE_ENV === "production") {
 //Use routes
 app.use(routes);
 
-
 const endpoint = 'patientDB';
 //Start up the mongoose server
 mongoose.connect(process.env.MONGODB_URI ||  `mongodb://localhost/${endpoint}`);
