@@ -70,7 +70,7 @@ class SubmitToDoctor extends Component {
                             </Col>
                         </Row>
                         <Row>
-                            <Col className='col-md-12 text-center pt-2'>
+                            <Col className='col-md-12 text-center'>
                                 <Button type="submit" variant="light">
                                     <PDFDownloadLink document={<ViewPDF data={this.state.data} />} fileName={`PatientFirst_${this.state.data.lastName}.pdf`}>
                                         {({ loading }) => (loading ? 'Loading document...' : 'Download now!')}
