@@ -14,7 +14,7 @@ const LandingBody = props => {
                 <Col>
                     <Row>
                         <Col className="col-12 text-center patientCard">
-                            <div className="landingMsg">PatientFirst (Pf) - a one of a kind health tracking service
+                            <div className="landingMsg">PatientFirst (PF) - a one of a kind health tracking service
                             </div>
                         </Col>
                     </Row>
