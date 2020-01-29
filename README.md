@@ -4,15 +4,34 @@ Patient First is a health data collection app. It allows users to quickly and ea
 
 Upload health-related data via the Patient Portal:
 
-'Screenshot forthcoming'
+![Data upload gif]
+(https://media.giphy.com/media/TgsNUw53zXmPzbMnJz/giphy.gif)
 
 View your data and trends in your data via the Patient View Page:
 
-'Screenshot forthcoming'
+![View data gif]
+(https://media.giphy.com/media/S9oAafwUpkfwfVUvGk/giphy.gif)
 
-Print or email your information to your doctor via the Submit Page:
+Print, download or email your information to your doctor via the Submit Page:
 
-'Screenshot forthcoming'
+![Submit pdf gif]
+(https://media.giphy.com/media/Qy1sjJuG1pskPVmflj/giphy.gif)
+
+## How to Signup:
+
+![Signup page gif]
+(https://media.giphy.com/media/lOlCOq9qDrltJq6KfC/giphy.gif)
+
+* Navigate to https://patient-first.herokuapp.com/signup
+* Enter the following information:
+ * Desired user name
+ * First name
+ * Middle initial (optional)
+ * Last name
+ * Email address
+ * Password
+ * Date of birth
+ * Biological sex
 
 ## How to upload data:
 
@@ -39,3 +58,12 @@ Print or email your information to your doctor via the Submit Page:
 * Once you arrive, your .pdf will begin loading on the page. This may take a moment. 
 * You can download the .pdf by either clicking the 'Download Now' button at the top of the page (this will download the file directly to your default download location) or hover over the .pdf and click the downward facing arrow icon to specify a download location.
 * You can also opt to email the chart to a specified email address. Simply enter the recipient email address in the text box and then press the 'Send Email' button. **Be careful sending personal health data via email. Double check that your recipient email address is correct.**
+
+
+This application was built by:
+[Dom Maleszewski](https://github.com/maleszewskid)
+[Sam Levy](https://github.com/Slevy239)
+[Jack Ryan](https://github.com/JackRyan1989)
+[Phil Swartz](https://github.com/pswartz66) 
+
+January, 2020
