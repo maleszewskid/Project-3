@@ -37,6 +37,11 @@ h2 {
     padding-bottom: 4px;
     font-weight: 600!important;
     color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 /* .date-header-vd {
     font-family: 'Lato', sans-serif!important;
