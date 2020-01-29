@@ -69,7 +69,7 @@ const LandingBody = props => {
                     <Card className="text-center card-landing">
                         <Card.Header>Submit</Card.Header>
                         <Card.Body>
-                            <Card.Title>Sends your information to your Health Provider</Card.Title>
+                            <Card.Title>Email or Download your information for your Health Provider</Card.Title>
                             <Card.Text>
                                 All your data is secure and private
                         </Card.Text>
