@@ -53,9 +53,9 @@ export default {
     updatePatientPassword: function(username) {
         return axios.update('/UpdatePassword/:' + username)
     },
-    sendEmail: function(emailAddress) {
-        console.log(emailAddress);
-        return axios.post('/api/send/email', emailAddress)
+    sendEmail: function(emailAddress, data) {
+        const dataObj = {...emailAddress, ...data }
+        return axios.post('/api/send/email', dataObj)
     }
 
 }
