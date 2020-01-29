@@ -9,3 +9,8 @@
     color: whitesmoke!important;
     font-family: "Lato", sans-serif!important;
 }
+
+.emailSent {
+    background-color: lightsteelblue;  
+    padding: 1.1rem;
+}

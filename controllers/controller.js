@@ -122,6 +122,21 @@ module.exports = {
         console.log(req.body);
         // console.log(creds.USER, creds.PASS);
 
+        const emailBody = `
+        <h1> Hello ${req.body.firstName} ${req.body.lastName}</h1>
+        <h2>Here's your Patient First information!<h2>
+        <ul>
+            <li> Date of Birth: ${req.body.dateofBirth} </li>
+            <li> MRN: ${req.body.mrn}</li>
+            <li> Ethnicity: ${req.body.ethnicity}</li>
+            <li> Sex: ${req.body.sex}</li>
+            <li> Height: ${req.body.height[0]}, ${req.body.height[1]}</li>
+            <li> Weight: ${req.body.weight}</li>
+            <li> Disability: ${req.body.disability}</li>
+            <li> Tobacco Use: ${req.body.tobaccoUse}</li>
+        </ul>
+        `;
+
         // create reusable transporter object using the default SMTP transport
         let transporter = nodemailer.createTransport({
             host: 'smtp.gmail.com',
@@ -142,18 +157,18 @@ module.exports = {
             to: req.body.emailAddress, // list of receivers
             subject: 'Node Contact Request', // Subject line
             text: 'Hello world?', // plain text body
-            // html: output // html body
+            html: emailBody // html body
         };
 
         // // send mail with defined transport object
         transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
+                transporter.close();
                 return console.log(error);
             }
-            console.log('Message sent: %s', info.messageId);
-            console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-            res.render('contact', { msg: 'Email has been sent' });
-        });
+            res.json();
+            transporter.close();
+        })
     }
 
     // --------------------------------------------------------- //
