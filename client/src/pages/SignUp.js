@@ -226,11 +226,6 @@ export default class Signup extends Component {
                     The username {this.state.username} is unavailable.
                         </Col>
                 </Row> : null}
-                {(this.state.dateofbirth.includes("/")) ? <Row>
-                  <Col className='error col-5 p-2 my-2 mx-auto text-center rounded'>
-                    Please format Date of Birth as MM/DD/YYYY
-                        </Col>
-                </Row> : null}
                 {(this.state.userCreateFailure) ? <Row>
                   <Col className='error col-5 p-2 my-2 mx-auto text-center rounded'>
                     Could not create user. Contact Support at patient.first.contact@gmail.com
@@ -256,6 +251,11 @@ export default class Signup extends Component {
                     Your passwords don't match!
   
               </Col>
+                </Row> : null}
+                {(this.state.dateofbirth.includes("/")) ? <Row>
+                  <Col className='error col-5 p-2 my-2 mx-auto text-center rounded'>
+                    Please format Date of Birth as MM/DD/YYYY
+                        </Col>
                 </Row> : null}
                 <Button
                   block
