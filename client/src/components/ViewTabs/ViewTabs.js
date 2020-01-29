@@ -141,7 +141,7 @@ const ViewTabs = (props) => {
                                             <thead>
                                                 <tr>
                                                     <th>Medication</th>
-                                                    <th>Doseage</th>
+                                                    <th>Dosage</th>
                                                 </tr>
                                             </thead>
                                             <tbody>

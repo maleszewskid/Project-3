@@ -25,11 +25,6 @@ const MedsDisplay = props => {
             });
     }
 
-    // const sendData = (data) => {
-    //     API.updateMedData({ data })
-    //         .then(res => console.log(res.data))
-    // }
-
     const makeDataObj = (username, medications) => {
         let dataObj = {};
         let key = '';
@@ -69,7 +64,7 @@ const MedsDisplay = props => {
         text: 'Medications'
     }, {
         dataField: 'doseage',
-        text: 'Doseage'
+        text: 'Dosage'
     }];
 
     useEffect(() => {
