@@ -33,8 +33,8 @@ const ViewPDF = (props) => {
   } = props.data;
   let height1 = (height[0] * 12) + height[1];
   let personalData = "DOB: " + dateofBirth;
-  let heart = "Blood Pressure | Systolic: " + systolicBloodPressure + " mm Hg | Diastolic: " + diastolicBloodPressure + " mm Hg (View Chart 1) \n Pulse: " + heartRate + " bpm (View Chart 2)\n"
-  let diabetic = "Blood Glucose: " + bloodSugar + " mg/dL (View Chart 3) | Weight: " + weight + " lbs | BMI: " + (weight * 703) / (height1 * height1) + " (View Chart 4)\n"
+  let heart = "Blood Pressure | Systolic: " + systolicBloodPressure + " mm Hg | Diastolic: " + diastolicBloodPressure + " mm Hg (Blood Pressure Chart) \n Heart Rate: " + heartRate + " bpm (Heart Rate Chart)\n"
+  let diabetic = "Blood Sugar: " + bloodSugar + " mg/dL (Blood Sugar Chart) | Weight: " + weight + " lbs | BMI: " + (weight * 703) / (height1 * height1)
   const styles = StyleSheet.create({
     page: { backgroundColor: 'white' },
     section: { color: 'black', textAlign: 'center', margin: 30 },
@@ -87,7 +87,7 @@ const ViewPDF = (props) => {
         <View style={styles.section}>
 
           <Header fixed>Patient First</Header>
-          <Header style={{ marginTop: 15 }}> Medical Record Number: {mrn}</Header>
+          <Header style={{ marginTop: 15, }}> Medical Record Number: {mrn}</Header>
           <Header >{personalData}</Header>
           <Heading>Medical Summary:</Heading>
 
@@ -108,21 +108,22 @@ const ViewPDF = (props) => {
 
           <Subtitle>Medications:</Subtitle>
           <Paragraph>
-            {meds} mg/ml
+            {meds}
           </Paragraph>
-          <Paragraph>{hr}</Paragraph>
+          {/* <Paragraph>{hr}</Paragraph>
 
           <Subtitle>General Mood:</Subtitle>
           <Paragraph>
             {moodSentiment}
-          </Paragraph>
+          </Paragraph> */}
           <Paragraph>{hr}</Paragraph>
-
           <Subtitle>Identified Disability:</Subtitle>
           <Paragraph>
             {disability}
           </Paragraph>
-          
+
+          <Paragraph></Paragraph>
+          <Paragraph></Paragraph>
           <Paragraph></Paragraph>
           <Paragraph></Paragraph>
           <Paragraph></Paragraph>
@@ -130,12 +131,15 @@ const ViewPDF = (props) => {
           <Paragraph></Paragraph>
           <Paragraph></Paragraph>
 
-          <Footer render={({ pageNumber, totalPages }) => (
-            `${pageNumber} / ${totalPages}`
-          )} fixed />
+
+
+          <Footer>Refer to View Data Page to Download Charts.</Footer>
+        <Footer render={({ pageNumber, totalPages }) => (
+          `${pageNumber} / ${totalPages}`
+        )} fixed />
         </View>
       </Page>
-    </Document>
+    </Document >
   )
 }
 export default ViewPDF;
