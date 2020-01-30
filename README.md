@@ -1,6 +1,6 @@
 # Patient First
 
-Patient First is a health data collection app. It allows users to quickly and easily upload health-related data, view trends and share with their primary care physicians.
+Patient First is a health data collection app. It allows users to quickly and easily upload health-related data, view trends and share with their primary care providers. Allowing for providers to have more data on a patient’s daily health trends to better diagnose/treat their conditions. 
 
 Upload health-related data via the Patient Portal:
 
