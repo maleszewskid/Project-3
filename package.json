@@ -28,7 +28,7 @@
     "express-session": "^1.17.0",
     "file-saver": "^2.0.2",
     "if-env": "^1.0.4",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "mongoose": "^5.8.5",
     "morgan": "^1.9.1",
     "node-pre-gyp": "^0.14.0",
