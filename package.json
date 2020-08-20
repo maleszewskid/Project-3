@@ -19,7 +19,7 @@
   "dependencies": {
     "@react-pdf/renderer": "^1.6.8",
     "axios": "^0.19.1",
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^5.0.0",
     "concurrently": "^5.0.2",
     "connect-mongo": "^3.2.0",
     "cors": "^2.8.5",
