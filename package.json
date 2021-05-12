@@ -32,7 +32,7 @@
     "mongoose": "^5.8.5",
     "morgan": "^1.9.1",
     "node-pre-gyp": "^0.14.0",
-    "nodemailer": "^6.4.2",
+    "nodemailer": "^6.4.16",
     "passport": "^0.4.1",
     "passport-local-mongoose": "^6.0.1",
     "react-bootstrap-table-next": "^3.3.3",
